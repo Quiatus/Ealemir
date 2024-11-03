@@ -6,9 +6,26 @@
 
 html {
   font-size: 62.5%;
+  font-family: sans-serif;
 }
 
 body {
-  background-color: #000;
-  color: #FFF;
+  background-color: #112;
+  color: #EEE;
+  font-size: 2rem;
+  display: flex;
+  justify-content: center;
+  min-height: 100vh;
+}
+
+.box {
+  border: 1px solid white;
+  padding: 1rem;
+}
+
+#root {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: auto;
+  gap: 2rem;
 }
