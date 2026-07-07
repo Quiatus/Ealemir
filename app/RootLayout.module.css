@@ -1,0 +1,68 @@
+.layoutWrapper {
+  display: grid;
+  height: 100vh;
+  width: 100vw;
+  overflow: hidden;
+  grid-template-rows: auto 1fr;
+  grid-template-columns: 280px 1fr; 
+  grid-template-areas:
+    "topBar topBar"
+    "sideMenu mainWindow";
+    
+  background-color: var(--bg-deep-slate);
+  gap: 1rem;
+}
+
+.topBar {
+  grid-area: topBar;
+  padding: 1rem;
+  z-index: 10;
+  background-color: var(--bg-surface);
+  border-bottom-right-radius: 0.5rem;
+  border-bottom-left-radius: 0.5rem;
+}
+
+.sideMenu {
+  grid-area: sideMenu;
+  align-self: start;
+  padding: 1rem;
+  background-color: var(--bg-surface);
+  background: linear-gradient(
+    to bottom,
+    #333745 0%,
+    var(--bg-surface) 100%);
+  border-bottom-right-radius: 0.5rem;
+  border-top-right-radius: 0.5rem;
+}
+
+
+
+.mainWindow {
+  grid-area: mainWindow;
+  background-color: var(--bg-surface-slate);
+  overflow-y: auto; 
+  scroll-behavior: smooth; 
+  display: flex;
+  /* justify-content: center; */
+}
+
+.contentWrapper {
+  width: 100%;
+  max-width: 1400px;
+  padding: 0 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.mainWindow::-webkit-scrollbar {
+  width: 8px;
+}
+.mainWindow::-webkit-scrollbar-track {
+  background: var(--color-bg-deep-slate); 
+}
+
+.mainWindow::-webkit-scrollbar-thumb {
+  background: #4B5563; 
+  border-radius: 4px;
+}

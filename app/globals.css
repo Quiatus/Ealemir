@@ -1,21 +1,50 @@
+
+:root {
+  /* The Palette */
+  --bg-deep-slate: #1A1C23;
+  --bg-surface: #2A2D3A;
+  --text-primary: #E2E8F0;
+  --highlight-orange: #F97316;
+  
+  /* Typography Variables */
+  --font-display: var(--font-cinzel), serif;
+  --font-ui: var(--font-alegreya-sans), sans-serif;
+}
+
 * {
   box-sizing: border-box;
   padding: 0;
   margin: 0;
 }
 
-html {
-  height: 100%;
-}
-
-html,
 body {
-  max-width: 100vw;
-  overflow-x: hidden;
-}
-
-body {
-  min-height: 100%;
+  min-height: 100vh;
+  background-color: var(--bg-deep-slate);
+  color: var(--text-primary);
+  font-family: var(--font-ui);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+h1 {
+  font-family: var(--font-display);
+  font-weight: 500;
+  /* font-size: 4rem; */
+}
+
+.forged {
+  background: linear-gradient(
+    to bottom,
+    #FFF4D2 0%,
+    #F97316 40%,
+    #9A3412 100% 
+  );
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  filter: drop-shadow(0px 2px 4px rgba(249, 115, 22, 0.5));
+}
+
+li {
+  list-style: none;
 }
