@@ -3,6 +3,7 @@ import { Cinzel, Alegreya_Sans } from 'next/font/google';
 import { ReactNode } from "react";
 import "./globals.css";
 import styles from './RootLayout.module.css'
+import './utilities.css'
 
 interface RootLayoutType {
   children: ReactNode
@@ -42,6 +43,7 @@ export default function RootLayout({ children }: RootLayoutType) {
               <li>Empire</li>
               <li>Military</li>
             </ul>
+            <button>Test</button>
           </nav>
 
           <main className={styles.mainWindow}>

@@ -1,10 +1,28 @@
-
 :root {
-  /* The Palette */
-  --bg-deep-slate: #1A1C23;
-  --bg-surface: #2A2D3A;
+  /* UI Palette */
+  --bg-background: #000005;
+  --bg-surface-top: #302535;
+  --bg-surface: #151020;
+
+  --btn-background-top: #445;
+  --btn-highlight: #667;
+  --btn-background: #302535; 
+
+/* #302535; */
+
+  /* Text pallete */
   --text-primary: #E2E8F0;
-  --highlight-orange: #F97316;
+  --text-secondary: #aad; 
+  --text-orange: #e18700;
+  --text-gray: #aaa;
+  --text-yellow: #f5deb3;
+  --text-red: #E00000;
+  --text-green: #00D000;
+  --text-blue: #0080d0;
+  --text-purple: #9370eb;
+  --text-gold: #ffd700;
+  --text-brown: #C15710; 
+  --text-darkgreen: #008000;
   
   /* Typography Variables */
   --font-display: var(--font-cinzel), serif;
@@ -19,32 +37,10 @@
 
 body {
   min-height: 100vh;
-  background-color: var(--bg-deep-slate);
+  background-color: var(--bg-background);
   color: var(--text-primary);
   font-family: var(--font-ui);
+  font-size: 1.1rem;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-}
-
-h1 {
-  font-family: var(--font-display);
-  font-weight: 500;
-  /* font-size: 4rem; */
-}
-
-.forged {
-  background: linear-gradient(
-    to bottom,
-    #FFF4D2 0%,
-    #F97316 40%,
-    #9A3412 100% 
-  );
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
-  filter: drop-shadow(0px 2px 4px rgba(249, 115, 22, 0.5));
-}
-
-li {
-  list-style: none;
 }
