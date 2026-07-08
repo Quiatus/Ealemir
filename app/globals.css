@@ -1,22 +1,20 @@
 :root {
   /* UI Palette */
-  --bg-background: #000005;
-  --bg-surface-top: #302535;
-  --bg-surface: #151020;
+  --bg-background: #120F0C; 
+  --bg-surface: #131a15; 
+  --bg-surface-top: #1b221e; 
 
-  --btn-background-top: #445;
-  --btn-highlight: #667;
-  --btn-background: #302535; 
-
-/* #302535; */
+  --btn-background: #2C3831; 
+  --btn-background-top: #3F4A42; 
+  --btn-highlight: #5C685F;
 
   /* Text pallete */
-  --text-primary: #E2E8F0;
+  --text-primary: #DED6C8;
   --text-secondary: #aad; 
-  --text-orange: #e18700;
-  --text-gray: #aaa;
+  --text-orange: #C49B4B;
+  --text-gray: #999;
   --text-yellow: #f5deb3;
-  --text-red: #E00000;
+  --text-red: #D94848;
   --text-green: #00D000;
   --text-blue: #0080d0;
   --text-purple: #9370eb;
@@ -43,4 +41,10 @@ body {
   font-size: 1.1rem;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background: radial-gradient(
+    circle at center, 
+    #1F1A15 0%, 
+    #17130F 50%,  
+    #120F0C 100%
+  );
 }

@@ -43,14 +43,14 @@ export default function RootLayout({ children }: RootLayoutType) {
               <li>Empire</li>
               <li>Military</li>
             </ul>
-            <button>Test</button>
           </nav>
 
           <main className={styles.mainWindow}>
-            <div className={styles.contentWrapper}>
-              {children}
-          </div>
-      </main>
+            {children}
+            {/* <div className={styles.contentWrapper}>
+              
+            </div> */}
+          </main>
         </div>
       </body>
     </html>

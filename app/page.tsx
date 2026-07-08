@@ -14,7 +14,7 @@ export default function Home() {
       <p className="text-brown">Brown text</p>
       <p className="text-darkgreen">Dark green text</p>
       <button>Test</button>
-      <div className="elevatedCard">
+      <div className="elevated-card">
         <h1 className="text-forged">Ealemir</h1>
         <p>Main text</p>
         <p>Main text with <span className="text-orange">higlight</span> then some <span className="text-secondary">secondary text</span>.</p>
