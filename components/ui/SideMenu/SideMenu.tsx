@@ -5,8 +5,6 @@ export default function SideMenu() {
     <nav className={styles.sideMenu}>
       <ul>
         <li>Overview</li>
-        <li>Empire</li>
-        <li>Military</li>
       </ul>
     </nav>
   )

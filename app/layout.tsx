@@ -4,7 +4,6 @@ import { ReactNode } from "react";
 import "./globals.css";
 import styles from './RootLayout.module.css'
 import './utilities.css'
-
 import TopBar from "@/components/ui/TopBar/TopBar";
 import SideMenu from "@/components/ui/SideMenu/SideMenu";
 
@@ -27,7 +26,7 @@ const alegreyaSans = Alegreya_Sans({
 
 export const metadata: Metadata = {
   title: "Ealemir",
-  description: "A dark fantasy game",
+  description: "A dark fantasy adventure game",
 }
 
 export default function RootLayout({ children }: RootLayoutType) {
