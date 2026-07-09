@@ -1,3 +1,5 @@
+import Button from "@/components/ui/Button";
+
 export default function Home() {
   return (
     <div>
@@ -13,7 +15,7 @@ export default function Home() {
       <p className="text-gold">Gold text</p>
       <p className="text-brown">Brown text</p>
       <p className="text-darkgreen">Dark green text</p>
-      <button>Test</button>
+      <Button>Test</Button>
       <div className="elevated-card">
         <h1 className="text-forged">Ealemir</h1>
         <p>Main text</p>
@@ -27,7 +29,7 @@ export default function Home() {
         <p className="text-gold">Gold text</p>
         <p className="text-brown">Brown text</p>
         <p className="text-darkgreen">Dark green text</p>
-        <button>Test</button>
+        <Button variant="danger">Test</Button>
       </div>
     </div>
   );

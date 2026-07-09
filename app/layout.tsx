@@ -5,6 +5,9 @@ import "./globals.css";
 import styles from './RootLayout.module.css'
 import './utilities.css'
 
+import TopBar from "@/components/ui/TopBar/TopBar";
+import SideMenu from "@/components/ui/SideMenu/SideMenu";
+
 interface RootLayoutType {
   children: ReactNode
 }
@@ -14,7 +17,6 @@ const cinzel = Cinzel({
   variable: '--font-cinzel',
   display: 'swap',
 });
-
 
 const alegreyaSans = Alegreya_Sans({
   weight: ['300', '400', '500', '700'], 
@@ -33,23 +35,10 @@ export default function RootLayout({ children }: RootLayoutType) {
     <html lang="en" className={`${cinzel.variable} ${alegreyaSans.variable}`}>
       <body>
         <div className={styles.layoutWrapper}>
-          <header className={styles.topBar}>
-            <div>Resources: Gold 500 | Wood 200</div>
-          </header>
-
-          <nav className={styles.sideMenu}>
-            <ul>
-              <li>Overview</li>
-              <li>Empire</li>
-              <li>Military</li>
-            </ul>
-          </nav>
-
+          <TopBar />
+          <SideMenu />
           <main className={styles.mainWindow}>
             {children}
-            {/* <div className={styles.contentWrapper}>
-              
-            </div> */}
           </main>
         </div>
       </body>
