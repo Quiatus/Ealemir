@@ -30,7 +30,7 @@ export default async function Home() {
       <p className="text-gold">Gold text</p>
       <p className="text-brown">Brown text</p>
       <p className="text-darkgreen">Dark green text</p>
-      <Button>Test</Button>
+      <Button>Turn</Button>
       <Card>
         <h1 className="text-forged">Ealemir</h1>
         <p>Main text</p>
@@ -45,7 +45,7 @@ export default async function Home() {
         <p className="text-gold">Gold text</p>
         <p className="text-brown">Brown text</p>
         <p className="text-darkgreen">Dark green text</p>
-        <Button variant="danger">Test</Button>
+        <Button variant="danger">Reset</Button>
       </Card>
     </div>
   );
