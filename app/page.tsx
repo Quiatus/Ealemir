@@ -2,6 +2,7 @@ import { supabase } from "@/lib/supabase";
 
 import Button from "@/components/ui/Button";
 import Card from "@/components/ui/Card";
+import { progressTurn, resetGame } from "@/lib/actions/systemActions";
 
 export default async function Home() {
 
@@ -30,7 +31,9 @@ export default async function Home() {
       <p className="text-gold">Gold text</p>
       <p className="text-brown">Brown text</p>
       <p className="text-darkgreen">Dark green text</p>
-      <Button>Turn</Button>
+      <form action={progressTurn}>
+        <Button>Turn</Button>
+      </form>
       <Card>
         <h1 className="text-forged">Ealemir</h1>
         <p>Main text</p>
@@ -45,7 +48,9 @@ export default async function Home() {
         <p className="text-gold">Gold text</p>
         <p className="text-brown">Brown text</p>
         <p className="text-darkgreen">Dark green text</p>
-        <Button variant="danger">Reset</Button>
+        <form action={resetGame}>
+          <Button variant="danger">Reset</Button>
+        </form>
       </Card>
     </div>
   );
