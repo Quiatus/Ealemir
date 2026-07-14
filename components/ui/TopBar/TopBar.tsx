@@ -15,8 +15,8 @@ export default async function TopBar() {
 
   return (
     <header className={styles.topBar}>
-      <ResourceItem icon='/icons/resources/turn.png' label='Month' value={data?.turn} color="primary"/>
-      <ResourceItem icon='/icons/resources/gold.png' label='Gold' value={data?.gold} color="gold"/>
+      <ResourceItem icon='/icons/resources/turn.png' label='Month' value={data?.turn ?? 0} color="primary"/>
+      <ResourceItem icon='/icons/resources/gold.png' label='Gold' value={data?.gold ?? 0} color="gold"/>
     </header>
   )
 }

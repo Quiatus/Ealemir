@@ -5,7 +5,7 @@ interface ResourceType {
   icon: string;
   value: number;
   label: string;
-  color: string
+  color: 'primary' | 'gold'
 }
 
 export function ResourceItem({ icon, value, label, color }: ResourceType) {

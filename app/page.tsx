@@ -1,24 +1,13 @@
-import { supabase } from "@/lib/supabase";
-
 import Button from "@/components/ui/Button";
 import Card from "@/components/ui/Card";
 import { progressTurn, resetGame } from "@/lib/actions/systemActions";
 
 export default async function Home() {
 
-  const { data, error } = await supabase
-    .from('test_connection')
-    .select('message')
-    .limit(1)
-    .single()
-
-  if (error) {
-    console.log("Database error: ", error.message)
-  }
 
   return (
     <div>
-      <h1 className="text-forged">{data ? data.message : 'Error' }</h1>
+      <h1 className="text-forged">Ealemir</h1>
       <p>Main text</p>
       <p>Main text with <span className="text-orange">higlight</span> then some <span className="text-secondary">secondary text</span>.</p>
       <p className="text-flavor">Some flavor text</p>

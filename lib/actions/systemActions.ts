@@ -31,7 +31,8 @@ export async function progressTurn() {
 export async function resetGame() {
   await supabase
     .from('player_resources')
-    .upsert(INITIAL_GAME_STATE.resources)
+    .update(INITIAL_GAME_STATE.resources)
+    .eq('id', 1)
 
   revalidatePath('/')
 }
