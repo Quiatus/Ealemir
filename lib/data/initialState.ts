@@ -1,7 +1,8 @@
-import { GameStats } from "@/types/gameState";
+import { GameData } from "@/types/game";
 
-export const INITIAL_GAME_STATE: GameStats = {
-  id: 1,
-  turn: 0,
-  gold: 1000,
+export const INITIAL_GAME_STATE: GameData = {
+  resources: {
+    turn: 0,
+    gold: 1000,
+  }
 }

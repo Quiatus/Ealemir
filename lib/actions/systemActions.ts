@@ -3,18 +3,25 @@
 import { supabase } from "../supabase"
 import { revalidatePath } from "next/cache"
 import { INITIAL_GAME_STATE } from "../data/initialState"
+import { calculateUpdatedResources } from "../engine/economy"
 
 export async function progressTurn() {
-  const { data } = await supabase
+  const { data: resourceData } = await supabase
     .from('player_resources')
-    .select('turn')
+    .select('turn, gold')
     .eq('id', 1)
     .single()
-  
-  if (data) {
+
+    
+  if (resourceData) {
+    const updatedResources = calculateUpdatedResources(resourceData)
+    
     await supabase
       .from('player_resources')
-      .update({ turn: data.turn + 1 })
+      .update({ 
+        turn: resourceData.turn + 1,
+        gold: updatedResources.gold
+       })
       .eq('id', 1)
   }
 
@@ -24,7 +31,7 @@ export async function progressTurn() {
 export async function resetGame() {
   await supabase
     .from('player_resources')
-    .upsert(INITIAL_GAME_STATE)
+    .upsert(INITIAL_GAME_STATE.resources)
 
   revalidatePath('/')
 }
