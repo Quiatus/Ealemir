@@ -3,8 +3,6 @@ import Card from "@/components/ui/Card";
 import { progressTurn, resetGame } from "@/lib/actions/systemActions";
 
 export default async function Home() {
-
-
   return (
     <div>
       <h1 className="text-forged">Ealemir</h1>
