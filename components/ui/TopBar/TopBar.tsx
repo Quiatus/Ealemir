@@ -5,7 +5,7 @@ import { supabase } from '@/lib/supabase'
 export default async function TopBar() {
   const { data, error } = await supabase
     .from('player_resources')
-    .select('turn, gold')
+    .select('turn, gold, population')
     .eq('id', 1)
     .single();
 
@@ -17,6 +17,7 @@ export default async function TopBar() {
     <header className={styles.topBar}>
       <ResourceItem icon='/icons/resources/turn.png' label='Month' value={data?.turn ?? 0} color="primary"/>
       <ResourceItem icon='/icons/resources/gold.png' label='Gold' value={data?.gold ?? 0} color="gold"/>
+      <ResourceItem icon='/icons/resources/population.png' label='Population' value={data?.population ?? 0} color="purple"/>
     </header>
   )
 }

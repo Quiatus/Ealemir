@@ -1,17 +1,20 @@
-*** STYLES ***
-** Alternative palette **
+STYLES
+======
 
-radial background:
+Alternative palette
+-------------------
+
+# radial background:
   #151020 0%,  
   #100515 50%, 
   #000005 100%  
 
-ember text:
+# ember text:
   #FFF4D2 0%,
   #F97316 40%,
   #9A3412 100% 
 
-card bg:
+# card bg:
   --bg-background: #000005;
   --bg-surface-top: #201525;
   --bg-surface: #151020;
@@ -23,4 +26,10 @@ card bg:
   --text-primary: #E2E8F0;
   --text-orange: #e18700;
 
-    
+
+Data flow
+=========
+
+Resources
+---------
+
