@@ -14,7 +14,7 @@ function calculateGoldGain(gold: number, population: number) {
 
 export function calculateUpdatedResources(data: PlayerResources): PlayerResources {
   const updatedGold = calculateGoldGain(data.gold, data.population)
-  console.log(updatedGold)
+ 
   return {
     ...data,
     turn: data.turn + 1,

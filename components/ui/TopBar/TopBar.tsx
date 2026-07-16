@@ -1,23 +1,15 @@
 import styles from './TopBar.module.css'
 import { ResourceItem } from './ResourceItem'
-import { supabase } from '@/lib/supabase'
+import { getPlayerResources } from '@/lib/data/resources'
 
 export default async function TopBar() {
-  const { data, error } = await supabase
-    .from('player_resources')
-    .select('turn, gold, population')
-    .eq('id', 1)
-    .single();
-
-  if (error) {
-    console.error("TopBar Supabase Error:", error);
-  }
+  const resources = await getPlayerResources()
 
   return (
     <header className={styles.topBar}>
-      <ResourceItem icon='/icons/resources/turn.png' label='Month' value={data?.turn ?? 0} color="primary"/>
-      <ResourceItem icon='/icons/resources/gold.png' label='Gold' value={data?.gold ?? 0} color="gold"/>
-      <ResourceItem icon='/icons/resources/population.png' label='Population' value={data?.population ?? 0} color="purple"/>
+      <ResourceItem icon='/icons/resources/turn.png' label='Month' value={resources.turn} color="primary"/>
+      <ResourceItem icon='/icons/resources/gold.png' label='Gold' value={resources.gold} color="gold"/>
+      <ResourceItem icon='/icons/resources/population.png' label='Population' value={resources.population} color="purple"/>
     </header>
   )
 }

@@ -12,6 +12,7 @@ interface ResourceType {
 
 export async function ResourceItem({ icon, value, label, color }: ResourceType) {
   const locale = await getServerLocale();
+  
   return (
     <div className={styles.resourceWrapper}> 
       <div className={styles.resourceItem} >
