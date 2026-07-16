@@ -4,6 +4,7 @@ import Button from "@/components/ui/Button";
 import Card from "@/components/ui/Card";
 import ConfirmModal from "@/components/ui/ConfirmModal";
 import { resetGame } from "@/lib/actions/systemActions";
+import { text } from "@/lib/utilities";
 import { useState } from "react";
 
 export default function EmpirePage() {
@@ -34,10 +35,10 @@ export default function EmpirePage() {
         <Button onClick={() => setIsResetModalOpen(true)}>Reset</Button>
         <ConfirmModal
           isOpen={isResetModalOpen}
-          title="Abandon our Empire?"
-          message="Are you sure you want to reset the game? All progress will be lost forever."
-          confirmText="Yes!"
-          cancelText="Cancel"
+          title={text('general.reset_window.title')}
+          message={text('general.reset_window.message')}
+          confirmText={text('general.reset_window.button_confirm')}
+          cancelText={text('general.reset_window.button_cancel')}
           onConfirm={handleResetConfirm}
           onCancel={() => setIsResetModalOpen(false)}
           />

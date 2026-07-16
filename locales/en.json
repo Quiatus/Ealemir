@@ -1,0 +1,16 @@
+{
+  "general": {
+    "menu": {
+      "turn_button": "Next Month",
+      "overview": "Overview",
+      "empire": "Empire",
+      "buildings": "Buildings"
+    },
+    "reset_window": {
+      "title": "Abandon our Empire?",
+      "message": "Are you sure you want to leave your empire? Everything you have achieved will be lost forever!",
+      "button_confirm": "Yes!",
+      "button_cancel": "Cancel"
+    }
+  }
+}

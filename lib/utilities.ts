@@ -1,20 +1,30 @@
-import { headers } from 'next/headers';
+import en from '@/locales/en.json';
+
+const resourceFormatter = new Intl.NumberFormat('en-US');
+
+export function text(key: string): string {
+  const result = key.split('.').reduce((obj: unknown, currentKey: string) => {
+    if (obj !== null && typeof obj === 'object' && currentKey in obj) {
+      return (obj as Record<string, unknown>)[currentKey];
+    }
+    return undefined;
+  }, en);
+  return typeof result === 'string' ? result : key;
+}
 
 export function randomResourceRange(res: number, min: number, max: number) {
-    return Math.floor(Math.random() * (res * max - res * min) + res * min)
+  return Math.floor(Math.random() * (res * max - res * min) + res * min)
 }
 
-export async function getServerLocale(): Promise<string> {
-  const headersList = await headers();
-  const acceptLanguage = headersList.get('accept-language');
-  return acceptLanguage ? acceptLanguage.split(',')[0] : 'en-US';
-}
-
-export function formatResourceNumber(num: number, locale: string = 'en-US'): string {
+export function formatNumber(num: number, long = true): string {
   let formatted: string;
 
+  if (long) {
+    return resourceFormatter.format(num)
+  }
+
   if (num < 10000) {
-    formatted = num.toLocaleString(locale);
+    formatted = resourceFormatter.format(num)
   } else if (num < 1000000) {
     formatted = (Math.floor(num / 100) / 10).toFixed(1) + 'k';
   } else if (num < 1000000000) {

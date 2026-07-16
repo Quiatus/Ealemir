@@ -5,11 +5,12 @@ import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import Button from "@/components/ui/Button";
 import { progressTurn } from "@/lib/actions/systemActions";
+import { text } from '@/lib/utilities';
 
 const MENU_ITEMS = [
-    { name: 'Overview', path: '/' },
-    { name: 'Empire', path: '/empire', space: true },
-    { name: 'Buildings', path: '/buildings' },
+    { name: text('general.menu.overview'), path: '/' },
+    { name: text('general.menu.empire'), path: '/empire', space: true },
+    { name: text('general.menu.buildings'), path: '/buildings' },
   ];
 
 export default function SideMenu() {
@@ -18,7 +19,7 @@ export default function SideMenu() {
   return (
     <nav className={styles.sideMenu}>
       <form action={progressTurn} >
-          <Button className={styles.spaceL} variant='turn'><span className='text-forged'>Next Month</span></Button>
+          <Button className={styles.spaceL} variant='turn'><span className='text-forged'>{text('general.menu.turn_button')}</span></Button>
       </form>
       <ul>
         {MENU_ITEMS.map((item) => {

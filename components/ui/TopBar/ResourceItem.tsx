@@ -1,7 +1,7 @@
 import Image from 'next/image'
 import styles from './ResourceItem.module.css'
 import ToolTip from '../Tooltip'
-import { formatResourceNumber, getServerLocale } from '@/lib/utilities';
+import { formatNumber } from '@/lib/utilities';
 
 interface ResourceType {
   icon: string;
@@ -10,14 +10,13 @@ interface ResourceType {
   color: 'primary' | 'gold' | 'purple'
 }
 
-export async function ResourceItem({ icon, value, label, color }: ResourceType) {
-  const locale = await getServerLocale();
-  
+export function ResourceItem({ icon, value, label, color }: ResourceType) {
+
   return (
     <div className="tooltip-wrapper"> 
       <div className={styles.resourceItem} >
         <Image className={styles.icon} src={icon} alt={label} width={32} height={32}/>
-        <span className={`${styles.resourceText} text-${color}`}>{formatResourceNumber(value, locale)}</span>
+        <span className={`${styles.resourceText} text-${color}`}>{formatNumber(value, false)}</span>
       </div>
 
       <div className='tooltip'>
