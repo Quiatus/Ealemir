@@ -21,6 +21,10 @@
   --text-gold: #ffd700;
   --text-brown: #C15710; 
   --text-darkgreen: #008000;
+
+  --text-dark-red: #722;
+  --text-dark-orange: #972;
+  --text-dark-gray: #777;
   
   /* Typography Variables */
   --font-display: var(--font-cinzel), serif;

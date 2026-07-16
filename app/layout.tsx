@@ -37,8 +37,8 @@ export default function RootLayout({ children }: RootLayoutType) {
         <div className={styles.layoutWrapper}>
           <TopBar />
           <SideMenu />
+          <NotificationBar />
           <main className={styles.mainWindow}>
-            <NotificationBar />
             {children}
           </main>
         </div>
