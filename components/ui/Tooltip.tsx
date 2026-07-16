@@ -1,4 +1,4 @@
-export default function ResourceTooltip() {
+export default function Tooltip() {
   return (
     <div>
       <h4>Test</h4>

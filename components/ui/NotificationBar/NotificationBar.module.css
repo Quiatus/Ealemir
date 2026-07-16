@@ -1,0 +1,28 @@
+.notificationFeed {
+  position: absolute;
+  top: 1.5rem;
+  right: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  z-index: 50; /* Ensures it floats above page content */
+  pointer-events: none; /* Lets clicks pass through the empty space */
+}
+
+.alertCard {
+  pointer-events: auto; /* Re-enables clicking on the card itself */
+  background-color: #1a1a1a; /* Your dark keep background */
+  color: #e0d8c0; /* Your parchment text */
+  padding: 0.75rem 1rem;
+  border-right: 1px solid #333;
+  border-top: 1px solid #333;
+  border-bottom: 1px solid #333;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.5); /* Deep shadow to pop off the page */
+  font-family: 'Alegreya Sans', sans-serif;
+  max-width: 300px;
+}
+
+/* The Color-Coded Severity using a thick Left Border */
+.danger { border-left: 4px solid #8b0000; } /* Deep Red */
+.warning { border-left: 4px solid #b8860b; } /* Dark Gold/Orange */
+.info { border-left: 4px solid #4682b4; } /* Muted Blue or White */

@@ -2,10 +2,11 @@ import type { Metadata } from "next";
 import { Cinzel, Alegreya_Sans } from 'next/font/google';
 import { ReactNode } from "react";
 import "./globals.css";
-import styles from './RootLayout.module.css'
 import './utilities.css'
+import styles from './RootLayout.module.css'
 import TopBar from "@/components/ui/TopBar/TopBar";
 import SideMenu from "@/components/ui/SideMenu/SideMenu";
+import NotificationBar from "@/components/ui/NotificationBar/NotificationBar";
 
 interface RootLayoutType {
   children: ReactNode
@@ -37,6 +38,7 @@ export default function RootLayout({ children }: RootLayoutType) {
           <TopBar />
           <SideMenu />
           <main className={styles.mainWindow}>
+            <NotificationBar />
             {children}
           </main>
         </div>

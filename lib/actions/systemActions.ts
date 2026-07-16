@@ -5,13 +5,10 @@ import { revalidatePath } from "next/cache"
 import { INITIAL_PLAYER_RESOURCES } from "../../config/initialState"
 import { calculateUpdatedResources } from "../engine/economy"
 import { redirect } from "next/navigation"
+import { getPlayerResources } from "../data/resources"
 
 export async function progressTurn() {
-  const { data: resourceData } = await supabase
-    .from('player_resources')
-    .select('*')
-    .eq('id', 1)
-    .single()
+  const resourceData = await getPlayerResources()
 
   if (resourceData) {
     const updatedResources = calculateUpdatedResources(resourceData)
@@ -22,8 +19,7 @@ export async function progressTurn() {
       .eq('id', 1)
   }
 
-  revalidatePath('/');
-  redirect('/')
+  revalidatePath('/', "layout");
 }
 
 export async function resetGame() {
