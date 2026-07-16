@@ -1,7 +1,6 @@
-.buttonPrimary {
+.buttonBase {
   min-width: 7rem;
   height: 2rem;
-  color: var(--color-text-primary);
   font-family: var(--font-ui), sans-serif;
   font-size: inherit;
   font-weight: 500;
@@ -24,7 +23,7 @@
   transition: all 0.05s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.buttonPrimary:hover {
+.buttonBase:hover {
   background: linear-gradient(
     to bottom,
     var(--btn-highlight) 0%,
@@ -37,7 +36,7 @@
     0 6px 12px rgba(0, 0, 0, 0.95); 
 }
 
-.buttonPrimary:active {
+.buttonBase:active {
   transform: translateY(1px);
   box-shadow: 
     inset 0 3px 6px rgba(0, 0, 0, 0.8),
@@ -45,6 +44,16 @@
     0 1px 1px rgba(255, 255, 255, 0.05); 
 }
 
+.primary {
+  color: var(--color-text-primary);
+}
+
 .danger{
   color: var(--text-red);
+}
+
+.turn {
+  width: 100%;
+  font-size: 1.5rem;
+  font-weight: 500;
 }

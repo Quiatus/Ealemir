@@ -1,6 +1,6 @@
 import Button from "@/components/ui/Button";
 import Card from "@/components/ui/Card";
-import { progressTurn, resetGame } from "@/lib/actions/systemActions";
+import { resetGame } from "@/lib/actions/systemActions";
 
 export default async function Home() {
   return (
@@ -18,9 +18,7 @@ export default async function Home() {
       <p className="text-gold">Gold text</p>
       <p className="text-brown">Brown text</p>
       <p className="text-darkgreen">Dark green text</p>
-      <form action={progressTurn}>
-        <Button>Turn</Button>
-      </form>
+      
       <Card>
         <h1 className="text-forged">Ealemir</h1>
         <p>Main text</p>

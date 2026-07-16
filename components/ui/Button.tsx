@@ -1,16 +1,17 @@
 import { ButtonHTMLAttributes } from 'react'
+import clsx from 'clsx';
 import styles from './Button.module.css'
 
 interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
-  variant?: 'primary' | 'danger';
-  fullWidth?: boolean;
+  variant?: 'primary' | 'danger' | 'turn';
 }
 
-export default function Button({children, variant='primary', ...props}: ButtonProps) {
-  const buttonClasses = [
-    styles.buttonPrimary,
+export default function Button({children, variant='primary', className, ...props}: ButtonProps) {
+  const buttonClasses = clsx(
+    styles.buttonBase,
     styles[variant],
-  ].join(' ');
+    className
+  )
 
   return <button className={buttonClasses} {...props}>{children}</button>
 }

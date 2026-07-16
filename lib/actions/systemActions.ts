@@ -4,6 +4,7 @@ import { supabase } from "../supabase"
 import { revalidatePath } from "next/cache"
 import { INITIAL_PLAYER_RESOURCES } from "../../config/initialState"
 import { calculateUpdatedResources } from "../engine/economy"
+import { redirect } from "next/navigation"
 
 export async function progressTurn() {
   const { data: resourceData } = await supabase
@@ -22,6 +23,7 @@ export async function progressTurn() {
   }
 
   revalidatePath('/');
+  redirect('/')
 }
 
 export async function resetGame() {
