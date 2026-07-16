@@ -4,7 +4,7 @@
   padding: 0.25rem;
   gap: 0.5rem;
   align-items: center;
-  width: 7rem;
+  width: 9rem;
   border-radius: 0.5rem;
   box-shadow: 
     inset 0 1px 1px rgba(255, 255, 255, 0.12),
@@ -24,7 +24,6 @@
 }
 
 .resourceText {
-  font-weight: 500;
   font-size: 1.5rem;
   cursor: default;
   user-select: none;

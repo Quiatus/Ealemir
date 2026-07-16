@@ -33,4 +33,5 @@ export async function resetGame() {
     .eq('id', 1)
 
   revalidatePath('/')
+  redirect('/')
 }

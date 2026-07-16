@@ -1,12 +1,13 @@
 /* Typography classes */
 
 .text-forged {
+  font-family: var(--font-display);
   background: linear-gradient(
     to bottom,
-    #D4AF37 0%, 
-    #ceba6c 40%,  
-    #AA7C11 50%, 
-    #8A630B 100% ); 
+    #FFF4D2 0%,
+    #C49B4B 40%,
+    #C15710 100% 
+  );  
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;

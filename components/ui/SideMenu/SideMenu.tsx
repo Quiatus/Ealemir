@@ -9,8 +9,8 @@ import { progressTurn } from "@/lib/actions/systemActions";
 
 const MENU_ITEMS = [
     { name: 'Overview', path: '/' },
-    { name: 'Buildings', path: '/buildings', space: true },
-    { name: 'Test', path: '/.' },
+    { name: 'Empire', path: '/empire', space: true },
+    { name: 'Buildings', path: '/buildings' },
   ];
 
 export default function SideMenu() {

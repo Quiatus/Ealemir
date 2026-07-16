@@ -14,6 +14,11 @@ Alternative palette
   #F97316 40%,
   #9A3412 100% 
 
+  #D4AF37 0%, 
+  #ceba6c 40%,  
+  #AA7C11 50%, 
+  #8A630B 100% 
+
 # card bg:
   --bg-background: #000005;
   --bg-surface-top: #201525;
