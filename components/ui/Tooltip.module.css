@@ -4,7 +4,7 @@
 }
 
 .tooltipWrapper:hover .tooltip {
-  opacity: 0.9;
+  opacity: 0.95;
   visibility: visible;
 }
 
@@ -17,6 +17,7 @@
   z-index: 50;
   padding: 0.5rem 1rem;
   width: max-content;
+  border: 1px solid rgba(90, 100, 90, 0.5);
   max-width: 16rem;
   background-color: var(--bg-surface);
   background: linear-gradient(

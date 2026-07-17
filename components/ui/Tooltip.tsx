@@ -50,7 +50,7 @@ export default function Tooltip({ data, children }: TooltipProps) {
             <div>
               <span className='text-bold'>{text('tooltips.info.expenditure')}</span>
               <div className='space-left-m'>
-                {data.income.map(item => (
+                {data.expenditures.map(item => (
                   <div className={styles.row} key={item.label}>
                     <span>{item.label}</span>
                     <span className='text-red text-bold'>-{item.value}</span>
@@ -64,7 +64,7 @@ export default function Tooltip({ data, children }: TooltipProps) {
             <span>{text('tooltips.info.change')}</span>
             <span className={`text-bold ${data.change >= 0 ? 'text-green' : 'text-red'}`}>
               {data.change >= 0 ? '+' : '-'}
-              {formatNumber(data.change, true)}
+              {formatNumber(Math.abs(data.change), true)}
             </span>
           </div>
         </div>
