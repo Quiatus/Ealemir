@@ -12,5 +12,18 @@
       "button_confirm": "Yes!",
       "button_cancel": "Cancel"
     }
+  },
+  "tooltips": {
+    "info": {
+      "current_month": "Current month",
+      "total": "Total",
+      "income": "Income",
+      "expenditure": "Expenditure",
+      "change": "Change"
+    },
+    "gold_tooltip": {
+      "title": "Gold",
+      "income_population": "Taxes"
+    }
   }
 }

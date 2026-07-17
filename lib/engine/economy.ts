@@ -4,9 +4,11 @@ import { randomResourceRange } from "../utilities";
 function calculateGoldGain(gold: number, population: number) {
   const incomeFromPopulation = randomResourceRange(population, 0.075, 0.125)
   const totalGold = gold + incomeFromPopulation
+  const totalGain = incomeFromPopulation
   return {
     gold: totalGold,
     goldReport: {
+      change: totalGain,
       gainFromPopulation: incomeFromPopulation
     }
   }

@@ -4,5 +4,10 @@ export const INITIAL_PLAYER_RESOURCES: PlayerResources = {
   turn: 0,
   gold: 1000,
   population: 1000,
-  last_turn_resources_report: {}
+  last_turn_resources_report: {
+    goldReport: {
+      gainFromPopulation: 0,
+      change: 0
+    }
+  }
 }

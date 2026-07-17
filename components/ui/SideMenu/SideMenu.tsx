@@ -19,13 +19,13 @@ export default function SideMenu() {
   return (
     <nav className={styles.sideMenu}>
       <form action={progressTurn} >
-          <Button className={styles.spaceL} variant='turn'><span className='text-forged'>{text('general.menu.turn_button')}</span></Button>
+          <Button className='space-l' variant='turn'><span className='text-forged'>{text('general.menu.turn_button')}</span></Button>
       </form>
       <ul>
         {MENU_ITEMS.map((item) => {
           const isActive = pathname === item.path
           return (
-            <li key={item.path} className={item.space ? styles.spaceM : ''}>
+            <li key={item.path} className={item.space ? 'space-m' : ''}>
               <Link href={item.path} className={`${styles.menuItem} ${isActive ? styles.active : ''}`}>{item.name}</Link>
             </li>
           )})}

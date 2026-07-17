@@ -16,17 +16,10 @@
     0 12px 32px rgba(0, 0, 0, 0.9);
 }
 
-.spaceM {
-  margin-bottom: 0.5rem;
-}
-
-.spaceL {
-  margin-bottom: 1rem;
-}
-
 .menuItem, .menuItem:visited {
   text-decoration: none;
   color: var(--text-secondary);
+  font-family: var(--font-display);
   font-weight: 500;
   font-size: 1.25rem;
   letter-spacing: 0.05rem;

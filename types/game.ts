@@ -3,7 +3,8 @@ export interface GameData {
 }
 
 export interface LastTurnResourceReport {
-  goldReport?: {
+  goldReport: {
+    change: number,
     gainFromPopulation: number
   }
 }
@@ -14,3 +15,25 @@ export interface PlayerResources {
   population: number;
   last_turn_resources_report: LastTurnResourceReport
 }
+
+export interface TooltipResourceDetail {
+  label: string;
+  value: number;
+}
+
+export interface InfoTooltipData {
+  type: 'info';
+  title: string;
+  message?: string[]; 
+}
+
+export interface ResourceTooltipData {
+  type: 'resource';
+  title: string;
+  total: number;
+  income: TooltipResourceDetail[];
+  expenditures: TooltipResourceDetail[];
+  change: number;
+}
+
+export type TooltipData = InfoTooltipData | ResourceTooltipData;
