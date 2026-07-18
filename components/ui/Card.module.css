@@ -1,5 +1,9 @@
 .elevatedCard {
-  padding: 1rem 1.5rem;
+  padding: 0.5rem 1rem 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  align-items: center;
   background-color: var(--bg-surface);
   background: linear-gradient(
     to bottom,
@@ -10,4 +14,12 @@
     inset 0 1px 0 rgba(255, 255, 255, 0.05),
     0 4px 6px rgba(0, 0, 0, 0.3),
     0 10px 24px rgba(0, 0, 0, 0.4);
+}
+
+.full {
+  width: 100%;
+}
+
+.fit {
+  width: max-content;
 }

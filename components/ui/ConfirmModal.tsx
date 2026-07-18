@@ -26,9 +26,10 @@ export default function ConfirmModal({
     <div className={styles.modalBackdrop}>
       <div className={styles.modalCard}>
         <h2 className="text-forged">{title}</h2>
-        <p>{message}</p>
+
+        <p className='space-l'>{message}</p>
         
-        <div className={styles.buttonRow}>
+        <div className="buttons-row-space-evenly">
           <Button variant="primary" onClick={onCancel}>{cancelText}</Button>
           <Button variant="danger" onClick={onConfirm}>{confirmText}</Button>
         </div>

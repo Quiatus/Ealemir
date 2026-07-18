@@ -1,3 +1,9 @@
+/* Element styles */
+
+li {
+  list-style: none;
+}
+
 /* Typography classes */
 
 .text-forged {
@@ -71,14 +77,19 @@
   font-weight: 500;
 }
 
-h1 {
-    font-family: var(--font-display);
-    font-weight: 500;
+.text-extrabold {
+  font-weight: 600;
 }
 
-li {
-  list-style: none;
+.text-bold {
+  font-weight: 500;
 }
+
+.text-thin {
+  font-weight: 400;
+}
+
+/* Margin classes */
 
 .space-m {
   margin-bottom: 0.5rem;
@@ -95,3 +106,11 @@ li {
 .space-left-m {
   margin-left: 0.5rem;
 }
+
+/* Button row classes */
+
+.buttons-row-space-evenly {
+  display: flex;
+  justify-content: space-evenly;
+}
+

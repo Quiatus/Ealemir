@@ -30,5 +30,12 @@
       "growth_population": "Growth",
       "available_space": "Available space"
     }
+  },
+  "feature_empire": {
+    "card_abandon_empire": {
+      "title": "Abandon Empire",
+      "message": "Leave our people behind and found a new empire.",
+      "button_abandon": "Abandon"
+    }
   }
 }
