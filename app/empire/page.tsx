@@ -32,7 +32,7 @@ export default function EmpirePage() {
         <p className="text-brown">Brown text</p>
         <p className="text-darkgreen">Dark green text</p>
 
-        <Button onClick={() => setIsResetModalOpen(true)}>Reset</Button>
+        <Button onClick={() => setIsResetModalOpen(true)}>Abandon</Button>
         <ConfirmModal
           isOpen={isResetModalOpen}
           title={text('general.reset_window.title')}

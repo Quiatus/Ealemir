@@ -17,7 +17,7 @@ export default async function TopBar() {
       <Tooltip data={dynamicTooltips.gold}>
         <ResourceItem icon='/icons/resources/gold.png' label='Gold' value={resources.gold} color="gold"/>
       </Tooltip>
-      <Tooltip data={TOOLTIPS.info.currentMonth}>
+      <Tooltip data={dynamicTooltips.population}>
         <ResourceItem icon='/icons/resources/population.png' label='Population' value={resources.population} color="purple"/>
       </Tooltip>
     </header>

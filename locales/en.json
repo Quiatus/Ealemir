@@ -24,6 +24,11 @@
     "gold_tooltip": {
       "title": "Gold",
       "income_population": "Taxes"
+    },
+    "population_tooltip": {
+      "title": "Population",
+      "growth_population": "Growth",
+      "available_space": "Available space"
     }
   }
 }

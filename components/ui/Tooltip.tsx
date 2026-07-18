@@ -32,6 +32,17 @@ export default function Tooltip({ data, children }: TooltipProps) {
               <span className='text-bold'>{formatNumber(data.total, true)}</span>
           </div>
 
+          {data.custom.length > 0 && (
+            <div className='space-m'>
+              {data.custom.map(item => (
+                <div className={styles.row} key={item.label}>
+                  <span>{item.label}</span>
+                  <span className='text-bold'>{item.value}</span>
+                </div>
+              ))}
+            </div>
+          )}
+
           {data.income.length > 0 && (
             <div>
               <span className='text-bold'>{text('tooltips.info.income')}</span>

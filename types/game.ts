@@ -31,6 +31,7 @@ export interface ResourceTooltipData {
   type: 'resource';
   title: string;
   total: number;
+  custom: TooltipResourceDetail[];
   income: TooltipResourceDetail[];
   expenditures: TooltipResourceDetail[];
   change: number;
