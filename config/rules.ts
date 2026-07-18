@@ -1,5 +1,5 @@
 import { text } from "@/lib/utilities";
-import { TooltipData } from "@/types/game";
+import { MenuItem, TooltipData } from "@/types/game";
 
 export const TOOLTIPS = {
   info: {
@@ -9,6 +9,12 @@ export const TOOLTIPS = {
     } as TooltipData
   }
 }
+
+export const MENU_ITEMS = [
+    { name: text('general.menu.overview'), path: '/' },
+    { name: text('general.menu.empire'), path: '/empire', space: true },
+    { name: text('general.menu.buildings'), path: '/buildings' },
+  ] as MenuItem[];
 
 export const BUILDINGS_CONFIG = {
   // farm: {

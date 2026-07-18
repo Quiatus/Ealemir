@@ -1,0 +1,13 @@
+.menuItem, .menuItem:visited {
+  text-decoration: none;
+  color: var(--text-secondary);
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-size: 1.25rem;
+  letter-spacing: 0.05rem;
+}
+
+.menuItem:hover, .active, .active:visited {
+  color: var(--text-yellow);
+  text-shadow: 0 0 1px var(--text-yellow),0 0 11px var(--text-yellow);
+ }

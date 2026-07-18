@@ -38,3 +38,9 @@ export interface ResourceTooltipData {
 }
 
 export type TooltipData = InfoTooltipData | ResourceTooltipData;
+
+export interface MenuItem {
+  name: string;
+  path: string;
+  space?: boolean; 
+}
