@@ -4,13 +4,14 @@ import clsx from 'clsx';
 
 interface CardProps {
   title?: string;
-  width?: 'full' | 'fit';
+  style?: 'normal' | 'elevated';
+  width?: 'full' | 'fit' | 'w-50' | 'w-25' | 'w-33';
   children: ReactNode;
 }
 
-export default function Card({ title, width='full', children }: CardProps) {
+export default function Card({ title, style='normal', width='full', children }: CardProps) {
   const cardClasses = clsx(
-    styles.elevatedCard,
+    styles[style],
     styles[width])
 
   return (

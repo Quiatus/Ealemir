@@ -4,7 +4,8 @@
       "turn_button": "Next Month",
       "overview": "Overview",
       "empire": "Empire",
-      "buildings": "Buildings"
+      "buildings": "Buildings",
+      "military": "Military"
     },
     "reset_window": {
       "title": "Abandon our Empire?",
@@ -36,6 +37,14 @@
       "title": "Abandon Empire",
       "message": "Leave our people behind and found a new empire.",
       "button_abandon": "Abandon"
+    }
+  },
+  "feature_buildings": {
+    "card_capital": {
+      "title": "Empire's Capital"
+    },
+    "card_territories": {
+      "title": "Territories"
     }
   }
 }

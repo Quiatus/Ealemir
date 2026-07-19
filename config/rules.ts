@@ -13,7 +13,8 @@ export const TOOLTIPS = {
 export const MENU_ITEMS = [
     { name: text('general.menu.overview'), path: '/' },
     { name: text('general.menu.empire'), path: '/empire', space: true },
-    { name: text('general.menu.buildings'), path: '/buildings' },
+    { name: text('general.menu.buildings'), path: '/buildings', space: true },
+    { name: text('general.menu.military'), path: '/military' },
   ] as MenuItem[];
 
 export const BUILDINGS_CONFIG = {

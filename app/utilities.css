@@ -107,7 +107,12 @@ li {
   margin-left: 0.5rem;
 }
 
-/* Button row classes */
+/* Flex classes */
+
+.cards-row {
+  display: flex;
+  gap: 1rem;
+}
 
 .buttons-row-space-evenly {
   display: flex;
