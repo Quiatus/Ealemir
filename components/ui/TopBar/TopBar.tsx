@@ -1,7 +1,7 @@
 import styles from './TopBar.module.css'
 import { ResourceItem } from './ResourceItem'
 import { getPlayerResources } from '@/lib/data/resources'
-import Tooltip from '../Tooltip'
+import Tooltip from '../Tooltip/Tooltip'
 import { TOOLTIPS } from '@/config/rules'
 import { dynamicResourceTooltip } from '@/lib/adapters/tooltips'
 
