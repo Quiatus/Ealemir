@@ -1,26 +1,8 @@
 import Card from "@/components/ui/Card";
 import { text } from "@/lib/utilities";
 import styles from './Capital.module.css';
-
-type Quadrant = 'N' | 'E' | 'S' | 'W';
-
-interface CapitalBuilding {
-  id: string;
-  name: string;
-  layer: number;
-  quadrant: Quadrant;
-  icon: string;
-  isLocked: boolean;
-}
-
-const allPlayerBuildings: CapitalBuilding[] = [
-  { id: 'b1', name: 'Academy', layer: 3, quadrant: 'E', icon: '📚', isLocked: false },
-  { id: 'b2', name: 'Market', layer: 3, quadrant: 'E', icon: '⚖️', isLocked: false },
-  { id: 'b3', name: 'Blacksmith', layer: 3, quadrant: 'E', icon: '🔨', isLocked: true },
-  { id: 'b4', name: 'Barracks', layer: 2, quadrant: 'N', icon: '⚔️', isLocked: false },
-  { id: 'b5', name: 'Stables', layer: 2, quadrant: 'N', icon: '🐎', isLocked: false },
-  { id: 'b6', name: 'Mage Tower', layer: 1, quadrant: 'W', icon: '🔮', isLocked: true }
-];
+import { CapitalBuilding, Quadrant } from "@/types/game";
+import { CAPITAL_BUILDINGS } from "@/config/rules";
 
 export default function CapitalCard() {
   const TOTAL_RINGS = 6;
@@ -100,7 +82,7 @@ export default function CapitalCard() {
 
         <button className={`${styles.nodeSlot} ${styles.centerKeep}`}>Keep</button>
 
-        {renderAllBuildings(allPlayerBuildings)}
+        {renderAllBuildings(CAPITAL_BUILDINGS)}
       </div>
     </Card>
   );
