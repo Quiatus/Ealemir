@@ -45,13 +45,10 @@ export interface MenuItem {
   space?: boolean; 
 }
 
-export type Quadrant = 'N' | 'E' | 'S' | 'W';
-
 export interface CapitalBuilding {
   id: string;
   name: string;
   layer: number;
-  quadrant: Quadrant;
   icon: string;
   isLocked: boolean;
 }
