@@ -6,7 +6,7 @@ export default function CapitalCard() {
   return (
     <Card title={text('feature_buildings.card_capital.title')}>
       <div className={styles.mapContainer}>
-        <img src="u1.png" alt="" />
+        <img src="1.png" alt="" />
         
       </div>
     </Card>

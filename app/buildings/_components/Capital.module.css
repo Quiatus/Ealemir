@@ -2,46 +2,5 @@
   position: relative;
   width: 990px;
   height: 990px;
-  aspect-ratio: 1 / 1;
 }
 
-.svgBlueprint {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  pointer-events: none;
-}
-
-.nodeSlot {
-  position: absolute;
-  transform: translate(-50%, -50%); 
-  width: 64px;
-  height: 64px;
-  border-radius: 50%;
-  background: #1b221e;
-  border: 2px solid #3F4A42;
-  color: #C49B4B;
-  cursor: pointer;
-  transition: all 0.2s ease;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-weight: bold;
-}
-
-.nodeSlot:hover {
-  border-color: #C49B4B;
-  box-shadow: 0 0 15px rgba(196, 155, 75, 0.4);
-}
-
-.centerKeep {
-  left: 50%; 
-  top: 50%;
-  width: 120px;
-  height: 120px;
-  background: #2A1F1A;
-  border-color: #C49B4B;
-  z-index: 10;
-}
