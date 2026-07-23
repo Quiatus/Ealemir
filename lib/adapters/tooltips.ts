@@ -1,6 +1,15 @@
 import { text } from "../utilities"
 import { PlayerResources, TooltipData } from "@/types/game"
 
+export function dynamicInfoTooltip() {
+  return { 
+    currentMonth: {
+      type: 'info',
+      title: text('tooltips.info.current_month')
+    } as TooltipData
+  }
+}
+
 export function dynamicResourceTooltip(resources: PlayerResources) {
   return {
     gold: {

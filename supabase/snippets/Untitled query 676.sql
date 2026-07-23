@@ -1,1 +1,1 @@
-GRANT SELECT, INSERT, UPDATE ON TABLE public.player_resources TO anon;
+GRANT SELECT, INSERT, UPDATE ON TABLE public.player_buildings TO anon;

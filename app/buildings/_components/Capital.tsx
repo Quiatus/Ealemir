@@ -4,7 +4,7 @@ import styles from './Capital.module.css';
 import bgimage from '@/public/buildings/city_1.png'
 import Image from "next/image";
 import Tooltip from "@/components/ui/Tooltip/Tooltip";
-import { TOOLTIPS } from "@/config/rules";
+import { dynamicInfoTooltip } from "@/lib/adapters/tooltips";
 
 const build = [
   {
@@ -45,19 +45,18 @@ const build = [
 ]
 
 export default function CapitalCard() {
+  const tooltip = dynamicInfoTooltip()
+
   return (
-    
     <Card title={text('feature_buildings.card_capital.title')}>
-      
       <div className={styles.mapContainer}>
         <Image src={bgimage.src} alt="city" width={990} height={990}></Image>
           {build.map(b => <div key={b.id} style={{position: 'absolute', left: b.left, top: b.top}}>
-            <Tooltip data={TOOLTIPS.info.currentMonth}>
+            <Tooltip data={tooltip.currentMonth}>
               <div key={b.id} style={{border: '1px solid red', width: b.width, height: b.height}}></div>
             </Tooltip>
           </div>)}
       </div>
-      
     </Card>
   );
 }

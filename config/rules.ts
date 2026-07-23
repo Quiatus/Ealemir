@@ -1,14 +1,5 @@
 import { text } from "@/lib/utilities";
-import { CapitalBuilding, MenuItem, TooltipData } from "@/types/game";
-
-export const TOOLTIPS = {
-  info: {
-    currentMonth: {
-      type: 'info',
-      title: text('tooltips.info.current_month')
-    } as TooltipData
-  }
-}
+import { Capital, MenuItem } from "@/types/game";
 
 export const MENU_ITEMS: MenuItem[] = [
     { name: text('general.menu.overview'), path: '/' },
@@ -17,6 +8,14 @@ export const MENU_ITEMS: MenuItem[] = [
     { name: text('general.menu.military'), path: '/military' },
   ]
 
-export const CAPITAL_BUILDINGS: CapitalBuilding[] = [
-  { id: 'b6', name: 'Mage Tower', layer: 1, icon: '🔮', isLocked: true }
-];
+export const CAPITAL: Capital[] = [
+  {
+    level: 1,
+    name: 'Hamlet',
+    space: 200
+  }
+]
+
+export const BUILDINGS_CAPITAL = []
+
+export const BUILDINGS_TERRITORY = []

@@ -1,5 +1,5 @@
-import { PlayerResources } from "@/types/game";
 import { randomResourceRange } from "../utilities";
+import { getPlayerResources } from "../data/resources";
 
 function calculateGoldGain(gold: number, population: number) {
   const incomeFromPopulation = randomResourceRange(population, 0.075, 0.125)
@@ -14,7 +14,9 @@ function calculateGoldGain(gold: number, population: number) {
   }
 }
 
-export function calculateUpdatedResources(data: PlayerResources): PlayerResources {
+export async function calculateUpdatedResources() {
+  const data = await getPlayerResources()
+
   const updatedGold = calculateGoldGain(data.gold, data.population)
  
   return {

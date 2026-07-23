@@ -1,6 +1,17 @@
-export interface GameData {
-  resources: PlayerResources
+// GENERAL ---------------------------------------------------------------
+
+export interface MenuItem {
+  name: string;
+  path: string;
+  space?: boolean; 
 }
+
+export interface GameData {
+  resources: PlayerResources;
+  buildings: PlayerBuildings;
+}
+
+// RESOURCES -------------------------------------------------------------
 
 export interface LastTurnResourceReport {
   goldReport: {
@@ -15,6 +26,21 @@ export interface PlayerResources {
   population: number;
   last_turn_resources_report: LastTurnResourceReport
 }
+
+// BUILDINGS -------------------------------------------------------------
+
+export interface PlayerBuildings {
+  capital_level: number;
+  capital_house: number;
+}
+
+export interface Capital {
+  level: number;
+  name: string;
+  space: number;
+}
+
+// TOOLTIPS --------------------------------------------------------------
 
 export interface TooltipResourceDetail {
   label: string;
@@ -38,17 +64,3 @@ export interface ResourceTooltipData {
 }
 
 export type TooltipData = InfoTooltipData | ResourceTooltipData;
-
-export interface MenuItem {
-  name: string;
-  path: string;
-  space?: boolean; 
-}
-
-export interface CapitalBuilding {
-  id: string;
-  name: string;
-  layer: number;
-  icon: string;
-  isLocked: boolean;
-}
