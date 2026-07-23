@@ -1,7 +1,6 @@
 {
   "general": {
     "menu": {
-      "turn_button": "Next Month",
       "overview": "Overview",
       "empire": "Empire",
       "buildings": "Buildings",
@@ -20,7 +19,8 @@
       "total": "Total",
       "income": "Income",
       "expenditure": "Expenditure",
-      "change": "Change"
+      "change": "Change",
+      "next_month": "Next month"
     },
     "gold_tooltip": {
       "title": "Gold",

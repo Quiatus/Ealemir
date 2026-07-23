@@ -7,7 +7,11 @@ export function dynamicInfoTooltip() {
     currentMonth: {
       type: 'info',
       title: text('tooltips.info.current_month')
-    } as TooltipData
+    } as TooltipData,
+    buttonNextMonth: {
+      type: 'info',
+      title: text('tooltips.info.next_month')
+    } as TooltipData,
   }
 }
 

@@ -23,6 +23,10 @@
   transition: all 0.05s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
+.buttonBase:disabled {
+  background-color: var(--color-gray);
+}
+
 .buttonBase:hover {
   background: linear-gradient(
     to bottom,
@@ -53,6 +57,7 @@
 }
 
 .turn {
+  background-image: url("../../public/icons/resources/turn.png");
   width: 100%;
   font-size: 1.4rem;
   font-weight: 700;
