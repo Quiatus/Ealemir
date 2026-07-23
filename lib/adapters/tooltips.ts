@@ -1,5 +1,6 @@
+import { calculateMaxAvailableSpace } from "../engine/buildings"
 import { text } from "../utilities"
-import { PlayerResources, TooltipData } from "@/types/game"
+import { PlayerBuildings, PlayerResources, TooltipData } from "@/types/game"
 
 export function dynamicInfoTooltip() {
   return { 
@@ -10,7 +11,9 @@ export function dynamicInfoTooltip() {
   }
 }
 
-export function dynamicResourceTooltip(resources: PlayerResources) {
+export function dynamicResourceTooltip(resources: PlayerResources, buildings: PlayerBuildings) {
+  const maxAvailableSpace = calculateMaxAvailableSpace(resources.population, buildings)
+
   return {
     gold: {
       type: 'resource',
@@ -38,7 +41,7 @@ export function dynamicResourceTooltip(resources: PlayerResources) {
       custom: [
         {
           label: text('tooltips.population_tooltip.available_space'),
-          value: 0
+          value: maxAvailableSpace
         }
       ],
       income: [
