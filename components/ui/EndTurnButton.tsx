@@ -22,7 +22,7 @@ export default function EndTurnButton() {
   }
 
   return (
-    <div  className="space-l">
+    <div>
       <Tooltip data={infoTooltip.buttonNextMonth}>
         <Button variant='turn' onClick={handleNextTurn} disabled={isPending}>
           <img 

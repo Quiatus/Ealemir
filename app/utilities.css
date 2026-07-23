@@ -119,3 +119,12 @@ li {
   justify-content: space-evenly;
 }
 
+/* Borders */
+
+.border-top {
+  border-top: 1px solid rgba(90, 100, 90, 0.5);
+}
+
+.border-bottom {
+  border-bottom: 1px solid rgba(90, 100, 90, 0.5);
+}
