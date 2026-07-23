@@ -6,7 +6,9 @@ import EndTurnButton from '../EndTurnButton';
 export default function SideMenu() {
   return (
     <nav className={styles.sideMenu}>
-      <EndTurnButton />
+      <div className={styles.center}>
+        <EndTurnButton />
+      </div>
       <ul>
         {MENU_ITEMS.map((item) => <NavLink key={item.path} item={item} />)}
       </ul>

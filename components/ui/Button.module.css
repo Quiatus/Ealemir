@@ -57,8 +57,13 @@
 }
 
 .turn {
-  background-image: url("../../public/icons/resources/turn.png");
-  width: 100%;
-  font-size: 1.4rem;
-  font-weight: 700;
+  min-width: fit-content;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* width: 50%; */
+  height: max-content;
+  border-radius: 50%;
+  padding: 0.5rem;
+  aspect-ratio: 1 / 1;
 }
