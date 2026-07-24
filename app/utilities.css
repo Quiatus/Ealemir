@@ -103,6 +103,10 @@ li {
   margin-top: 0.5rem;
 }
 
+.space-negative-top-m {
+  margin-top: -0.5rem;
+}
+
 .space-left-m {
   margin-left: 0.5rem;
 }

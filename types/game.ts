@@ -57,11 +57,18 @@ export interface InfoTooltipData {
   message?: string[]; 
 }
 
+export interface ResourceMessages {
+  afterTotal?: string;
+  afterCustom?: string;
+  beforeChange?: string;
+}
+
 export interface ResourceTooltipData {
   type: 'resource';
   title: string;
   total: number;
-  custom: TooltipResourceDetail[];
+  messages?: ResourceMessages;
+  custom?: TooltipResourceDetail[];
   income: TooltipResourceDetail[];
   expenditures: TooltipResourceDetail[];
   change: number;

@@ -29,7 +29,8 @@
     "population_tooltip": {
       "title": "Population",
       "growth_population": "Growth",
-      "available_space": "Available space"
+      "available_space": "Available space",
+      "no_space_message": "Our dwellings are full. Build more or conquer new land."
     }
   },
   "feature_empire": {
