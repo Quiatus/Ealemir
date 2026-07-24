@@ -1,16 +1,12 @@
 import { CAPITAL } from "@/config/rules";
-import { getPlayerBuildings } from "../data/buildings";
 import { PlayerBuildings } from "@/types/game";
 
-export function calculateMaxAvailableSpace(population: number, data: PlayerBuildings) {
-  const maxAvailableSpace = population - (CAPITAL[data.capital_level - 1].space)
-
+export function calculateAvailableSpace(population: number, data: PlayerBuildings) {
+  const maxAvailableSpace = (CAPITAL[data.capital_level - 1].space) - population
   return maxAvailableSpace
 }
 
-export async function calculateUpdatedBuildings() {
-  const data = await getPlayerBuildings()
-  
+export function calculateUpdatedBuildings(data: PlayerBuildings) {
   return {
     ...data
   }

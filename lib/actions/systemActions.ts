@@ -6,10 +6,18 @@ import { INITIAL_PLAYER_BUILDINGS, INITIAL_PLAYER_RESOURCES } from "../../config
 import { calculateUpdatedResources } from "../engine/economy"
 import { redirect } from "next/navigation"
 import { calculateUpdatedBuildings } from "../engine/buildings"
+import { getPlayerResources } from "../data/resources"
+import { getPlayerBuildings } from "../data/buildings"
 
 export async function progressTurn() {
-    const updatedResources = await calculateUpdatedResources()
-    const updatedBuildings = await calculateUpdatedBuildings()
+
+    const [currentResources, currentBuildings] = await Promise.all([
+      getPlayerResources(),
+      getPlayerBuildings()
+    ])
+
+    const updatedBuildings = calculateUpdatedBuildings(currentBuildings)
+    const updatedResources = calculateUpdatedResources(currentResources, updatedBuildings)
     
     const [resourcesResult, buildingsResult] = await Promise.all([
       supabase.from('player_resources').update(updatedResources).eq('id', 1),

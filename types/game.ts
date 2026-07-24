@@ -17,6 +17,10 @@ export interface LastTurnResourceReport {
   goldReport: {
     change: number,
     gainFromPopulation: number
+  },
+  populationReport: {
+    change: number,
+    gainFromGrowth: number
   }
 }
 

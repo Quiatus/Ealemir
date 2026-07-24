@@ -1,30 +1,59 @@
 import { randomResourceRange } from "../utilities";
-import { getPlayerResources } from "../data/resources";
+import { calculateAvailableSpace } from "./buildings";
+import { PlayerBuildings, PlayerResources } from "@/types/game";
 
-function calculateGoldGain(gold: number, population: number) {
+function calculateGoldChange(gold: number, population: number) {
   const incomeFromPopulation = randomResourceRange(population, 0.075, 0.125)
+  const totalChange = incomeFromPopulation
   const totalGold = gold + incomeFromPopulation
-  const totalGain = incomeFromPopulation
+  
   return {
     gold: totalGold,
     goldReport: {
-      change: totalGain,
+      change: totalChange,
       gainFromPopulation: incomeFromPopulation
     }
   }
 }
 
-export async function calculateUpdatedResources() {
-  const data = await getPlayerResources()
+function calculatePopulationChange(population: number, buildings: PlayerBuildings) {
+  const avaiableSpace = calculateAvailableSpace(population, buildings)
+  
+  const lowPopCompensator = Math.floor(Math.random() * 19 + 2)
+  let populationGrowth = Math.floor(randomResourceRange(population, 0.001, 0.005) + lowPopCompensator)
+  
+  if (!avaiableSpace) {
+    populationGrowth = 0
+  }
 
-  const updatedGold = calculateGoldGain(data.gold, data.population)
+  if (populationGrowth > avaiableSpace) {
+    populationGrowth = avaiableSpace
+  }
+
+  const totalChange = populationGrowth
+  const totalPopulation = population + totalChange
+
+  return {
+    population: totalPopulation,
+    populationReport: {
+      change: totalChange,
+      gainFromGrowth: populationGrowth
+    }
+  }
+}
+
+export function calculateUpdatedResources(resources: PlayerResources, buildings: PlayerBuildings) {
+  const updatedGold = calculateGoldChange(resources.gold, resources.population)
+  const updatedPopulation = calculatePopulationChange(resources.population, buildings)
  
   return {
-    ...data,
-    turn: data.turn + 1,
+    ...resources,
+    turn: resources.turn + 1,
     gold: updatedGold.gold,
+    population: updatedPopulation.population,
     last_turn_resources_report: {
-      goldReport: updatedGold.goldReport
+      goldReport: updatedGold.goldReport,
+      populationReport: updatedPopulation.populationReport
     }
   }
 }
