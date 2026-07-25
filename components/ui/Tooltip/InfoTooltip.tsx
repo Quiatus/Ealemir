@@ -1,14 +1,20 @@
+import { ReactNode } from 'react'
 import styles from './Tooltip.module.css'
 import { InfoTooltipData } from '@/types/game'
 
-interface InfoTooltipType {
+interface TooltipProps {
   data: InfoTooltipData
+  children: ReactNode
 }
 
-export default function InfoTooltip({ data }: InfoTooltipType) {
+export default function InfoTooltip({ data, children }: TooltipProps) {
   return (
-    <div className={styles.tooltip}>
-      <p className={styles.title}>{data.title}</p>
+    <div className={styles.tooltipWrapper}> 
+      {children}
+
+      <div className={styles.tooltip}>
+        <p className={styles.title}>{data.title}</p>
+      </div>
     </div>
   )
 }

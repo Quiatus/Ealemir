@@ -1,23 +1,20 @@
 import { calculateAvailableSpace } from "../engine/buildings"
 import { text } from "../utilities"
-import { PlayerBuildings, PlayerResources, ResourceTooltipData, TooltipData } from "@/types/game"
+import { PlayerBuildings, PlayerResources, ResourceTooltipData } from "@/types/game"
 
 export function dynamicInfoTooltip() {
   return { 
     currentMonth: {
-      type: 'info',
       title: text('tooltips.info.current_month')
-    } as TooltipData,
+    },
     buttonNextMonth: {
-      type: 'info',
       title: text('tooltips.info.next_month')
-    } as TooltipData,
+    },
   }
 }
 
 function buildGoldTooltip(resources: PlayerResources): ResourceTooltipData {
   return {
-    type: 'resource',
     title: text('tooltips.gold_tooltip.title'),
     color: 'gold',
     total: resources.gold,
@@ -27,12 +24,7 @@ function buildGoldTooltip(resources: PlayerResources): ResourceTooltipData {
         value: resources.last_turn_resources_report.goldReport.gainFromPopulation
       }
     ],
-    expenditures: [
-      {
-        label: 'Test',
-        value: 20
-      }
-    ],
+    expenditures: [],
     change: resources.last_turn_resources_report.goldReport.change
   };
 }
@@ -41,8 +33,6 @@ function buildPopulationTooltip(resources: PlayerResources, buildings: PlayerBui
   const {maxAvailableSpace, availableSpace} = calculateAvailableSpace(resources.population, buildings);
   let noSpaceMessage = ''
   let color = 'purple'
-
-  console.log(resources.population, availableSpace)
 
   if (!availableSpace) {
     noSpaceMessage = text('tooltips.population_tooltip.no_space_message')
@@ -55,7 +45,6 @@ function buildPopulationTooltip(resources: PlayerResources, buildings: PlayerBui
   }
 
   return {
-    type: 'resource',
     title: text('tooltips.population_tooltip.title'),
     color,
     total: resources.population,
@@ -81,7 +70,6 @@ function buildPopulationTooltip(resources: PlayerResources, buildings: PlayerBui
 
 function buildFoodTooltip(resources: PlayerResources): ResourceTooltipData {
   return {
-    type: 'resource',
     title: text('tooltips.food_tooltip.title'),
     color: 'yellow',
     total: resources.food,

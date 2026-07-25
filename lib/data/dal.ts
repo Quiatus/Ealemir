@@ -1,10 +1,9 @@
 import { supabase } from "@/lib/supabase";
-import { PlayerBuildings } from "@/types/game";
 import { cache } from "react";
 
-export const getPlayerBuildings = cache(async function(): Promise<PlayerBuildings> {
+export const getData = cache(async function <T>(tableName: string): Promise<T> {
   const { data, error } = await supabase
-    .from("player_buildings")
+    .from(tableName)
     .select("*")
     .eq("id", 1)
     .single();
@@ -13,5 +12,5 @@ export const getPlayerBuildings = cache(async function(): Promise<PlayerBuilding
     throw new Error("Failed to fetch player resources");
   }
 
-  return data as PlayerBuildings;
+  return data as T;
 })

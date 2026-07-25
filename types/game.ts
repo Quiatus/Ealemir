@@ -59,7 +59,6 @@ export interface TooltipResourceDetail {
 }
 
 export interface InfoTooltipData {
-  type: 'info';
   title: string;
   message?: string[]; 
 }
@@ -71,7 +70,6 @@ export interface ResourceMessages {
 }
 
 export interface ResourceTooltipData {
-  type: 'resource';
   title: string;
   color: string;
   total: number;
@@ -81,5 +79,3 @@ export interface ResourceTooltipData {
   expenditures: TooltipResourceDetail[];
   change: number;
 }
-
-export type TooltipData = InfoTooltipData | ResourceTooltipData;

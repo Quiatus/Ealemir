@@ -3,8 +3,8 @@ import { text } from "@/lib/utilities";
 import styles from './Capital.module.css';
 import bgimage from '@/public/buildings/city_1.png'
 import Image from "next/image";
-import Tooltip from "@/components/ui/Tooltip/Tooltip";
 import { dynamicInfoTooltip } from "@/lib/adapters/tooltips";
+import InfoTooltip from "@/components/ui/Tooltip/InfoTooltip";
 
 const build = [
   {
@@ -52,9 +52,9 @@ export default function CapitalCard() {
       <div className={styles.mapContainer}>
         <Image src={bgimage.src} alt="city" width={990} height={990}></Image>
           {build.map(b => <div key={b.id} style={{position: 'absolute', left: b.left, top: b.top}}>
-            <Tooltip data={tooltip.currentMonth}>
+            <InfoTooltip data={tooltip.currentMonth}>
               <div key={b.id} style={{border: '1px solid red', width: b.width, height: b.height}}></div>
-            </Tooltip>
+            </InfoTooltip>
           </div>)}
       </div>
     </Card>

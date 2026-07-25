@@ -2,9 +2,11 @@ import styles from './Tooltip.module.css'
 import { ResourceTooltipData } from '@/types/game'
 import { formatNumber, text } from '@/lib/utilities';
 import ResourceRow from './ResourceRow';
+import { ReactNode } from 'react';
 
-interface ResourceTooltipType {
-  data: ResourceTooltipData
+interface TooltipProps {
+  data: ResourceTooltipData;
+  children: ReactNode
 }
 
 function FlavorText ({ text }: { text?: string }) {
@@ -17,44 +19,48 @@ function FlavorText ({ text }: { text?: string }) {
   );
 };
 
-export default function ResourceTooltip({data}: ResourceTooltipType) {
+export default function ResourceTooltip({ data, children }: TooltipProps) {
   return (
-    <div className={`${styles.tooltip} ${styles.tooltipResource}`}>
-      <p className={`${styles.title} ${styles.titleResource}`}>{data.title}</p>
+    <div className={styles.tooltipWrapper}> 
+      {children}
 
-      <div className={`${styles.row} space-m`}>
-        <span>{text('tooltips.info.total')}</span>
-        <span className='text-bold'>{formatNumber(data.total, true)}</span>
-      </div>
+      <div className={`${styles.tooltip} ${styles.tooltipResource}`}>
+        <p className={`${styles.title} ${styles.titleResource}`}>{data.title}</p>
 
-      <FlavorText text={data.messages?.afterTotal} />
+        <div className={`${styles.row} space-m`}>
+          <span>{text('tooltips.info.total')}</span>
+          <span className='text-bold'>{formatNumber(data.total, true)}</span>
+        </div>
 
-      <ResourceRow items={data.custom || []} />
+        <FlavorText text={data.messages?.afterTotal} />
 
-      <FlavorText text={data.messages?.afterCustom} />
+        <ResourceRow items={data.custom || []} />
 
-      <ResourceRow 
-        title={text('tooltips.info.income')} 
-        items={data.income} 
-        valueClass="text-green" 
-        prefix="+" 
-      />
+        <FlavorText text={data.messages?.afterCustom} />
 
-      <ResourceRow 
-        title={text('tooltips.info.expenditure')} 
-        items={data.expenditures} 
-        valueClass="text-red" 
-        prefix="-" 
-      />
+        <ResourceRow 
+          title={text('tooltips.info.income')} 
+          items={data.income} 
+          valueClass="text-green" 
+          prefix="+" 
+        />
 
-      <FlavorText text={data.messages?.beforeChange} />
+        <ResourceRow 
+          title={text('tooltips.info.expenditure')} 
+          items={data.expenditures} 
+          valueClass="text-red" 
+          prefix="-" 
+        />
 
-      <div className={`${styles.row} space-top-m`}>
-        <span>{text('tooltips.info.change')}</span>
-        <span className={`text-bold ${data.change >= 0 ? 'text-green' : 'text-red'}`}>
-          {data.change >= 0 ? '+' : '-'}
-          {formatNumber(Math.abs(data.change), true)}
-        </span>
+        <FlavorText text={data.messages?.beforeChange} />
+
+        <div className={`${styles.row} space-top-m`}>
+          <span>{text('tooltips.info.change')}</span>
+          <span className={`text-bold ${data.change >= 0 ? 'text-green' : 'text-red'}`}>
+            {data.change >= 0 ? '+' : '-'}
+            {formatNumber(Math.abs(data.change), true)}
+          </span>
+        </div>
       </div>
     </div>
   )

@@ -3,9 +3,9 @@
 import { useTransition } from 'react'
 import { progressTurn } from '@/lib/actions/systemActions'
 import Button from './Button'
-import Tooltip from './Tooltip/Tooltip'
 import { dynamicInfoTooltip } from '@/lib/adapters/tooltips'
 import styles from './EndTurnButton.module.css'
+import InfoTooltip from './Tooltip/InfoTooltip'
 
 export default function EndTurnButton() {
   const [isPending, startTransition] = useTransition()
@@ -23,7 +23,7 @@ export default function EndTurnButton() {
 
   return (
     <div>
-      <Tooltip data={infoTooltip.buttonNextMonth}>
+      <InfoTooltip data={infoTooltip.buttonNextMonth}>
         <Button variant='turn' onClick={handleNextTurn} disabled={isPending}>
           <img 
           src="/icons/resources/turn.png" 
@@ -31,7 +31,7 @@ export default function EndTurnButton() {
           className={styles.buttonIcon} 
         />
         </Button>
-      </Tooltip>
+      </InfoTooltip>
     </div>
   )
 }
