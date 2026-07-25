@@ -1,6 +1,6 @@
 import { calculateAvailableSpace } from "../engine/buildings"
 import { text } from "../utilities"
-import { PlayerBuildings, PlayerResources, TooltipData } from "@/types/game"
+import { PlayerBuildings, PlayerResources, ResourceTooltipData, TooltipData } from "@/types/game"
 
 export function dynamicInfoTooltip() {
   return { 
@@ -15,10 +15,11 @@ export function dynamicInfoTooltip() {
   }
 }
 
-function buildGoldTooltip(resources: PlayerResources): TooltipData {
+function buildGoldTooltip(resources: PlayerResources): ResourceTooltipData {
   return {
     type: 'resource',
     title: text('tooltips.gold_tooltip.title'),
+    color: 'gold',
     total: resources.gold,
     income: [
       {
@@ -36,17 +37,27 @@ function buildGoldTooltip(resources: PlayerResources): TooltipData {
   };
 }
 
-function buildPopulationTooltip(resources: PlayerResources, buildings: PlayerBuildings): TooltipData {
-  const availableSpace = calculateAvailableSpace(resources.population, buildings);
+function buildPopulationTooltip(resources: PlayerResources, buildings: PlayerBuildings): ResourceTooltipData {
+  const {maxAvailableSpace, availableSpace} = calculateAvailableSpace(resources.population, buildings);
   let noSpaceMessage = ''
+  let color = 'purple'
+
+  console.log(resources.population, availableSpace)
 
   if (!availableSpace) {
     noSpaceMessage = text('tooltips.population_tooltip.no_space_message')
+    color = 'orange'
+  }
+
+  if (resources.population > maxAvailableSpace) {
+    noSpaceMessage = text('tooltips.population_tooltip.exceeded_space_message')
+    color = 'red'
   }
 
   return {
     type: 'resource',
     title: text('tooltips.population_tooltip.title'),
+    color,
     total: resources.population,
     messages: {
       afterCustom: noSpaceMessage
@@ -68,10 +79,11 @@ function buildPopulationTooltip(resources: PlayerResources, buildings: PlayerBui
   };
 }
 
-function buildFoodTooltip(resources: PlayerResources): TooltipData {
+function buildFoodTooltip(resources: PlayerResources): ResourceTooltipData {
   return {
     type: 'resource',
     title: text('tooltips.food_tooltip.title'),
+    color: 'yellow',
     total: resources.food,
     income: [
       {

@@ -19,13 +19,13 @@ export default async function TopBar() {
         <ResourceItem icon='/icons/resources/turn.png' label='Month' value={resources.turn} color="primary"/>
       </Tooltip>
       <Tooltip data={resourceTooltip.gold}>
-        <ResourceItem icon='/icons/resources/gold.png' label='Gold' value={resources.gold} color="gold"/>
+        <ResourceItem icon='/icons/resources/gold.png' label='Gold' value={resources.gold} color={resourceTooltip.gold.color}/>
       </Tooltip>
       <Tooltip data={resourceTooltip.population}>
-        <ResourceItem icon='/icons/resources/population.png' label='Population' value={resources.population} color="purple"/>
+        <ResourceItem icon='/icons/resources/population.png' label='Population' value={resources.population} color={resourceTooltip.population.color}/>
       </Tooltip>
       <Tooltip data={resourceTooltip.food}>
-        <ResourceItem icon='/icons/resources/food.png' label='Food' value={resources.food} color="yellow"/>
+        <ResourceItem icon='/icons/resources/food.png' label='Food' value={resources.food} color={resourceTooltip.food.color}/>
       </Tooltip>
     </header>
   )

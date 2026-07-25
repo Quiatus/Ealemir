@@ -30,7 +30,8 @@
       "title": "Population",
       "growth_population": "Growth",
       "available_space": "Available space",
-      "no_space_message": "Our dwellings are full. Build more or conquer new land."
+      "no_space_message": "Our dwellings are full. Build more or conquer new land.",
+      "exceeded_space_message": "Our people have nowhere to live and are leaving our empire."
     },
     "food_tooltip": {
       "title": "Food",

@@ -22,16 +22,17 @@ function calculateGoldChange(gold: number, population: number) {
 }
 
 function calculatePopulationChange(population: number, buildings: PlayerBuildings) {
-  const avaiableSpace = calculateAvailableSpace(population, buildings)
+  const avaiableSpace = calculateAvailableSpace(population, buildings).availableSpace
+  const overpopulation = false
   
   const lowPopCompensator = Math.floor(Math.random() * 19 + 2)
   let populationGrowth = Math.floor(randomResourceRange(population, 0.001, 0.005) + lowPopCompensator)
   
-  if (!avaiableSpace) {
+  if (!avaiableSpace || overpopulation) {
     populationGrowth = 0
   }
 
-  if (populationGrowth > avaiableSpace) {
+  if (!overpopulation && populationGrowth > avaiableSpace) {
     populationGrowth = avaiableSpace
   }
 

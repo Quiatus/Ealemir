@@ -73,6 +73,7 @@ export interface ResourceMessages {
 export interface ResourceTooltipData {
   type: 'resource';
   title: string;
+  color: string;
   total: number;
   messages?: ResourceMessages;
   custom?: TooltipResourceDetail[];
