@@ -24,6 +24,9 @@ export default async function TopBar() {
       <Tooltip data={resourceTooltip.population}>
         <ResourceItem icon='/icons/resources/population.png' label='Population' value={resources.population} color="purple"/>
       </Tooltip>
+      <Tooltip data={resourceTooltip.food}>
+        <ResourceItem icon='/icons/resources/food.png' label='Food' value={resources.food} color="yellow"/>
+      </Tooltip>
     </header>
   )
 }

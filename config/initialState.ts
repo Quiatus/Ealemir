@@ -4,6 +4,7 @@ export const INITIAL_PLAYER_RESOURCES: PlayerResources = {
   turn: 0,
   gold: 100,
   population: 10,
+  food: 5,
   last_turn_resources_report: {
     goldReport: {
       change: 0,
@@ -12,6 +13,11 @@ export const INITIAL_PLAYER_RESOURCES: PlayerResources = {
     populationReport: {
       change: 0,
       gainFromGrowth: 0,
+    },
+    foodReport: {
+      change: 0,
+      gainFromCapital: 0,
+      consumed: 0
     }
   }
 }

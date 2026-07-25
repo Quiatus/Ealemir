@@ -68,9 +68,31 @@ function buildPopulationTooltip(resources: PlayerResources, buildings: PlayerBui
   };
 }
 
+function buildFoodTooltip(resources: PlayerResources): TooltipData {
+  return {
+    type: 'resource',
+    title: text('tooltips.food_tooltip.title'),
+    total: resources.food,
+    income: [
+      {
+        label: text('tooltips.food_tooltip.income_capital'),
+        value: resources.last_turn_resources_report.foodReport.gainFromCapital
+      }
+    ],
+    expenditures: [
+      {
+        label: text('tooltips.food_tooltip.consumed'),
+        value: resources.last_turn_resources_report.foodReport.consumed
+      }
+    ],
+    change: resources.last_turn_resources_report.foodReport.change
+  };
+}
+
 export function dynamicResourceTooltip(resources: PlayerResources, buildings: PlayerBuildings) {
   return {
     gold: buildGoldTooltip(resources),
     population: buildPopulationTooltip(resources, buildings),
+    food: buildFoodTooltip(resources)
   };
 }

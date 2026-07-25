@@ -12,9 +12,14 @@ export const CAPITAL: Capital[] = [
   {
     level: 1,
     name: 'Hamlet',
+    food: 10,
     space: 200
   }
 ]
+
+export const POPULATION = {
+  basePopulationFed: 100 
+}
 
 export const BUILDINGS_CAPITAL = []
 

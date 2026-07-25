@@ -31,6 +31,11 @@
       "growth_population": "Growth",
       "available_space": "Available space",
       "no_space_message": "Our dwellings are full. Build more or conquer new land."
+    },
+    "food_tooltip": {
+      "title": "Food",
+      "income_capital": "Capital city",
+      "consumed": "Consumed"
     }
   },
   "feature_empire": {
