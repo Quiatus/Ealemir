@@ -37,6 +37,12 @@
       "title": "Food",
       "income_capital": "Capital city",
       "consumed": "Consumed"
+    },
+    "wood_tooltip": {
+      "title": "Wood"
+    },
+    "stone_tooltip": {
+      "title": "Stone"
     }
   },
   "feature_empire": {

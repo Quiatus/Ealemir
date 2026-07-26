@@ -28,6 +28,12 @@ export default async function TopBar() {
       <ResourceTooltip data={resourceTooltip.food}>
         <ResourceItem icon='/icons/resources/food.png' label='Food' value={resources.food} color={resourceTooltip.food.color}/>
       </ResourceTooltip>
+      <ResourceTooltip data={resourceTooltip.wood}>
+        <ResourceItem icon='/icons/resources/wood.png' label='Wood' value={resources.wood} color={resourceTooltip.wood.color}/>
+      </ResourceTooltip>
+      <ResourceTooltip data={resourceTooltip.stone}>
+        <ResourceItem icon='/icons/resources/stone.png' label='Stone' value={resources.stone} color={resourceTooltip.stone.color}/>
+      </ResourceTooltip>
     </header>
   )
 }

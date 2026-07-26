@@ -26,6 +26,12 @@ export interface LastTurnResourceReport {
     change: number,
     gainFromCapital: number,
     consumed: number
+  },
+  woodReport: {
+    change: number
+  },
+  stoneReport: {
+    change: number
   }
 }
 
@@ -34,6 +40,8 @@ export interface PlayerResources {
   gold: number;
   population: number;
   food: number;
+  wood: number;
+  stone: number;
   last_turn_resources_report: LastTurnResourceReport
 }
 

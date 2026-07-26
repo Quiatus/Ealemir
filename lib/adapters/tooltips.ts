@@ -89,10 +89,34 @@ function buildFoodTooltip(resources: PlayerResources): ResourceTooltipData {
   };
 }
 
+function buildWoodTooltip(resources: PlayerResources): ResourceTooltipData {
+  return {
+    title: text('tooltips.wood_tooltip.title'),
+    color: 'brown',
+    total: resources.wood,
+    income: [],
+    expenditures: [],
+    change: resources.last_turn_resources_report.woodReport.change
+  };
+}
+
+function buildStoneTooltip(resources: PlayerResources): ResourceTooltipData {
+  return {
+    title: text('tooltips.stone_tooltip.title'),
+    color: 'gray',
+    total: resources.stone,
+    income: [],
+    expenditures: [],
+    change: resources.last_turn_resources_report.stoneReport.change
+  };
+}
+
 export function dynamicResourceTooltip(resources: PlayerResources, buildings: PlayerBuildings) {
   return {
     gold: buildGoldTooltip(resources),
     population: buildPopulationTooltip(resources, buildings),
-    food: buildFoodTooltip(resources)
+    food: buildFoodTooltip(resources),
+    wood: buildWoodTooltip(resources),
+    stone: buildStoneTooltip(resources)
   };
 }
