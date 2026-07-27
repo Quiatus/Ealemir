@@ -12,7 +12,7 @@ export default async function EndTurnBox() {
   const infoTooltip = dynamicInfoTooltip()
 
   return (
-    <InfoTooltip data={infoTooltip.currentMonth}>
+    <InfoTooltip data={infoTooltip.buttonNextMonth}>
       <div className={styles.endTurnBox}>
         <span className={`${styles.resourceText} text-primary`}>{formatNumber(resources.turn, true)}</span>
         <EndTurnButton />

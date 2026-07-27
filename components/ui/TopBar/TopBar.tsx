@@ -14,21 +14,23 @@ export default async function TopBar() {
 
   return (
     <header className={styles.topBar}>
-      <ResourceTooltip data={resourceTooltip.gold}>
-        <ResourceItem icon='/icons/resources/gold.png' label='Gold' value={resources.gold} color={resourceTooltip.gold.color}/>
-      </ResourceTooltip>
-      <ResourceTooltip data={resourceTooltip.population}>
-        <ResourceItem icon='/icons/resources/population.png' label='Population' value={resources.population} color={resourceTooltip.population.color}/>
-      </ResourceTooltip>
-      <ResourceTooltip data={resourceTooltip.food}>
-        <ResourceItem icon='/icons/resources/food.png' label='Food' value={resources.food} color={resourceTooltip.food.color}/>
-      </ResourceTooltip>
-      <ResourceTooltip data={resourceTooltip.wood}>
-        <ResourceItem icon='/icons/resources/wood.png' label='Wood' value={resources.wood} color={resourceTooltip.wood.color}/>
-      </ResourceTooltip>
-      <ResourceTooltip data={resourceTooltip.stone}>
-        <ResourceItem icon='/icons/resources/stone.png' label='Stone' value={resources.stone} color={resourceTooltip.stone.color}/>
-      </ResourceTooltip>
+      <div className={styles.section}>
+        <ResourceTooltip data={resourceTooltip.gold}>
+          <ResourceItem icon='/icons/resources/gold.png' label='Gold' value={resources.gold} color={resourceTooltip.gold.color}/>
+        </ResourceTooltip>
+        <ResourceTooltip data={resourceTooltip.population}>
+          <ResourceItem icon='/icons/resources/population.png' label='Population' value={resources.population} color={resourceTooltip.population.color}/>
+        </ResourceTooltip>
+        <ResourceTooltip data={resourceTooltip.food}>
+          <ResourceItem icon='/icons/resources/food.png' label='Food' value={resources.food} color={resourceTooltip.food.color}/>
+        </ResourceTooltip>
+        <ResourceTooltip data={resourceTooltip.wood}>
+          <ResourceItem icon='/icons/resources/wood.png' label='Wood' value={resources.wood} color={resourceTooltip.wood.color}/>
+        </ResourceTooltip>
+        <ResourceTooltip data={resourceTooltip.stone}>
+          <ResourceItem icon='/icons/resources/stone.png' label='Stone' value={resources.stone} color={resourceTooltip.stone.color}/>
+        </ResourceTooltip>
+      </div>
     </header>
   )
 }

@@ -7,7 +7,7 @@ export default function SideMenu() {
   return (
     <nav className={styles.sideMenu}>
       <EndTurnBox />
-      <ul>
+      <ul className='space-top-l'>
         {MENU_ITEMS.map((item) => <NavLink key={item.path} item={item} />)}
       </ul>
     </nav>

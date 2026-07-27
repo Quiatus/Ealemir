@@ -18,3 +18,13 @@
   display: flex;
   gap: 1rem;
 }
+
+.section {
+  display: flex;
+  border-radius: 0.5rem;
+  box-shadow: 
+    inset 0 1px 1px rgba(255, 255, 255, 0.12),
+    inset 1px 0 1px rgba(255, 255, 255, 0.05), 
+    0 2px 2px rgba(0, 0, 0, 0.7),
+    0 2px 2px rgba(0, 0, 0, 0.9);
+}
