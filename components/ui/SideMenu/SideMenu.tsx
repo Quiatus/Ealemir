@@ -1,14 +1,12 @@
 import styles from './SideMenu.module.css'
 import NavLink from './NavLink'
 import { MENU_ITEMS } from '@/config/rules';
-import EndTurnButton from '../EndTurnButton';
+import EndTurnBox from './EndTurnBox';
 
 export default function SideMenu() {
   return (
     <nav className={styles.sideMenu}>
-      <div className={styles.center}>
-        <EndTurnButton />
-      </div>
+      <EndTurnBox />
       <ul>
         {MENU_ITEMS.map((item) => <NavLink key={item.path} item={item} />)}
       </ul>

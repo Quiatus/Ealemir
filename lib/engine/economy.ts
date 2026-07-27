@@ -86,7 +86,13 @@ export function calculateUpdatedResources(resources: PlayerResources, buildings:
     last_turn_resources_report: {
       goldReport: updatedGold.goldReport,
       populationReport: updatedPopulation.populationReport,
-      foodReport: updatedFood.foodReport
+      foodReport: updatedFood.foodReport,
+      woodReport: {
+        change: 0
+      },
+      stoneReport: {
+        change: 0
+      }
     }
   }
 }

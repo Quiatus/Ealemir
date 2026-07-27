@@ -1,7 +1,6 @@
 import styles from './TopBar.module.css'
 import { ResourceItem } from './ResourceItem'
-import { dynamicInfoTooltip, dynamicResourceTooltip } from '@/lib/adapters/tooltips'
-import InfoTooltip from '../Tooltip/InfoTooltip'
+import { dynamicResourceTooltip } from '@/lib/adapters/tooltips'
 import ResourceTooltip from '../Tooltip/ResourceTooltip'
 import { getData } from '@/lib/data/dal'
 import { PlayerBuildings, PlayerResources } from '@/types/game'
@@ -12,13 +11,9 @@ export default async function TopBar() {
     getData<PlayerBuildings>('player_buildings')
   ])
   const resourceTooltip = dynamicResourceTooltip(resources, buildings)
-  const infoTooltip = dynamicInfoTooltip()
-  
+
   return (
     <header className={styles.topBar}>
-      <InfoTooltip data={infoTooltip.currentMonth}>
-        <ResourceItem icon='/icons/resources/turn.png' label='Month' value={resources.turn} color="primary"/>
-      </InfoTooltip>
       <ResourceTooltip data={resourceTooltip.gold}>
         <ResourceItem icon='/icons/resources/gold.png' label='Gold' value={resources.gold} color={resourceTooltip.gold.color}/>
       </ResourceTooltip>

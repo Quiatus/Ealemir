@@ -1,5 +1,5 @@
 import styles from './ConfirmModal.module.css'
-import Button from './Button';
+import Button from './Buttons/Button';
 
 interface ConfirmModalProps {
   isOpen: boolean;

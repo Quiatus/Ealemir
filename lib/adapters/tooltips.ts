@@ -18,6 +18,7 @@ function buildGoldTooltip(resources: PlayerResources): ResourceTooltipData {
     title: text('tooltips.gold_tooltip.title'),
     color: 'gold',
     total: resources.gold,
+    messages: {},
     income: [
       {
         label: text('tooltips.gold_tooltip.income_population'),
@@ -29,34 +30,13 @@ function buildGoldTooltip(resources: PlayerResources): ResourceTooltipData {
   };
 }
 
-function buildPopulationTooltip(resources: PlayerResources, buildings: PlayerBuildings): ResourceTooltipData {
-  const {maxAvailableSpace, availableSpace} = calculateAvailableSpace(resources.population, buildings);
-  let noSpaceMessage = ''
-  let color = 'purple'
-
-  if (!availableSpace) {
-    noSpaceMessage = text('tooltips.population_tooltip.no_space_message')
-    color = 'orange'
-  }
-
-  if (resources.population > maxAvailableSpace) {
-    noSpaceMessage = text('tooltips.population_tooltip.exceeded_space_message')
-    color = 'red'
-  }
-
-  return {
+export function buildPopulationTooltip(resources: PlayerResources, buildings?: PlayerBuildings): ResourceTooltipData {
+  const tooltip: ResourceTooltipData = {
     title: text('tooltips.population_tooltip.title'),
-    color,
+    color: 'purple', 
     total: resources.population,
-    messages: {
-      afterCustom: noSpaceMessage
-    },
-    custom: [
-      {
-        label: text('tooltips.population_tooltip.available_space'),
-        value: availableSpace
-      }
-    ],
+    messages: {},
+    custom: [],
     income: [
       {
         label: text('tooltips.population_tooltip.growth_population'),
@@ -66,6 +46,29 @@ function buildPopulationTooltip(resources: PlayerResources, buildings: PlayerBui
     expenditures: [],
     change: resources.last_turn_resources_report.populationReport.change
   };
+
+  if (!buildings) {
+    return tooltip;
+  }
+
+  const { maxAvailableSpace, availableSpace } = calculateAvailableSpace(resources.population, buildings);
+
+  if (!availableSpace) {
+    tooltip.messages.afterCustom = text('tooltips.population_tooltip.no_space_message');
+    tooltip.color = 'orange';
+  } else if (resources.population > maxAvailableSpace) {
+    tooltip.messages.afterCustom = text('tooltips.population_tooltip.exceeded_space_message');
+    tooltip.color = 'red';
+  }
+
+  tooltip.custom = [
+    {
+      label: text('tooltips.population_tooltip.available_space'),
+      value: availableSpace
+    }
+  ];
+
+  return tooltip;
 }
 
 function buildFoodTooltip(resources: PlayerResources): ResourceTooltipData {
@@ -73,6 +76,7 @@ function buildFoodTooltip(resources: PlayerResources): ResourceTooltipData {
     title: text('tooltips.food_tooltip.title'),
     color: 'yellow',
     total: resources.food,
+    messages: {},
     income: [
       {
         label: text('tooltips.food_tooltip.income_capital'),
@@ -94,6 +98,7 @@ function buildWoodTooltip(resources: PlayerResources): ResourceTooltipData {
     title: text('tooltips.wood_tooltip.title'),
     color: 'brown',
     total: resources.wood,
+    messages: {},
     income: [],
     expenditures: [],
     change: resources.last_turn_resources_report.woodReport.change
@@ -105,13 +110,14 @@ function buildStoneTooltip(resources: PlayerResources): ResourceTooltipData {
     title: text('tooltips.stone_tooltip.title'),
     color: 'gray',
     total: resources.stone,
+    messages: {},
     income: [],
     expenditures: [],
     change: resources.last_turn_resources_report.stoneReport.change
   };
 }
 
-export function dynamicResourceTooltip(resources: PlayerResources, buildings: PlayerBuildings) {
+export function dynamicResourceTooltip(resources: PlayerResources, buildings?: PlayerBuildings) {
   return {
     gold: buildGoldTooltip(resources),
     population: buildPopulationTooltip(resources, buildings),

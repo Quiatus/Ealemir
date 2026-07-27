@@ -57,12 +57,13 @@
 }
 
 .turn {
+  position: absolute;
+  left: -10px;
   min-width: fit-content;
   display: flex;
   align-items: center;
   justify-content: center;
   height: max-content;
   border-radius: 50%;
-  padding: 0.5rem;
   aspect-ratio: 1 / 1;
 }

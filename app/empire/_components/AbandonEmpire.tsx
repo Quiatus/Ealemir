@@ -1,6 +1,6 @@
 'use client'
 
-import Button from "@/components/ui/Button";
+import Button from "@/components/ui/Buttons/Button";
 import Card from "@/components/ui/Card";
 import ConfirmModal from "@/components/ui/ConfirmModal";
 import { resetGame } from "@/lib/actions/systemActions";

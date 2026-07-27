@@ -81,7 +81,7 @@ export interface ResourceTooltipData {
   title: string;
   color: string;
   total: number;
-  messages?: ResourceMessages;
+  messages: ResourceMessages;
   custom?: TooltipResourceDetail[];
   income: TooltipResourceDetail[];
   expenditures: TooltipResourceDetail[];

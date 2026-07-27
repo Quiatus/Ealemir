@@ -14,12 +14,3 @@
     0 4px 8px rgba(0, 0, 0, 0.7),
     0 12px 32px rgba(0, 0, 0, 0.9);
 }
-
-.center {
-  display: flex;
-  justify-content: center;
-  padding-bottom: 1rem;
-  border-bottom: 1px solid rgba(90, 100, 90, 0.5);
-  margin-bottom: 1rem;
-}
-
