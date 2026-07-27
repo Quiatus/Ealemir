@@ -14,6 +14,7 @@ export default function InfoTooltip({ data, children }: TooltipProps) {
 
       <div className={styles.tooltip}>
         <p className={styles.title}>{data.title}</p>
+        {data.message && <p className='text-flavor'>{data.message}</p>}
       </div>
     </div>
   )

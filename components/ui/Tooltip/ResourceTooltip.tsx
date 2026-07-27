@@ -3,21 +3,12 @@ import { ResourceTooltipData } from '@/types/game'
 import { formatNumber, text } from '@/lib/utilities';
 import ResourceRow from './ResourceRow';
 import { ReactNode } from 'react';
+import FlavorText from './FlavorText';
 
 interface TooltipProps {
   data: ResourceTooltipData;
   children: ReactNode
 }
-
-function FlavorText ({ text }: { text?: string }) {
-  if (!text) return null;
-
-  return (
-    <div className='space-m space-negative-top-m'>
-      <span className='text-flavor'>{text}</span>
-    </div>
-  );
-};
 
 export default function ResourceTooltip({ data, children }: TooltipProps) {
   return (
@@ -29,7 +20,7 @@ export default function ResourceTooltip({ data, children }: TooltipProps) {
 
         <div className={`${styles.row} space-m`}>
           <span>{text('tooltips.info.total')}</span>
-          <span className='text-bold'>{formatNumber(data.total, true)}</span>
+          <span className='text-bold'>{formatNumber(data.total, 'full')}</span>
         </div>
 
         <FlavorText text={data.messages?.afterTotal} />
@@ -58,7 +49,7 @@ export default function ResourceTooltip({ data, children }: TooltipProps) {
           <span>{text('tooltips.info.change')}</span>
           <span className={`text-bold ${data.change >= 0 ? 'text-green' : 'text-red'}`}>
             {data.change >= 0 ? '+' : '-'}
-            {formatNumber(Math.abs(data.change), true)}
+            {formatNumber(Math.abs(data.change), 'full')}
           </span>
         </div>
       </div>

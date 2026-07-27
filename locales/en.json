@@ -20,7 +20,8 @@
       "income": "Income",
       "expenditure": "Expenditure",
       "change": "Change",
-      "next_month": "Next month"
+      "next_month": "Next month",
+      "next_month_message": "Our empire exists for {age}."
     },
     "gold_tooltip": {
       "title": "Gold",

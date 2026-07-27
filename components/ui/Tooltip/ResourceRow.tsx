@@ -1,8 +1,9 @@
+import { formatNumber } from '@/lib/utilities';
 import styles from './Tooltip.module.css'
 
 interface TooltipItem {
   label: string;
-  value: string | number;
+  value: number | string;
 }
 
 interface TooltipSectionProps {
@@ -23,7 +24,7 @@ export default function ResourceRow({ title, items, valueClass = '', prefix = ''
         {items.map(item => (
           <div className={styles.row} key={item.label}>
             <span className={title ? 'text-secondary' : ''}>{item.label}</span>
-            <span className={`text-bold ${valueClass}`}>{prefix}{item.value}</span>
+            <span className={`text-bold ${valueClass}`}>{prefix}{typeof(item.value) === 'number' ? formatNumber(item.value, 'full') : item.value}</span>
           </div>
         ))}
       </div>

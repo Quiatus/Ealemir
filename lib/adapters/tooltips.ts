@@ -1,14 +1,15 @@
 import { calculateAvailableSpace } from "../engine/buildings"
-import { text } from "../utilities"
+import { formatNumber, text } from "../utilities"
 import { PlayerBuildings, PlayerResources, ResourceTooltipData } from "@/types/game"
 
-export function dynamicInfoTooltip() {
+export function dynamicInfoTooltip(customData?: string | number ) {
   return { 
     currentMonth: {
       title: text('tooltips.info.current_month')
     },
     buttonNextMonth: {
-      title: text('tooltips.info.next_month')
+      title: text('tooltips.info.current_month'),
+      message: text('tooltips.info.next_month_message', {age: formatNumber(Number(customData), 'year')})
     },
   }
 }

@@ -3,10 +3,10 @@ import { PlayerBuildings, PlayerResources } from "@/types/game";
 export const INITIAL_PLAYER_RESOURCES: PlayerResources = {
   turn: 0,
   gold: 100,
-  population: 10,
+  population: 50,
   food: 5,
-  wood: 100000,
-  stone: 200000000,
+  wood: 20,
+  stone: 5,
   last_turn_resources_report: {
     goldReport: {
       change: 0,

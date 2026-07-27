@@ -68,7 +68,7 @@ export interface TooltipResourceDetail {
 
 export interface InfoTooltipData {
   title: string;
-  message?: string[]; 
+  message?: string; 
 }
 
 export interface ResourceMessages {
