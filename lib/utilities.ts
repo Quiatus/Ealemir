@@ -4,21 +4,25 @@ type numberFormats = 'full' | 'short' | 'year'
 
 const resourceFormatter = new Intl.NumberFormat('en-US');
 
-export function text(key: string, variables?: Record<string, string | number>): string {
-  const result = key.split('.').reduce((obj: unknown, currentKey: string) => {
-    if (obj !== null && typeof obj === 'object' && currentKey in obj) {
-      return (obj as Record<string, unknown>)[currentKey];
+function getNestedValue(obj: unknown, path: string[]): unknown {
+  return path.reduce<unknown>((acc, segment) => {
+    if (acc !== null && typeof acc === 'object' && segment in acc) {
+      return (acc as Record<string, unknown>)[segment];
     }
     return undefined;
-  }, en);
+  }, obj);
+}
 
+function interpolate(str: string, variables: Record<string, string | number>): string {
+  return str.replace(/\{(\w+)\}/g, (match, paramKey) =>
+    variables[paramKey] !== undefined ? String(variables[paramKey]) : match
+  );
+}
+
+export function text(key: string, variables?: Record<string, string | number>): string {
+  const result = getNestedValue(en, key.split('.'));
   const rawString = typeof result === 'string' ? result : key;
-
-  if (!variables) return rawString;
-
-  return rawString.replace(/\{(\w+)\}/g, (match, paramKey) => {
-    return variables[paramKey] !== undefined ? String(variables[paramKey]) : match;
-  });
+  return variables ? interpolate(rawString, variables) : rawString;
 }
 
 export function randomResourceRange(res: number, min: number, max: number) {

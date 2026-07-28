@@ -1,5 +1,5 @@
 
-import { dynamicInfoTooltip } from '@/lib/adapters/tooltips'
+import { dynamicInfoTooltip } from '@/lib/adapters/tooltips/infoTooltips'
 import styles from './EndTurnBox.module.css'
 import InfoTooltip from '../Tooltip/InfoTooltip'
 import { getData } from '@/lib/data/dal'

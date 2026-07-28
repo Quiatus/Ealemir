@@ -3,7 +3,7 @@ import { text } from "@/lib/utilities";
 import styles from './Capital.module.css';
 import bgimage from '@/public/buildings/city_1.png'
 import Image from "next/image";
-import { dynamicInfoTooltip } from "@/lib/adapters/tooltips";
+import { dynamicInfoTooltip } from "@/lib/adapters/tooltips/infoTooltips";
 import InfoTooltip from "@/components/ui/Tooltip/InfoTooltip";
 
 const build = [

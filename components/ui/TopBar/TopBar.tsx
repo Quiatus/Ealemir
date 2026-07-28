@@ -1,6 +1,6 @@
 import styles from './TopBar.module.css'
 import { ResourceItem } from './ResourceItem'
-import { dynamicResourceTooltip } from '@/lib/adapters/tooltips'
+import { dynamicResourceTooltip } from '@/lib/adapters/tooltips/resourceTooltips'
 import ResourceTooltip from '../Tooltip/ResourceTooltip'
 import { getData } from '@/lib/data/dal'
 import { PlayerBuildings, PlayerResources } from '@/types/game'

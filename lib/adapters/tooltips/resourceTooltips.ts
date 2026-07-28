@@ -1,18 +1,6 @@
-import { calculateAvailableSpace } from "../engine/buildings"
-import { formatNumber, text } from "../utilities"
-import { PlayerBuildings, PlayerResources, ResourceTooltipData } from "@/types/game"
-
-export function dynamicInfoTooltip(customData?: string | number ) {
-  return { 
-    currentMonth: {
-      title: text('tooltips.info.current_month')
-    },
-    buttonNextMonth: {
-      title: text('tooltips.info.current_month'),
-      message: text('tooltips.info.next_month_message', {age: formatNumber(Number(customData), 'year')})
-    },
-  }
-}
+import { calculateFreeSpace, calculateMaxSpace } from "@/lib/engine/buildings/space";
+import { text } from "@/lib/utilities";
+import { PlayerBuildings, PlayerResources, ResourceTooltipData } from "@/types/game";
 
 function buildGoldTooltip(resources: PlayerResources): ResourceTooltipData {
   return {
@@ -52,7 +40,8 @@ export function buildPopulationTooltip(resources: PlayerResources, buildings?: P
     return tooltip;
   }
 
-  const { maxAvailableSpace, availableSpace } = calculateAvailableSpace(resources.population, buildings);
+  const availableSpace = calculateFreeSpace(resources.population, buildings);
+  const maxAvailableSpace = calculateMaxSpace(buildings);
 
   if (!availableSpace) {
     tooltip.messages.afterCustom = text('tooltips.population_tooltip.no_space_message');

@@ -31,6 +31,8 @@ export const INITIAL_PLAYER_RESOURCES: PlayerResources = {
 }
 
 export const INITIAL_PLAYER_BUILDINGS: PlayerBuildings = {
-  capital_level: 1,
-  capital_house: 0
+  capital_buildings: {
+    city_level: 1,
+    city_queue: 0
+  }
 }

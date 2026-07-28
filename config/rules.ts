@@ -8,14 +8,14 @@ export const MENU_ITEMS: MenuItem[] = [
     { name: text('general.menu.military'), path: '/military' },
   ]
 
-export const CAPITAL: Capital[] = [
-  {
-    level: 1,
-    name: 'Hamlet',
-    food: 10,
-    space: 200
+export const CAPITAL: Record<number, Capital> = {
+  1: { 
+    level: 1, 
+    name: 'Hamlet', 
+    food: 10, 
+    space: 200 
   }
-]
+};
 
 export const POPULATION = {
   basePopulationFed: 100 

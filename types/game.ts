@@ -48,8 +48,10 @@ export interface PlayerResources {
 // BUILDINGS -------------------------------------------------------------
 
 export interface PlayerBuildings {
-  capital_level: number;
-  capital_house: number;
+  capital_buildings: {
+    city_level: number,
+    city_queue: number
+  }
 }
 
 export interface Capital {

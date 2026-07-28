@@ -3,9 +3,9 @@
 import { supabase } from "../supabase"
 import { revalidatePath } from "next/cache"
 import { INITIAL_PLAYER_BUILDINGS, INITIAL_PLAYER_RESOURCES } from "../../config/initialState"
-import { calculateUpdatedResources } from "../engine/economy"
+import { calculateUpdatedResources } from "../engine/resources/index"
 import { redirect } from "next/navigation"
-import { calculateUpdatedBuildings } from "../engine/buildings"
+import { calculateUpdatedBuildings } from "../engine/buildings/index"
 import { getData } from "../data/dal"
 import { PlayerBuildings, PlayerResources } from "@/types/game"
 
