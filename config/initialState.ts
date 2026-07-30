@@ -33,6 +33,11 @@ export const INITIAL_PLAYER_BUILDINGS = {
     city_level: 1,
     queue: 0
   },
-  capital_buildings: null,
+  capital_buildings: {
+  "house_1": {
+    "queue": 0,
+    "isBuild": true
+  }
+},
   territories: null
 }

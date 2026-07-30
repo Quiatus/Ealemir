@@ -7,6 +7,3 @@ export const MENU_ITEMS: MenuItem[] = [
     { name: text('general.menu.buildings'), path: '/buildings', space: true },
     { name: text('general.menu.military'), path: '/military' },
   ]
-
-
-

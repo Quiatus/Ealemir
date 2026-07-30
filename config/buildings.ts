@@ -10,14 +10,21 @@ export const CAPITAL: Record<number, CapitalStaticData> = {
   }
 };
 
+const BASE_HOUSE = {
+  name: text('feature_buildings.capital_buildings.house.name'),
+  description: "",
+  effect: { space: 100 }
+};
+
 export const CAPITAL_BUILDINGS: Record<string, CapitalBuildingsStaticData> = {
-  house: {
-    name: text('feature_buildings.capital_buildings.house.name'), 
+  house_1: {
+    ...BASE_HOUSE  
   }
 }
 
 export const TERRITORIES: Record<string, TerritoriesStaticData> = {
-  house: {
+  farm: {
     name: text('feature_buildings.territories.farm.name'),
+    description: ''
   }
 }

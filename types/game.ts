@@ -46,6 +46,9 @@ export interface LastTurnResourceReport {
 
 // BUILDINGS -------------------------------------------------------------
 
+export type BuildingEffectType = 'gold' | 'wood' | 'stone' | 'food' | 'population' | 'space' | 'fame';
+export type BuildingEffectModifiers = Partial<Record<BuildingEffectType, number>>;
+
 export interface PlayerBuildings {
   capital: CapitalLevel;
   capital_buildings: CapitalBuildingsQueue;
@@ -79,11 +82,14 @@ export interface CapitalStaticData {
 }
 
 export interface CapitalBuildingsStaticData {
-  name: string
+  name: string;
+  description: string;
+  effect: BuildingEffectModifiers
 }
 
 export interface TerritoriesStaticData {
-  name: string
+  name: string;
+  description: string;
 }
 
 // TOOLTIPS --------------------------------------------------------------
