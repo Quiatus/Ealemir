@@ -59,6 +59,19 @@
     },
     "card_territories": {
       "title": "Territories"
+    },
+    "capital": {
+      "level_1_name": "Hamlet"
+    },
+    "capital_buildings": {
+      "house": {
+        "name": "House"
+      }
+    },
+    "territories": {
+      "farm": {
+        "name": "Farm"
+      }
     }
   }
 }

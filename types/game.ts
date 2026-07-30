@@ -13,6 +13,15 @@ export interface GameData {
 
 // RESOURCES -------------------------------------------------------------
 
+export interface PlayerResources {
+  turn: number;
+  gold: number;
+  population: number;
+  food: number;
+  wood: number;
+  stone: number;
+  last_turn_resources_report: LastTurnResourceReport
+}
 export interface LastTurnResourceReport {
   goldReport: {
     change: number,
@@ -35,30 +44,46 @@ export interface LastTurnResourceReport {
   }
 }
 
-export interface PlayerResources {
-  turn: number;
-  gold: number;
-  population: number;
-  food: number;
-  wood: number;
-  stone: number;
-  last_turn_resources_report: LastTurnResourceReport
-}
-
 // BUILDINGS -------------------------------------------------------------
 
 export interface PlayerBuildings {
-  capital_buildings: {
-    city_level: number,
-    city_queue: number
+  capital: CapitalLevel;
+  capital_buildings: CapitalBuildingsQueue;
+  territories: Territories
+}
+
+export interface CapitalLevel {
+  city_level: number,
+  queue: number
+}
+
+export interface CapitalBuildingsQueue {
+  name: {
+    isBuild: boolean,
+    queue: number
   }
 }
 
-export interface Capital {
+export interface Territories {
+  name: {
+    built: number,
+    discovered: number
+  }
+}
+
+export interface CapitalStaticData {
   level: number;
   food: number;
   name: string;
   space: number;
+}
+
+export interface CapitalBuildingsStaticData {
+  name: string
+}
+
+export interface TerritoriesStaticData {
+  name: string
 }
 
 // TOOLTIPS --------------------------------------------------------------

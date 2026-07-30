@@ -1,4 +1,5 @@
-import { CAPITAL, POPULATION } from "@/config/rules"
+import { POPULATION } from "@/config/resources"
+import { CAPITAL } from "@/config/buildings"
 
 export function calculateFoodChange(food: number, population: number, capitalLevel: number) {
   const incomeFromCapital = CAPITAL[capitalLevel]?.food

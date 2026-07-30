@@ -1,6 +1,4 @@
-import { PlayerBuildings, PlayerResources } from "@/types/game";
-
-export const INITIAL_PLAYER_RESOURCES: PlayerResources = {
+export const INITIAL_PLAYER_RESOURCES = {
   turn: 0,
   gold: 100,
   population: 50,
@@ -30,9 +28,11 @@ export const INITIAL_PLAYER_RESOURCES: PlayerResources = {
   }
 }
 
-export const INITIAL_PLAYER_BUILDINGS: PlayerBuildings = {
-  capital_buildings: {
+export const INITIAL_PLAYER_BUILDINGS = {
+  capital: {
     city_level: 1,
-    city_queue: 0
-  }
+    queue: 0
+  },
+  capital_buildings: null,
+  territories: null
 }

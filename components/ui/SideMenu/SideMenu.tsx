@@ -1,6 +1,6 @@
 import styles from './SideMenu.module.css'
 import NavLink from './NavLink'
-import { MENU_ITEMS } from '@/config/rules';
+import { MENU_ITEMS } from '@/config/ui';
 import EndTurnBox from './EndTurnBox';
 
 export default function SideMenu() {

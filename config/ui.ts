@@ -1,5 +1,5 @@
 import { text } from "@/lib/utilities";
-import { Capital, MenuItem } from "@/types/game";
+import { MenuItem } from "@/types/game";
 
 export const MENU_ITEMS: MenuItem[] = [
     { name: text('general.menu.overview'), path: '/' },
@@ -8,19 +8,5 @@ export const MENU_ITEMS: MenuItem[] = [
     { name: text('general.menu.military'), path: '/military' },
   ]
 
-export const CAPITAL: Record<number, Capital> = {
-  1: { 
-    level: 1, 
-    name: 'Hamlet', 
-    food: 10, 
-    space: 200 
-  }
-};
 
-export const POPULATION = {
-  basePopulationFed: 100 
-}
 
-export const BUILDINGS_CAPITAL = []
-
-export const BUILDINGS_TERRITORY = []

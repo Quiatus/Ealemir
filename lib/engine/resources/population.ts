@@ -1,10 +1,11 @@
 import { PlayerBuildings } from "@/types/game"
-import { calculateFreeSpace } from "../buildings/space"
+import { calculateFreeSpace, calculateMaxSpace } from "../buildings/space"
 import { randomResourceRange } from "@/lib/utilities"
 
 export function calculatePopulationChange(population: number, buildings: PlayerBuildings) {
   const avaiableSpace = calculateFreeSpace(population, buildings)
-  const overpopulation = false
+  const maxAvailableSpace = calculateMaxSpace(buildings);
+  const overpopulation = population > maxAvailableSpace
   
   const lowPopCompensator = Math.floor(Math.random() * 19 + 2)
   let populationGrowth = Math.floor(randomResourceRange(population, 0.001, 0.005) + lowPopCompensator)

@@ -1,4 +1,4 @@
-import { CAPITAL } from "@/config/rules";
+import { CAPITAL } from "@/config/buildings";
 import { PlayerBuildings } from "@/types/game";
 
 export function calculateFreeSpace(population: number, data: PlayerBuildings) {
@@ -7,7 +7,7 @@ export function calculateFreeSpace(population: number, data: PlayerBuildings) {
 }
 
 export function calculateMaxSpace(data: PlayerBuildings) {
-  const currentLevel = data.capital_buildings.city_level;
+  const currentLevel = data.capital.city_level;
   const maxAvailableSpace = CAPITAL[currentLevel]?.space || 0
   return maxAvailableSpace
 }
