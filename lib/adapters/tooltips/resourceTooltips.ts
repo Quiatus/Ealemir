@@ -93,7 +93,12 @@ function buildWoodTooltip(resources: PlayerResources): ResourceTooltipData {
     color: 'brown',
     total: resources.wood,
     messages: {},
-    income: [],
+    income: [
+      {
+        label: text('tooltips.wood_tooltip.income_lumberyards'),
+        value: resources.last_turn_resources_report.woodReport.gainFromLumberyards
+      },
+    ],
     expenditures: [],
     change: resources.last_turn_resources_report.woodReport.change
   };
@@ -105,7 +110,12 @@ function buildStoneTooltip(resources: PlayerResources): ResourceTooltipData {
     color: 'gray',
     total: resources.stone,
     messages: {},
-    income: [],
+    income: [
+      {
+        label: text('tooltips.stone_tooltip.income_quarries'),
+        value: resources.last_turn_resources_report.stoneReport.gainFromQuarries
+      },
+    ],
     expenditures: [],
     change: resources.last_turn_resources_report.stoneReport.change
   };

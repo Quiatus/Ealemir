@@ -3,7 +3,7 @@ import clsx from 'clsx';
 import styles from './Button.module.css'
 
 interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
-  variant?: 'primary' | 'danger' | 'turn';
+  variant?: 'primary' | 'danger' | 'turn' | 'plus';
 }
 
 export default function Button({children, variant='primary', className, ...props}: ButtonProps) {

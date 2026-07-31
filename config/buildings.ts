@@ -27,5 +27,15 @@ export const TERRITORIES: Record<string, TerritoriesStaticData> = {
     name: text('feature_buildings.territories.farm.name'),
     description: "",
     effect: { food: 5}
+  },
+  lumberyard: {
+    name: text('feature_buildings.territories.lumberyard.name'),
+    description: "",
+    effect: { wood: 5}
+  },
+  quarry: {
+    name: text('feature_buildings.territories.quarry.name'),
+    description: "",
+    effect: { stone: 2}
   }
 }

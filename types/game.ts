@@ -39,10 +39,12 @@ export interface LastTurnResourceReport {
     consumed: number
   },
   woodReport: {
-    change: number
+    change: number,
+    gainFromLumberyards: number
   },
   stoneReport: {
-    change: number
+    change: number,
+    gainFromQuarries: number
   },
   fameReport: {
       loss: number,
@@ -105,6 +107,11 @@ export interface TooltipResourceDetail {
 }
 
 export interface InfoTooltipData {
+  title: string;
+  message?: string; 
+}
+
+export interface BuildingTooltipData {
   title: string;
   message?: string; 
 }

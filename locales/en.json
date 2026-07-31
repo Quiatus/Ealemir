@@ -41,14 +41,22 @@
       "consumed": "Consumed"
     },
     "wood_tooltip": {
-      "title": "Wood"
+      "title": "Wood",
+      "income_lumberyards": "Lumberyards"
     },
     "stone_tooltip": {
-      "title": "Stone"
+      "title": "Stone",
+      "income_quarries": "Quarries"
     },
     "fame_tooltip": {
       "title": "Fame",
       "loss": "Lost"
+    },
+    "farm_tooltip": {
+      "title": "Farm"
+    },
+    "lumberyard_tooltip": {
+      "title": "Lumberyard"
     }
   },
   "feature_empire": {
@@ -76,6 +84,12 @@
     "territories": {
       "farm": {
         "name": "Farm"
+      },
+      "lumberyard": {
+        "name": "Lumberyard"
+      },
+      "quarry": {
+        "name": "Quarry"
       }
     }
   }

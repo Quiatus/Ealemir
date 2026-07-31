@@ -1,4 +1,6 @@
-export const INITIAL_PLAYER_RESOURCES = {
+import { PlayerResources } from "@/types/game"
+
+export const INITIAL_PLAYER_RESOURCES: PlayerResources = {
   turn: 0,
   gold: 100,
   population: 50,
@@ -22,10 +24,12 @@ export const INITIAL_PLAYER_RESOURCES = {
       consumed: 0
     },
     woodReport: {
-      change: 0
+      change: 0,
+      gainFromLumberyards: 0
     },
     stoneReport: {
-      change: 0
+      change: 0,
+      gainFromQuarries: 0
     },
     fameReport: {
       loss: 0,
@@ -40,5 +44,14 @@ export const INITIAL_PLAYER_BUILDINGS = {
     queue: 0
   },
   capital_buildings: null,
-  territories: null
+  territories: {
+    farm: {
+      built: 1,
+      discovered: 5
+    },
+    lumberyard: {
+      built: 1,
+      discovered: 1
+    }
+  }
 }

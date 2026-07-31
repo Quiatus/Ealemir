@@ -9,7 +9,7 @@ export function calculateFoodChange(food: number, population: number, buildings:
   
   const consumed = Math.ceil(population / POPULATION.basePopulationFed);
   const totalChange = incomeFromCapital + incomeFromFarms - consumed;
-  let totalFood = food + incomeFromCapital + incomeFromFarms - consumed; 
+  let totalFood = food + totalChange; 
 
   if (totalFood < 0) {
     totalFood = 0
