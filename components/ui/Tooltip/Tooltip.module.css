@@ -44,6 +44,11 @@
   margin-bottom: 0.5rem;
 }
 
+.tooltipAlignRight {
+  right: 0%;
+  left: auto; 
+}
+
 .tooltipResource {
   width: 16rem;
 }
@@ -56,6 +61,10 @@
 }
 
 .titleResource {
+  font-family: var(--font-cinzel);
+  font-size: 1.1rem;
+  font-weight: 500;
+  color: var(--text-primary);
   border-bottom: 1px solid var(--btn-highlight);
   margin-bottom: 0.5rem;
 }

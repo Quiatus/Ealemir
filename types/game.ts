@@ -109,6 +109,7 @@ export interface TooltipResourceDetail {
 export interface InfoTooltipData {
   title: string;
   message?: string; 
+  custom?: TooltipResourceDetail[];
 }
 
 export interface BuildingTooltipData {

@@ -37,7 +37,7 @@ export default function ResourceTooltip({ data, children }: TooltipProps) {
       {children}
 
       <div ref={tooltipRef} className={`${styles.tooltip} ${styles.tooltipResource} ${flipTop ? styles.tooltipTop : styles.tooltipBottom}`}>
-        <p className={`${styles.title} ${styles.titleResource}`}>{data.title}</p>
+        <p className={styles.titleResource}>{data.title}</p>
 
         <div className={`${styles.row} space-m`}>
           <span>{text('tooltips.info.total')}</span>

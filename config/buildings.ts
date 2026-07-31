@@ -39,3 +39,16 @@ export const TERRITORIES: Record<string, TerritoriesStaticData> = {
     effect: { stone: 2}
   }
 }
+
+export const HABITATS = {
+  village: {
+    space: 100
+  },
+  settlement: {
+    space: 1000
+  },
+  city: {
+    space: 10000,
+    repair: 50
+  }
+}

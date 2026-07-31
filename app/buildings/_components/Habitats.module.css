@@ -1,0 +1,16 @@
+.habitatWrapper{
+  display: flex;
+  flex-direction: row;
+  gap: 0.5rem;
+  margin-bottom: 0.5rem;
+  width: 100%;
+}
+
+.habitat {
+  display: flex;
+  align-items: center;
+  font-size: 1.3rem;
+  font-weight: bold;
+  gap: 0.5rem;
+  width: 33%;
+}

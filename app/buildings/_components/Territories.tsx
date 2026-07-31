@@ -4,6 +4,7 @@ import { text } from "@/lib/utilities";
 import { PlayerBuildings } from "@/types/game";
 import { dynamicBuildingTooltip } from "@/lib/adapters/tooltips/buildingsTooltips";
 import TerritoryBuilding from "./TerritoryBuilding";
+import Habitats from "./Habitats";
 
 export default async function TerritoriesCard() {
   const buildings = await getData<PlayerBuildings>('player_buildings')
@@ -11,6 +12,9 @@ export default async function TerritoriesCard() {
 
   return (
     <Card title={text('feature_buildings.card_territories.title')} style="elevated" width="w-33">
+      
+      <Habitats />
+
       {buildings.territories.farm && 
         <TerritoryBuilding 
           building={buildings.territories.farm} 

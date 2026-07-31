@@ -21,7 +21,13 @@
       "expenditure": "Expenditure",
       "change": "Change",
       "next_month": "Next month",
-      "next_month_message": "Our empire exists for {age}."
+      "next_month_message": "Our empire exists for {age}.",
+      "village": "Village",
+      "village_message": "Provides space for {village_space} people.",
+      "settlement": "Settlement",
+      "settlement_message": "Provides space for {settlement_space} people.",
+      "city": "City",
+      "city_message": "Provides space for {city_space} people.\n Conquered city takes {city_repair} months to repair."
     },
     "gold_tooltip": {
       "title": "Gold",
