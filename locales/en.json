@@ -37,6 +37,7 @@
     "food_tooltip": {
       "title": "Food",
       "income_capital": "Capital city",
+      "income_farms": "Farms",
       "consumed": "Consumed"
     },
     "wood_tooltip": {
@@ -44,6 +45,10 @@
     },
     "stone_tooltip": {
       "title": "Stone"
+    },
+    "fame_tooltip": {
+      "title": "Fame",
+      "loss": "Lost"
     }
   },
   "feature_empire": {

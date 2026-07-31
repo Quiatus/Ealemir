@@ -6,7 +6,7 @@ export const CAPITAL: Record<number, CapitalStaticData> = {
     level: 1, 
     name: text('feature_buildings.capital.level_1_name'), 
     food: 10, 
-    space: 200 
+    space: 200
   }
 };
 
@@ -25,6 +25,7 @@ export const CAPITAL_BUILDINGS: Record<string, CapitalBuildingsStaticData> = {
 export const TERRITORIES: Record<string, TerritoriesStaticData> = {
   farm: {
     name: text('feature_buildings.territories.farm.name'),
-    description: ''
+    description: "",
+    effect: { food: 5}
   }
 }

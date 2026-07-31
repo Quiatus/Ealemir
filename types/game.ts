@@ -20,6 +20,7 @@ export interface PlayerResources {
   food: number;
   wood: number;
   stone: number;
+  fame: number;
   last_turn_resources_report: LastTurnResourceReport
 }
 export interface LastTurnResourceReport {
@@ -34,6 +35,7 @@ export interface LastTurnResourceReport {
   foodReport: {
     change: number,
     gainFromCapital: number,
+    gainFromFarms: number,
     consumed: number
   },
   woodReport: {
@@ -41,7 +43,11 @@ export interface LastTurnResourceReport {
   },
   stoneReport: {
     change: number
-  }
+  },
+  fameReport: {
+      loss: number,
+      change: number
+    }
 }
 
 // BUILDINGS -------------------------------------------------------------
@@ -67,12 +73,10 @@ export interface CapitalBuildingsQueue {
   }
 }
 
-export interface Territories {
-  name: {
-    built: number,
-    discovered: number
-  }
-}
+export type Territories = Record<string, {
+  built: number;
+  discovered: number;
+}>;
 
 export interface CapitalStaticData {
   level: number;
@@ -90,6 +94,7 @@ export interface CapitalBuildingsStaticData {
 export interface TerritoriesStaticData {
   name: string;
   description: string;
+  effect: BuildingEffectModifiers
 }
 
 // TOOLTIPS --------------------------------------------------------------

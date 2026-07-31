@@ -71,6 +71,10 @@ function buildFoodTooltip(resources: PlayerResources): ResourceTooltipData {
       {
         label: text('tooltips.food_tooltip.income_capital'),
         value: resources.last_turn_resources_report.foodReport.gainFromCapital
+      },
+      {
+        label: text('tooltips.food_tooltip.income_farms'),
+        value: resources.last_turn_resources_report.foodReport.gainFromFarms
       }
     ],
     expenditures: [
@@ -107,12 +111,30 @@ function buildStoneTooltip(resources: PlayerResources): ResourceTooltipData {
   };
 }
 
+function buildFameTooltip(resources: PlayerResources): ResourceTooltipData {
+  return {
+    title: text('tooltips.fame_tooltip.title'),
+    color: 'primary',
+    total: resources.fame,
+    messages: {},
+    income: [],
+    expenditures: [
+      {
+        label: text('tooltips.fame_tooltip.loss'),
+        value: resources.last_turn_resources_report.fameReport.loss
+      }
+    ],
+    change: resources.last_turn_resources_report.fameReport.change
+  };
+}
+
 export function dynamicResourceTooltip(resources: PlayerResources, buildings?: PlayerBuildings) {
   return {
     gold: buildGoldTooltip(resources),
     population: buildPopulationTooltip(resources, buildings),
     food: buildFoodTooltip(resources),
     wood: buildWoodTooltip(resources),
-    stone: buildStoneTooltip(resources)
+    stone: buildStoneTooltip(resources),
+    fame: buildFameTooltip(resources)
   };
 }

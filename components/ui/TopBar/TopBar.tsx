@@ -31,6 +31,11 @@ export default async function TopBar() {
           <ResourceItem icon='/icons/resources/stone.png' label='Stone' value={resources.stone} color={resourceTooltip.stone.color}/>
         </ResourceTooltip>
       </div>
+      <div className={styles.section}>
+        <ResourceTooltip data={resourceTooltip.fame}>
+          <ResourceItem icon='/icons/resources/fame.png' label='Fame' value={resources.fame} color={resourceTooltip.fame.color}/>
+        </ResourceTooltip>
+      </div>
     </header>
   )
 }

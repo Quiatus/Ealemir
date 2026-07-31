@@ -6,7 +6,7 @@ import { calculateFoodChange } from "./food"
 export function calculateUpdatedResources(resources: PlayerResources, buildings: PlayerBuildings) {
   const updatedPopulation = calculatePopulationChange(resources.population, buildings)
   const updatedGold = calculateGoldChange(resources.gold, updatedPopulation.population)
-  const updatedFood = calculateFoodChange(resources.food, updatedPopulation.population, buildings.capital.city_level)
+  const updatedFood = calculateFoodChange(resources.food, updatedPopulation.population, buildings)
  
   return {
     ...resources,
@@ -23,6 +23,10 @@ export function calculateUpdatedResources(resources: PlayerResources, buildings:
       },
       stoneReport: {
         change: 0
+      },
+      fameReport: {
+        loss: 0,
+        change: 0      
       }
     }
   }
