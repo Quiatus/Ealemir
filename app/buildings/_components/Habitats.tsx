@@ -18,7 +18,7 @@ export default function Habitats({data}: HabitatData) {
     <div className={styles.habitatWrapper}>
       <InfoTooltip data={villageTooltip.village}>
         <div className={styles.habitat}>
-          <Image src="/icons/buildings/village.png" alt="Village" width={40} height={26}/>
+          <Image src="/icons/buildings/village.png" alt="Village" width={40} height={40}/>
           <span>{formatNumber(Number(data.village.amount), 'short')}</span>
         </div>
       </InfoTooltip>

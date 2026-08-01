@@ -33,7 +33,7 @@ export default function TerritoryBuilding({building, tooltip, icon}: TerritoryBu
     <BuildingTooltip data={tooltip}>
       <div className={styles.buildingCard}>
         <Image src={icon} alt="Farm" width={40} height={40}></Image>
-        <Button variant="plus">+</Button>
+        <Button variant="plus" disabled>+</Button>
         <ProgressBar current={building.built} max={building.discovered} />
       </div>
     </BuildingTooltip>

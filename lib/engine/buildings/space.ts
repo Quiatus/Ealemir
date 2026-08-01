@@ -15,7 +15,6 @@ export function calculateMaxSpace(data: PlayerBuildings) {
     + (data.habitats.settlement.amount * HABITATS.settlement.space)
     + (data.habitats.city.amount * HABITATS.city.space)
 
-
   const activeBuildings = Object.entries(data.capital_buildings || {});
   for (const [buildingId, state] of activeBuildings) {
 

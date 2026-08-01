@@ -44,6 +44,7 @@ export const INITIAL_PLAYER_BUILDINGS = {
     queue: 0
   },
   capital_buildings: null,
+  //territories: null,
   territories: {
     farm: {
       built: 1,
@@ -59,7 +60,7 @@ export const INITIAL_PLAYER_BUILDINGS = {
       amount: 0
     },
     settlement: {
-      amount: 1
+      amount: 0
     },
     city: {
       amount: 0,

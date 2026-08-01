@@ -15,14 +15,14 @@ export default async function TerritoriesCard() {
       
       <Habitats data={buildings.habitats} />
 
-      {buildings.territories.farm && 
+      {buildings.territories?.farm && 
         <TerritoryBuilding 
           building={buildings.territories.farm} 
           tooltip={buildingTooltip.farm} 
           icon="/icons/buildings/farm.png"
         />
       }
-      {buildings.territories.lumberyard && 
+      {buildings.territories?.lumberyard && 
         <TerritoryBuilding 
           building={buildings.territories.lumberyard} 
           tooltip={buildingTooltip.lumberyard} 
