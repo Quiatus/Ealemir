@@ -18,19 +18,19 @@ export default function Habitats({data}: HabitatData) {
     <div className={styles.habitatWrapper}>
       <InfoTooltip data={villageTooltip.village}>
         <div className={styles.habitat}>
-          <Image src="/icons/buildings/village.png" alt="Village" width={40} height={40}/>
+          <Image src="/icons/buildings/village.png" alt="Village" width={32} height={32}/>
           <span>{formatNumber(Number(data.village.amount), 'short')}</span>
         </div>
       </InfoTooltip>
       <InfoTooltip data={settlementinfoTooltip.settlement} align="right">
         <div className={styles.habitat}>
-          <Image src="/icons/buildings/settlement.png" alt="Village" width={40} height={40}/>
+          <Image src="/icons/buildings/settlement.png" alt="Village" width={32} height={32}/>
           <span>{formatNumber(Number(data.settlement.amount), 'short')}</span>
         </div>
       </InfoTooltip>  
       <InfoTooltip data={cityinfoTooltip.city} align="right">
         <div className={styles.habitat}>
-          <Image src="/icons/buildings/city.png" alt="Village" width={40} height={40}/>
+          <Image src="/icons/buildings/city.png" alt="Village" width={32} height={32}/>
           <span>{formatNumber(Number(data.city.amount), 'short')}</span>
         </div>
       </InfoTooltip>  
