@@ -60,7 +60,8 @@ export type BuildingEffectModifiers = Partial<Record<BuildingEffectType, number>
 export interface PlayerBuildings {
   capital: CapitalLevel;
   capital_buildings: CapitalBuildingsQueue;
-  territories: Territories
+  territories: Territories;
+  habitats: Habitats
 }
 
 export interface CapitalLevel {
@@ -99,11 +100,24 @@ export interface TerritoriesStaticData {
   effect: BuildingEffectModifiers
 }
 
+export interface Habitats {
+  village: {
+    amount: number
+  };
+  settlement: {
+    amount: number
+  };
+  city: {
+    amount: number;
+    repair: number
+  }
+}
+
 // TOOLTIPS --------------------------------------------------------------
 
 export interface TooltipResourceDetail {
   label: string;
-  value: number;
+  value: number | string;
 }
 
 export interface InfoTooltipData {

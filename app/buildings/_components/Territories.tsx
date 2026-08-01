@@ -13,7 +13,7 @@ export default async function TerritoriesCard() {
   return (
     <Card title={text('feature_buildings.card_territories.title')} style="elevated" width="w-33">
       
-      <Habitats />
+      <Habitats data={buildings.habitats} />
 
       {buildings.territories.farm && 
         <TerritoryBuilding 

@@ -53,5 +53,17 @@ export const INITIAL_PLAYER_BUILDINGS = {
       built: 1,
       discovered: 1
     }
+  },
+  habitats: {
+    village: {
+      amount: 0
+    },
+    settlement: {
+      amount: 1
+    },
+    city: {
+      amount: 0,
+      repair: 0
+    }
   }
 }
