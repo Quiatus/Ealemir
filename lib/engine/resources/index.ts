@@ -1,14 +1,14 @@
-import { PlayerBuildings, PlayerResources } from "@/types/game"
+import { PlayerBuildings, PlayerEmpire, PlayerResources } from "@/types/game"
 import { calculatePopulationChange } from "./population"
 import { calculateGoldChange } from "./gold"
 import { calculateFoodChange } from "./food"
 import { calculateWoodChange } from "./wood"
 import { calculateStoneChange } from "./stone"
 
-export function calculateUpdatedResources(resources: PlayerResources, buildings: PlayerBuildings) {
-  const updatedPopulation = calculatePopulationChange(resources.population, buildings)
-  const updatedGold = calculateGoldChange(resources.gold, updatedPopulation.population)
-  const updatedFood = calculateFoodChange(resources.food, updatedPopulation.population, buildings)
+export function calculateUpdatedResources(resources: PlayerResources, buildings: PlayerBuildings, empire: PlayerEmpire) {
+  const updatedPopulation = calculatePopulationChange(resources.population, buildings, empire.rations)
+  const updatedGold = calculateGoldChange(resources.gold, updatedPopulation.population, empire.taxes)
+  const updatedFood = calculateFoodChange(resources.food, updatedPopulation.population, buildings, empire.rations)
   const updatedWood = calculateWoodChange(resources.wood, buildings)
   const updatedStone = calculateStoneChange(resources.stone, buildings)
  

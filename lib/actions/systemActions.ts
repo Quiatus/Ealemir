@@ -2,21 +2,22 @@
 
 import { supabase } from "../supabase"
 import { revalidatePath } from "next/cache"
-import { INITIAL_PLAYER_BUILDINGS, INITIAL_PLAYER_RESOURCES } from "../../config/initialState"
+import { INITIAL_PLAYER_BUILDINGS, INITIAL_PLAYER_EMPIRE, INITIAL_PLAYER_RESOURCES } from "../../config/initialState"
 import { calculateUpdatedResources } from "../engine/resources/index"
 import { redirect } from "next/navigation"
 import { calculateUpdatedBuildings } from "../engine/buildings/index"
 import { getData } from "../data/dal"
-import { PlayerBuildings, PlayerResources } from "@/types/game"
+import { PlayerBuildings, PlayerEmpire, PlayerResources } from "@/types/game"
 
 export async function progressTurn() {
-  const [currentResources, currentBuildings] = await Promise.all([
+  const [currentResources, currentBuildings, currentEmpire] = await Promise.all([
     getData<PlayerResources>('player_resources'),
-    getData<PlayerBuildings>('player_buildings')
+    getData<PlayerBuildings>('player_buildings'),
+    getData<PlayerEmpire>('player_empire'),
   ])
 
   const updatedBuildings = calculateUpdatedBuildings(currentBuildings)
-  const updatedResources = calculateUpdatedResources(currentResources, updatedBuildings)
+  const updatedResources = calculateUpdatedResources(currentResources, updatedBuildings, currentEmpire)
   
   const [resourcesResult, buildingsResult] = await Promise.all([
     supabase.from('player_resources').update(updatedResources).eq('id', 1),
@@ -40,15 +41,17 @@ export async function progressTurn() {
 }
 
 export async function resetGame() {
-  const [resourcesResult, buildingsResult] = await Promise.all([
+  const [resourcesResult, buildingsResult, empireResult] = await Promise.all([
     supabase.from('player_resources').update(INITIAL_PLAYER_RESOURCES).eq('id', 1),
-    supabase.from('player_buildings').update(INITIAL_PLAYER_BUILDINGS).eq('id', 1)
+    supabase.from('player_buildings').update(INITIAL_PLAYER_BUILDINGS).eq('id', 1),
+    supabase.from('player_empire').update(INITIAL_PLAYER_EMPIRE).eq('id', 1)
   ])
 
   if (resourcesResult.error || buildingsResult.error) {
     console.error("Database update failed:", {
       resources: resourcesResult.error,
-      buildings: buildingsResult.error
+      buildings: buildingsResult.error,
+      empire: empireResult.error
     })
         
     return { 

@@ -11,6 +11,16 @@ export interface GameData {
   buildings: PlayerBuildings;
 }
 
+// EMPIRE ----------------------------------------------------------------
+
+export type Rations = 'meager' | 'standard' | 'bountiful';
+export type Taxes = 'lenient' | 'standard' | 'oppresive';
+
+export interface PlayerEmpire {
+  taxes: Taxes
+  rations: Rations
+}
+
 // RESOURCES -------------------------------------------------------------
 
 export interface PlayerResources {

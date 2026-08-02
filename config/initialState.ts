@@ -1,4 +1,9 @@
-import { PlayerResources } from "@/types/game"
+import { PlayerEmpire, PlayerResources } from "@/types/game"
+
+export const INITIAL_PLAYER_EMPIRE: PlayerEmpire = {
+  taxes: 'standard',
+  rations: 'standard'
+}
 
 export const INITIAL_PLAYER_RESOURCES: PlayerResources = {
   turn: 0,

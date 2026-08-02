@@ -1,6 +1,6 @@
 import { randomResourceRange } from "@/lib/utilities"
 
-export function calculateGoldChange(gold: number, population: number) {
+export function calculateGoldChange(gold: number, population: number, taxes: string) {
   const incomeFromPopulation = randomResourceRange(population, 0.075, 0.125)
   const totalChange = incomeFromPopulation
   let totalGold = gold + incomeFromPopulation
