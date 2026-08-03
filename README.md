@@ -1,6 +1,6 @@
 To Do:
 
-[] add taxes, rations modifiers to empire management
+[X] add taxes, rations modifiers to empire management
 [] add resouce cost to basic buildings (houses, lumber, farms, quarries)
 [] complete building tooltip
 [] add resource checker that disables the button if not enough resources

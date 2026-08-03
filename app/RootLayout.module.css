@@ -15,6 +15,7 @@
 
 .mainWindow {
   grid-area: mainWindow;
+  
   background-color: transparent;
   overflow-y: auto;
   scroll-behavior: smooth; 

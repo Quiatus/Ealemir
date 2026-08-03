@@ -6,9 +6,9 @@ import styles from './EmpirePage.module.css'
 export default function EmpirePage() {
   return (
     <div className={styles.empirePage}>
-      <AbandonEmpireCard />
       <Taxes />
       <Rations />
+      <AbandonEmpireCard />
     </div>
   )
 }
