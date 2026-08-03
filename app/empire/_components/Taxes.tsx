@@ -13,8 +13,9 @@ export async function Taxes() {
     <Card title={text('feature_empire.card_taxes.title')} width="w-42" style="elevated">
       <p className="text-flavor">We can raise or lower the taxes upon our people, though it will heavily influence their happiness.</p>
       <div className="space-m full-width">
-
-      <p>{richText('feature_empire.card_taxes.effect_lenient', {tax: (TAXES_MODIFIER.lenient.income)*100, happiness: TAXES_MODIFIER.lenient.happiness})}</p>
+        <p className='space-m'>{richText('feature_empire.card_taxes.effect_lenient', {tax: (TAXES_MODIFIER.lenient.income)*100, happiness: TAXES_MODIFIER.lenient.happiness})}</p>
+        <p className='space-m'>{richText('feature_empire.card_taxes.effect_standard')}</p>
+        <p>{richText('feature_empire.card_taxes.effect_oppressive', {tax: (TAXES_MODIFIER.oppressive.income)*100-100, happiness: Math.abs(TAXES_MODIFIER.oppressive.happiness)})}</p>
       </div>
       <TaxSelector currentTaxes={taxes}/>
     </ Card>

@@ -76,13 +76,18 @@
       "text_lenient": "Lenient",
       "text_standard": "Standard",
       "text_oppressive": "Oppressive",
-      "effect_lenient": "<bold>Lenient:</bold> Lower taxes by <neg>{tax}%</neg>, increases happiness by <pos>{happiness}%</pos>."
+      "effect_lenient": "<bold>Lenient:</bold> Lowers taxes by <neg>{tax}%</neg>, rises happiness by <pos>{happiness}%</pos>.",
+      "effect_standard": "<bold>Standard:</bold> Default tax policy.",
+      "effect_oppressive": "<bold>Oppressive:</bold> Rises taxes by <pos>{tax}%</pos>, reduces happiness by <neg>{happiness}%</neg>."
     },
     "card_rations": {
       "title": "Rations",
       "text_meager": "Meager",
       "text_standard": "Standard",
-      "text_bountiful": "Bountiful"
+      "text_bountiful": "Bountiful",
+      "effect_meager": "<bold>Meager:</bold> Each ration sustains <pos>{food}</pos> citizens. Reduces population growth by <neg>{people}%</neg> and happiness by <neg>{happiness}%</neg>.",
+      "effect_standard": "<bold>Standard:</bold> Default rations policy.",
+      "effect_bountiful": "<bold>Bountiful:</bold> Each ration sustains <neg>{food}</neg> citizens. Rises population growth by <pos>{people}%</pos> and happiness by <pos>{happiness}%</pos>."
     }
   },
   "feature_buildings": {
