@@ -1,3 +1,4 @@
+import { richText } from "@/app/richText";
 import { HABITATS } from "@/config/buildings";
 import { formatNumber, text } from "@/lib/utilities";
 import { InfoTooltipData } from "@/types/game";
@@ -13,14 +14,14 @@ function buildCurrentMonthTooltip(): InfoTooltipData {
 function buildButtonNextMonthTooltip(customData: CustomDataType): InfoTooltipData {
   return {
     title: text('tooltips.info.current_month'),
-    message: text('tooltips.info.next_month_message', {age: formatNumber(Number(customData), 'year')})
+    message: richText('tooltips.info.next_month_message', {age: formatNumber(Number(customData), 'year')})
   }
 }
 
 function buildVillageTooltip(customData: CustomDataType): InfoTooltipData {
   return {
     title: text('tooltips.info.village'),
-    message: text('tooltips.info.village_message', {village_space: HABITATS.village.space}),
+    message: richText('tooltips.info.village_message', {village_space: HABITATS.village.space}),
     custom: [
       {
         label: text('tooltips.info.total'),
@@ -33,7 +34,7 @@ function buildVillageTooltip(customData: CustomDataType): InfoTooltipData {
 function buildSettlementTooltip(customData: CustomDataType): InfoTooltipData {
   return {
     title: text('tooltips.info.settlement'),
-    message: text('tooltips.info.settlement_message', {settlement_space: formatNumber(Number(HABITATS.settlement.space), 'full')}),
+    message: richText('tooltips.info.settlement_message', {settlement_space: formatNumber(Number(HABITATS.settlement.space), 'full')}),
     custom: [
       {
         label: text('tooltips.info.total'),
@@ -46,7 +47,7 @@ function buildSettlementTooltip(customData: CustomDataType): InfoTooltipData {
 function buildCityTooltip(customData: CustomDataType): InfoTooltipData {
   return {
     title: text('tooltips.info.city'),
-    message: text('tooltips.info.city_message', {city_space: formatNumber(Number(HABITATS.city.space), 'full'), city_repair: HABITATS.city.repair}),
+    message: richText('tooltips.info.city_message', {city_space: formatNumber(Number(HABITATS.city.space), 'full'), city_repair: HABITATS.city.repair}),
     custom: [
       {
         label: text('tooltips.info.total'),

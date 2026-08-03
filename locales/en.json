@@ -21,13 +21,13 @@
       "expenditure": "Expenditure",
       "change": "Change",
       "next_month": "Next month",
-      "next_month_message": "Our empire exists for {age}.",
+      "next_month_message": "Our empire exists for <norm>{age}</norm>.",
       "village": "Village",
-      "village_message": "Provides space for {village_space} people.",
+      "village_message": "Provides space for <norm>{village_space} people</norm>.",
       "settlement": "Settlement",
-      "settlement_message": "Provides space for {settlement_space} people.",
+      "settlement_message": "Provides space for <norm>{settlement_space} people</norm>.",
       "city": "City",
-      "city_message": "Provides space for {city_space} people.\n Conquered city takes {city_repair} months to repair."
+      "city_message": "Provides space for <norm>{city_space} people</norm>.\n Conquered city takes <norm>{city_repair} months</norm> to repair."
     },
     "gold_tooltip": {
       "title": "Gold",
@@ -75,7 +75,8 @@
       "title": "Taxes",
       "text_lenient": "Lenient",
       "text_standard": "Standard",
-      "text_oppressive": "Oppressive"
+      "text_oppressive": "Oppressive",
+      "effect_lenient": "<bold>Lenient:</bold> Lower taxes by <neg>{tax}%</neg>, increases happiness by <pos>{happiness}%</pos>."
     },
     "card_rations": {
       "title": "Rations",

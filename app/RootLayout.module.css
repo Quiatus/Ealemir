@@ -18,11 +18,10 @@
   background-color: transparent;
   overflow-y: auto;
   scroll-behavior: smooth; 
-  /* width: 1400px; */
-  max-width: 1400px;
+  width: 1450px;
   padding: 0 1.5rem;
   display: flex;
-  flex-direction: column;
+  /* flex-direction: column; */
 }
 
 .mainWindow::-webkit-scrollbar {

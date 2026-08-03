@@ -48,7 +48,7 @@ export default function CapitalCard() {
   const tooltip = dynamicInfoTooltip()
 
   return (
-    <Card title={text('feature_buildings.card_capital.title')}>
+    <Card title={text('feature_buildings.card_capital.title')} width="fit">
       <div className={styles.mapContainer}>
         <Image src={bgimage.src} alt="city" width={990} height={990}></Image>
           {build.map(b => <div key={b.id} style={{position: 'absolute', left: b.left, top: b.top}}>

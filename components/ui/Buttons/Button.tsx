@@ -14,5 +14,5 @@ export default function Button({children, variant='primary', className, isLoadin
     className
   )
 
-  return <button className={buttonClasses} disabled={disabled} {...props}>{isLoading ? "Decreeing..." : children}</button>
+  return <button className={buttonClasses} disabled={disabled} {...props}>{isLoading ? "..." : children}</button>
 }

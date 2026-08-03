@@ -3,13 +3,19 @@ import { getData } from "@/lib/data/dal";
 import { text } from "@/lib/utilities";
 import { PlayerEmpire } from "@/types/game";
 import { TaxSelector } from "./TaxSelector";
+import { richText } from "@/app/richText";
+import { TAXES_MODIFIER } from "@/config/empire";
 
 export async function Taxes() {
   const { taxes } = await getData<PlayerEmpire>('player_empire')
 
   return (
     <Card title={text('feature_empire.card_taxes.title')} width="w-42" style="elevated">
-      <p className="text-flavor space-l">We can raise or lower the taxes upon our people, though it will heavily influence their happiness.</p>
+      <p className="text-flavor">We can raise or lower the taxes upon our people, though it will heavily influence their happiness.</p>
+      <div className="space-m full-width">
+
+      <p>{richText('feature_empire.card_taxes.effect_lenient', {tax: (TAXES_MODIFIER.lenient.income)*100, happiness: TAXES_MODIFIER.lenient.happiness})}</p>
+      </div>
       <TaxSelector currentTaxes={taxes}/>
     </ Card>
   )

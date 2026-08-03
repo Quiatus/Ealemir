@@ -1,5 +1,7 @@
 // GENERAL ---------------------------------------------------------------
 
+import { ReactNode } from "react";
+
 export interface MenuItem {
   name: string;
   path: string;
@@ -132,7 +134,7 @@ export interface TooltipResourceDetail {
 
 export interface InfoTooltipData {
   title: string;
-  message?: string; 
+  message?: string | ReactNode; 
   custom?: TooltipResourceDetail[];
 }
 
