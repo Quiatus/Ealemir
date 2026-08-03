@@ -111,6 +111,10 @@ li {
   margin-left: 0.5rem;
 }
 
+.space-top-full {
+  margin-top: auto;
+}
+
 /* Flex classes */
 
 .cards-row {

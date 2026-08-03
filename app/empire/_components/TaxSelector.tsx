@@ -27,7 +27,7 @@ export function TaxSelector({ currentTaxes }: TaxSelectorProps) {
   }
 
   return (
-    <div className="buttons-row">
+    <div className="buttons-row space-top-full">
       <Button 
         variant={optimisticTaxes === 'lenient' ? 'active' : 'primary'}
         onClick={() => handleSelect('lenient')}

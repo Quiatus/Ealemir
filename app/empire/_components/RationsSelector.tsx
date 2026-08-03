@@ -27,7 +27,7 @@ export default function RationsSelector({ currentRations }: RationsSelectorProps
   }
 
   return (
-    <div className="buttons-row">
+    <div className="buttons-row space-top-full">
       <Button 
         variant={optimisticRations === 'meager' ? 'active' : 'primary'}
         onClick={() => handleSelect('meager')}
