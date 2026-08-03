@@ -5,7 +5,7 @@ import clsx from 'clsx';
 interface CardProps {
   title?: string;
   style?: 'normal' | 'elevated';
-  width?: 'full' | 'fit' | 'w-50' | 'w-25' | 'w-33';
+  width?: 'full' | 'fit' | 'w-50' | 'w-25' | 'w-38' | 'w-42';
   children: ReactNode;
 }
 

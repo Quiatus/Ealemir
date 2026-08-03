@@ -25,6 +25,22 @@
     0 10px 24px rgba(0, 0, 0, 0.4);
 }
 
+.w-25 {
+  width: 250px;
+}
+
+.w-38 {
+  width: 380px;
+}
+
+.w-42 {
+  width: 420px;
+}
+
+.w-50 {
+  width: 500px;
+}
+
 .full {
   width: 100%;
 }
@@ -33,14 +49,4 @@
   width: max-content;
 }
 
-.w-50 {
-  width: 50%;
-}
 
-.w-25 {
-  width: 25%;
-}
-
-.w-33 {
-  width: 33%;
-}

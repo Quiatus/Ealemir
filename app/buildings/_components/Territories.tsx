@@ -11,7 +11,7 @@ export default async function TerritoriesCard() {
   const buildingTooltip = dynamicBuildingTooltip()
 
   return (
-    <Card title={text('feature_buildings.card_territories.title')} style="elevated" width="w-33">
+    <Card title={text('feature_buildings.card_territories.title')} style="elevated" width="w-42">
       
       <Habitats data={buildings.habitats} />
 

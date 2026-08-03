@@ -15,9 +15,9 @@ export default function AbandonEmpireCard() {
     setIsResetModalOpen(false);
   };
   return (
-    <Card title={text('feature_empire.card_abandon_empire.title')} width="fit" style="elevated">
+    <Card title={text('feature_empire.card_abandon_empire.title')} width="w-38" style="elevated">
       
-      <p className="space-l">{text('feature_empire.card_abandon_empire.message')}</p>
+      <p className="text-flavor space-l">{text('feature_empire.card_abandon_empire.message')}</p>
       
       <div>
         <Button onClick={() => setIsResetModalOpen(true)}>{text('feature_empire.card_abandon_empire.button_abandon')}</Button>

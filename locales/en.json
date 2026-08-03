@@ -70,6 +70,18 @@
       "title": "Abandon Empire",
       "message": "Leave our people behind and found a new empire.",
       "button_abandon": "Abandon"
+    },
+    "card_taxes": {
+      "title": "Taxes",
+      "text_lenient": "Lenient",
+      "text_standard": "Standard",
+      "text_oppressive": "Oppressive"
+    },
+    "card_rations": {
+      "title": "Rations",
+      "text_meager": "Meager",
+      "text_standard": "Standard",
+      "text_bountiful": "Bountiful"
     }
   },
   "feature_buildings": {

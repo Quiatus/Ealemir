@@ -3,7 +3,7 @@ import { randomResourceRange } from "@/lib/utilities"
 import { Taxes } from "@/types/game"
 
 export function calculateGoldChange(gold: number, population: number, taxes: Taxes) {
-  const incomeFromPopulation = (randomResourceRange(population, 0.075, 0.125) * taxesModifier[taxes].income) 
+  const incomeFromPopulation = Math.floor(randomResourceRange(population, 0.075, 0.125) * taxesModifier[taxes].income) 
   const totalChange = incomeFromPopulation
   let totalGold = gold + incomeFromPopulation
 

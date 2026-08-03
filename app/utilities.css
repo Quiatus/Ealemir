@@ -127,6 +127,11 @@ li {
   justify-content: space-evenly;
 }
 
+.buttons-row {
+  display: flex;
+  gap: 1rem;
+}
+
 /* Borders */
 
 .border-top {

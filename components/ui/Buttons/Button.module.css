@@ -20,21 +20,13 @@
     0 2px 3px rgba(0, 0, 0, 0.7),
     0 4px 8px rgba(0, 0, 0, 0.8);
     
-  transition: all 0.05s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: box-shadow 0.1s ease, background-color 0.1s ease, transform 0.05s ease;
 }
 
 .buttonBase:disabled {
   background: #2a2a2a; 
   color: rgba(255, 255, 255, 0.4); 
-  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.8); 
-  cursor: default;
-}
-
-.buttonBase:disabled:hover,
-.buttonBase:disabled:active {
-  background: #2a2a2a; 
-  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.8);
-  transform: none; 
+  pointer-events: none ;
 }
 
 .buttonBase:hover {
@@ -59,7 +51,17 @@
 }
 
 .primary {
-  color: var(--color-text-primary);
+  color: var(--text-primary);
+}
+
+.active, .active:hover{
+  color: var(--text-primary);
+  text-shadow: 1px 1px 5px var(--btn-background),1px 1px 5px var(--btn-background);
+  background: linear-gradient(
+    to bottom,
+    var(--btn-active) 0%,
+    var(--btn-highlight) 100%
+  );
 }
 
 .danger{
