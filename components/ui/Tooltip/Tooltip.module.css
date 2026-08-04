@@ -64,7 +64,7 @@
   font-family: var(--font-cinzel);
   font-size: 1.1rem;
   font-weight: 500;
-  color: var(--text-primary);
+  color: var(--text-orange);
   border-bottom: 1px solid var(--btn-highlight);
   margin-bottom: 0.5rem;
 }

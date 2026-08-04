@@ -3,22 +3,23 @@ import { ResourceItem } from './ResourceItem'
 import { dynamicResourceTooltip } from '@/lib/adapters/tooltips/resourceTooltips'
 import ResourceTooltip from '../Tooltip/ResourceTooltip'
 import Happiness from './Happiness'
-import Readiness from './Readiness'
 import { getData } from '@/lib/data/dal'
-import { PlayerBuildings, PlayerResources } from '@/types/game'
+import { PlayerBuildings, PlayerEmpire, PlayerResources } from '@/types/game'
 import SpecialResourcesBar from './SpecialResourcesBar'
 import { dynamicInfoTooltip } from '@/lib/adapters/tooltips/infoTooltips'
 import InfoTooltip from '../Tooltip/InfoTooltip'
+import ArmyStatus from './ArmyStatus'
 
 export default async function TopBar() {
-  const [resources, buildings] = await Promise.all([
+  const [resources, buildings, empire] = await Promise.all([
     getData<PlayerResources>('player_resources'),
-    getData<PlayerBuildings>('player_buildings')
+    getData<PlayerBuildings>('player_buildings'),
+    getData<PlayerEmpire>('player_empire')
   ])
   const resourceTooltip = dynamicResourceTooltip(resources, buildings)
   const mightTooltip = dynamicInfoTooltip(0)
   const happinessTooltip = dynamicInfoTooltip()
-  const readinessTooltip = dynamicInfoTooltip()
+  const statusTooltip = dynamicInfoTooltip()
 
   return (
     <header className={styles.topBar}>
@@ -50,10 +51,10 @@ export default async function TopBar() {
           <ResourceItem icon='/icons/resources/might.png' label='Might' value={0} color='primary'/>
         </InfoTooltip>
         <InfoTooltip data={happinessTooltip.happiness}>
-          <Happiness />
+          <Happiness data={empire} />
         </InfoTooltip>
-        <InfoTooltip data={readinessTooltip.readiness}>
-          <Readiness />
+        <InfoTooltip data={statusTooltip.status}>
+          <ArmyStatus status='Exhausted'/>
         </InfoTooltip>
       </div>
     </header>

@@ -29,25 +29,26 @@ export function TaxSelector({ currentTaxes }: TaxSelectorProps) {
   return (
     <div className="buttons-row space-top-full">
       <Button 
-        variant={optimisticTaxes === 'lenient' ? 'active' : 'primary'}
-        onClick={() => handleSelect('lenient')}
+        variant={optimisticTaxes === 'oppressive' ? 'active' : 'primary'}
+        onClick={() => handleSelect('oppressive')}
       >
-        {text('feature_empire.card_taxes.text_lenient')}
+        {text('feature_empire.card_taxes.text_oppressive')}
       </Button>
-
+      
       <Button 
         variant={optimisticTaxes === 'standard' ? 'active' : 'primary'}
         onClick={() => handleSelect('standard')}
       >
         {text('feature_empire.card_taxes.text_standard')}
       </Button>
-
+      
       <Button 
-        variant={optimisticTaxes === 'oppressive' ? 'active' : 'primary'}
-        onClick={() => handleSelect('oppressive')}
+        variant={optimisticTaxes === 'lenient' ? 'active' : 'primary'}
+        onClick={() => handleSelect('lenient')}
       >
-        {text('feature_empire.card_taxes.text_oppressive')}
+        {text('feature_empire.card_taxes.text_lenient')}
       </Button>
+      
     </div>
   )
 }

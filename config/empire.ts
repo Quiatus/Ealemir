@@ -9,7 +9,7 @@ export const TAXES_MODIFIER = {
   },
   oppressive: {
     income: 1.5,
-    happiness: -50
+    happiness: -25
   }
 }
 

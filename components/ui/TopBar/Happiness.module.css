@@ -1,9 +1,18 @@
 .base {
   padding: 0 0.5rem;
   font-family: var(--font-display);
-  font-weight: bold;
   font-size: 1.2rem;
   display: flex;
   align-items: center;
   gap: 0.5rem;
+}
+
+.happiness {
+  font-weight: 600;
+  width: 85px;
+}
+
+.status {
+  font-weight: 500;
+  width: 175px
 }

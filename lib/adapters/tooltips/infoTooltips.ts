@@ -77,7 +77,7 @@ function buildHappinessTooltip(): InfoTooltipData {
   }
 }
 
-function buildArmyReadinessTooltip(): InfoTooltipData {
+function buildArmyStatusTooltip(): InfoTooltipData {
   return {
     title: text('tooltips.info.readiness'),
     message: richText('tooltips.info.readiness_message')
@@ -93,6 +93,6 @@ export function dynamicInfoTooltip(customData?: string | number ) {
     city: buildCityTooltip(customData),
     might: buildMightTooltip(customData),
     happiness: buildHappinessTooltip(),
-    readiness: buildArmyReadinessTooltip()
+    status: buildArmyStatusTooltip()
   }
 }
