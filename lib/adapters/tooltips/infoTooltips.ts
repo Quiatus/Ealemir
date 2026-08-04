@@ -57,12 +57,42 @@ function buildCityTooltip(customData: CustomDataType): InfoTooltipData {
   }
 }
 
+function buildMightTooltip(customData: CustomDataType): InfoTooltipData {
+  return {
+    title: text('tooltips.info.might'),
+    message: richText('tooltips.info.might_message'),
+    custom: [
+      {
+        label: text('tooltips.info.total'),
+        value: formatNumber(Number(customData), 'full')
+      }
+    ]
+  }
+}
+
+function buildHappinessTooltip(): InfoTooltipData {
+  return {
+    title: text('tooltips.info.happiness'),
+    message: richText('tooltips.info.happiness_message')
+  }
+}
+
+function buildArmyReadinessTooltip(): InfoTooltipData {
+  return {
+    title: text('tooltips.info.readiness'),
+    message: richText('tooltips.info.readiness_message')
+  }
+}
+
 export function dynamicInfoTooltip(customData?: string | number ) {
   return { 
     currentMonth: buildCurrentMonthTooltip(),
     buttonNextMonth: buildButtonNextMonthTooltip(customData),
     village: buildVillageTooltip(customData),
     settlement: buildSettlementTooltip(customData),
-    city: buildCityTooltip(customData)
+    city: buildCityTooltip(customData),
+    might: buildMightTooltip(customData),
+    happiness: buildHappinessTooltip(),
+    readiness: buildArmyReadinessTooltip()
   }
 }

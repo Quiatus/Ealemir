@@ -1,7 +1,7 @@
 To Do:
 
 [X] add taxes, rations modifiers to empire management
-[] add remaining resources to topbar
+[X] add remaining resources to topbar
 [] add happiness calculator
 [] add resouce cost to basic buildings (houses, lumber, farms, quarries)
 [] complete building tooltip

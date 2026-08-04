@@ -27,7 +27,13 @@
       "settlement": "Settlement",
       "settlement_message": "Provides space for <norm>{settlement_space} people</norm>.",
       "city": "City",
-      "city_message": "Provides space for <norm>{city_space} people</norm>.\n Conquered city takes <norm>{city_repair} months</norm> to repair."
+      "city_message": "Provides space for <norm>{city_space} people</norm>.\n Conquered city takes <norm>{city_repair} months</norm> to repair.",
+      "might": "Might",
+      "might_message": "Total military might of our empire.",
+      "happiness": "Happiness",
+      "happiness_message": "Low happiness will drive our people to rebel and flee the realm, while high happiness will cause our numbers to flourish.",
+      "readiness": "Army status",
+      "readiness_message": "Our armies can attack once per month. After that, they become exhausted."
     },
     "gold_tooltip": {
       "title": "Gold",
