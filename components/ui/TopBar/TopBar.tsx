@@ -2,8 +2,11 @@ import styles from './TopBar.module.css'
 import { ResourceItem } from './ResourceItem'
 import { dynamicResourceTooltip } from '@/lib/adapters/tooltips/resourceTooltips'
 import ResourceTooltip from '../Tooltip/ResourceTooltip'
+import Happiness from './Happiness'
+import Readiness from './Readiness'
 import { getData } from '@/lib/data/dal'
 import { PlayerBuildings, PlayerResources } from '@/types/game'
+import SpecialResourcesBar from './SpecialResourcesBar'
 
 export default async function TopBar() {
   const [resources, buildings] = await Promise.all([
@@ -32,8 +35,20 @@ export default async function TopBar() {
         </ResourceTooltip>
       </div>
       <div className={styles.section}>
+        <SpecialResourcesBar />
+      </div>
+      <div className={styles.section}>
         <ResourceTooltip data={resourceTooltip.fame}>
           <ResourceItem icon='/icons/resources/fame.png' label='Fame' value={resources.fame} color={resourceTooltip.fame.color}/>
+        </ResourceTooltip>
+        <ResourceTooltip data={resourceTooltip.fame}>
+          <ResourceItem icon='/icons/resources/fame.png' label='Fame' value={resources.fame} color={resourceTooltip.fame.color}/>
+        </ResourceTooltip>
+        <ResourceTooltip data={resourceTooltip.fame}>
+          <Happiness />
+        </ResourceTooltip>
+        <ResourceTooltip data={resourceTooltip.fame}>
+          <Readiness />
         </ResourceTooltip>
       </div>
     </header>
