@@ -68,6 +68,8 @@ export interface LastTurnResourceReport {
 
 export type BuildingEffectType = 'gold' | 'wood' | 'stone' | 'food' | 'population' | 'space' | 'fame';
 export type BuildingEffectModifiers = Partial<Record<BuildingEffectType, number>>;
+export type BuildingCostType = 'turn' | 'gold' | 'wood' | 'stone';
+export type BuildingCostModifier = Partial<Record<BuildingCostType, number>>
 
 export interface PlayerBuildings {
   capital: CapitalLevel;
@@ -98,18 +100,21 @@ export interface CapitalStaticData {
   food: number;
   name: string;
   space: number;
+  cost: BuildingCostModifier;
 }
 
 export interface CapitalBuildingsStaticData {
   name: string;
   description: string;
   effect: BuildingEffectModifiers
+  cost: BuildingCostModifier;
 }
 
 export interface TerritoriesStaticData {
   name: string;
   description: string;
   effect: BuildingEffectModifiers
+  cost: BuildingCostModifier;
 }
 
 export interface Habitats {

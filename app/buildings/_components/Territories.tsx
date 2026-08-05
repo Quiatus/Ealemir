@@ -8,6 +8,7 @@ import Habitats from "./Habitats";
 
 export default async function TerritoriesCard() {
   const buildings = await getData<PlayerBuildings>('player_buildings')
+  const resources = await getData<PlayerBuildings>('player_buildings')
   const buildingTooltip = dynamicBuildingTooltip()
 
   return (
