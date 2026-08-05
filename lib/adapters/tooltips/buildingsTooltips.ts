@@ -13,9 +13,17 @@ function buildLumberyardTooltip(): BuildingTooltipData {
   };
 }
 
+function buildQuarryTooltip(): BuildingTooltipData {
+  return {
+    title: text('tooltips.quarry_tooltip.title'),
+  };
+}
+
+
 export function dynamicBuildingTooltip() {
   return {
     farm: buildFarmTooltip(),
-    lumberyard: buildLumberyardTooltip()
+    lumberyard: buildLumberyardTooltip(),
+    quarry: buildQuarryTooltip(),
   };
 }

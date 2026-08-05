@@ -58,6 +58,10 @@ export const INITIAL_PLAYER_BUILDINGS = {
     lumberyard: {
       built: 1,
       discovered: 1
+    },
+    quarry: {
+      built: 1,
+      discovered: 1
     }
   },
   habitats: {
