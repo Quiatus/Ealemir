@@ -70,10 +70,10 @@ function buildMightTooltip(customData: CustomDataType): InfoTooltipData {
   }
 }
 
-function buildHappinessTooltip(): InfoTooltipData {
+function buildMoraleTooltip(): InfoTooltipData {
   return {
-    title: text('tooltips.info.happiness'),
-    message: richText('tooltips.info.happiness_message')
+    title: text('tooltips.info.morale'),
+    message: richText('tooltips.info.morale_message')
   }
 }
 
@@ -92,7 +92,7 @@ export function dynamicInfoTooltip(customData?: string | number ) {
     settlement: buildSettlementTooltip(customData),
     city: buildCityTooltip(customData),
     might: buildMightTooltip(customData),
-    happiness: buildHappinessTooltip(),
+    morale: buildMoraleTooltip(),
     status: buildArmyStatusTooltip()
   }
 }

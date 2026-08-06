@@ -15,12 +15,14 @@ export interface GameData {
 
 // EMPIRE ----------------------------------------------------------------
 
-export type Rations = 'meager' | 'standard' | 'bountiful';
-export type Taxes = 'lenient' | 'standard' | 'oppressive';
+export type Rations = 'meager' | 'sufficient' | 'bountiful';
+export type Taxes = 'lenient' | 'customary' | 'oppressive';
+export type Production = 'restrained' | 'steady' | 'grueling'
 
 export interface PlayerEmpire {
-  taxes: Taxes
-  rations: Rations
+  taxes: Taxes;
+  rations: Rations;
+  production: Production
 }
 
 export interface PolicyOption<T> {

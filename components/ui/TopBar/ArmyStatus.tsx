@@ -1,5 +1,5 @@
 import Image from 'next/image'
-import styles from './Happiness.module.css'
+import styles from './Morale.module.css'
 
 type ArmyStatus = {
   status: 'Ready' | 'Exhausted' | 'Cursed'

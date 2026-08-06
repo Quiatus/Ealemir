@@ -30,8 +30,8 @@
       "city_message": "Provides space for <norm>{city_space} people</norm>.\n Conquered city takes <norm>{city_repair} months</norm> to repair.",
       "might": "Might",
       "might_message": "Total military might of our empire.",
-      "happiness": "Happiness",
-      "happiness_message": "Low happiness will drive our people to rebel and flee the realm, while high happiness will cause our numbers to flourish.",
+      "morale": "Morale",
+      "morale_message": "Low morale will drive our people to rebel and flee the realm, while high morale will cause our numbers to flourish.",
       "readiness": "Army status",
       "readiness_message": "Our armies can attack once per month. After that, they become exhausted."
     },
@@ -82,23 +82,33 @@
     },
     "card_taxes": {
       "title": "Taxes",
-      "flavor_text": "We can raise or lower the taxes upon our people, though it will heavily influence their happiness.",
+      "flavor_text": "We can raise or lower the taxes upon our people, though it will heavily influence their morale.",
       "text_lenient": "Lenient",
-      "text_standard": "Standard",
+      "text_customary": "Customary",
       "text_oppressive": "Oppressive",
-      "effect_lenient": "Lowers taxes by <neg>{tax}%</neg>, rises happiness by <pos>{happiness}%</pos>.",
-      "effect_standard": "Default tax policy.",
-      "effect_oppressive": "Rises taxes by <pos>{tax}%</pos>, reduces happiness by <neg>{happiness}%</neg>."
+      "effect_lenient": "Lowers taxes by <neg>{tax}%</neg>. Rises morale by <pos>{morale}%</pos>.",
+      "effect_customary": "Default tax policy.",
+      "effect_oppressive": "Rises taxes by <pos>{tax}%</pos>. Reduces morale by <neg>{morale}%</neg>."
     },
     "card_rations": {
       "title": "Rations",
-      "flavor_text": "We can adjust the monthly food rations of our people, which will directly influence their happiness and the growth rate of the realm.",
+      "flavor_text": "We can adjust the monthly food rations of our people, which will directly influence their morale and the growth rate of the realm.",
       "text_meager": "Meager",
-      "text_standard": "Standard",
+      "text_sufficient": "Sufficient",
       "text_bountiful": "Bountiful",
-      "effect_meager": "Each ration sustains <pos>{food}</pos> citizens. Reduces population growth by <neg>{people}%</neg> and happiness by <neg>{happiness}%</neg>.",
-      "effect_standard": "Default rations policy.",
-      "effect_bountiful": "Each ration sustains <neg>{food}</neg> citizens. Rises population growth by <pos>{people}%</pos> and happiness by <pos>{happiness}%</pos>."
+      "effect_meager": "Each ration sustains <pos>{food}</pos> citizens. Reduces population growth by <neg>{people}%</neg> and morale by <neg>{morale}%</neg>.",
+      "effect_sufficient": "Default rations policy.",
+      "effect_bountiful": "Each ration sustains <neg>{food}</neg> citizens. Rises population growth by <pos>{people}%</pos> and morale by <pos>{morale}%</pos>."
+    },
+    "card_production": {
+      "title": "Production",
+      "flavor_text": "Adjust production across our farms, lumberyards and quarries. Grueling labor increases output, but drains food and lowers morale.",
+      "text_restrained": "Restrained",
+      "text_steady": "Steady",
+      "text_grueling": "Grueling",
+      "effect_restrained": "Lessens production by <neg>{production}%</neg>. Reduces ration demands by <pos>{food}%</pos> and rises morale by <pos>{morale}%</pos>.",
+      "effect_steady": "Default production policy.",
+      "effect_grueling": "Inceases production by <pos>{production}%</pos>. Rises ration demands by <neg>{food}%</neg> and reduces morale by <neg>{morale}%</neg>."
     }
   },
   "feature_buildings": {

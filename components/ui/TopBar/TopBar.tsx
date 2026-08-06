@@ -2,13 +2,13 @@ import styles from './TopBar.module.css'
 import { ResourceItem } from './ResourceItem'
 import { dynamicResourceTooltip } from '@/lib/adapters/tooltips/resourceTooltips'
 import ResourceTooltip from '../Tooltip/ResourceTooltip'
-import Happiness from './Happiness'
 import { getData } from '@/lib/data/dal'
 import { PlayerBuildings, PlayerEmpire, PlayerResources } from '@/types/game'
 import SpecialResourcesBar from './SpecialResourcesBar'
 import { dynamicInfoTooltip } from '@/lib/adapters/tooltips/infoTooltips'
 import InfoTooltip from '../Tooltip/InfoTooltip'
 import ArmyStatus from './ArmyStatus'
+import Morale from './Morale'
 
 export default async function TopBar() {
   const [resources, buildings, empire] = await Promise.all([
@@ -18,7 +18,7 @@ export default async function TopBar() {
   ])
   const resourceTooltip = dynamicResourceTooltip(resources, buildings)
   const mightTooltip = dynamicInfoTooltip(0)
-  const happinessTooltip = dynamicInfoTooltip()
+  const moraleTooltip = dynamicInfoTooltip()
   const statusTooltip = dynamicInfoTooltip()
 
   return (
@@ -50,8 +50,8 @@ export default async function TopBar() {
         <InfoTooltip data={mightTooltip.might}>
           <ResourceItem icon='/icons/resources/might.png' label='Might' value={0} color='primary'/>
         </InfoTooltip>
-        <InfoTooltip data={happinessTooltip.happiness}>
-          <Happiness data={empire} />
+        <InfoTooltip data={moraleTooltip.morale}>
+          <Morale data={empire} />
         </InfoTooltip>
         <InfoTooltip data={statusTooltip.status}>
           <ArmyStatus status='Exhausted'/>

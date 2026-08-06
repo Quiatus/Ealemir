@@ -16,20 +16,20 @@ export default async function TaxPolicy() {
       label: text('feature_empire.card_taxes.text_oppressive'),
       description: richText('feature_empire.card_taxes.effect_oppressive', {
         tax: (TAXES_MODIFIER.oppressive.income) * 100 - 100, 
-        happiness: Math.abs(TAXES_MODIFIER.oppressive.happiness)
+        morale: Math.abs(TAXES_MODIFIER.oppressive.morale)
       })
     },
     {
-      id: 'standard',
-      label: text('feature_empire.card_taxes.text_standard'),
-      description: richText('feature_empire.card_taxes.effect_standard')
+      id: 'customary',
+      label: text('feature_empire.card_taxes.text_customary'),
+      description: richText('feature_empire.card_taxes.effect_customary')
     },
     {
       id: 'lenient',
       label: text('feature_empire.card_taxes.text_lenient'),
       description: richText('feature_empire.card_taxes.effect_lenient', {
         tax: (TAXES_MODIFIER.lenient.income) * 100, 
-        happiness: TAXES_MODIFIER.lenient.happiness
+        morale: TAXES_MODIFIER.lenient.morale
       })
     }
   ]

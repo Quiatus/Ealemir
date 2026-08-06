@@ -6,11 +6,11 @@ import { calculateWoodChange } from "./wood"
 import { calculateStoneChange } from "./stone"
 
 export function calculateUpdatedResources(resources: PlayerResources, buildings: PlayerBuildings, empire: PlayerEmpire) {
-  const updatedPopulation = calculatePopulationChange(resources.population, buildings, empire.rations)
+  const updatedPopulation = calculatePopulationChange(resources.population, buildings, empire)
   const updatedGold = calculateGoldChange(resources.gold, updatedPopulation.population, empire.taxes)
-  const updatedFood = calculateFoodChange(resources.food, updatedPopulation.population, buildings, empire.rations)
-  const updatedWood = calculateWoodChange(resources.wood, buildings)
-  const updatedStone = calculateStoneChange(resources.stone, buildings)
+  const updatedFood = calculateFoodChange(resources.food, updatedPopulation.population, buildings, empire)
+  const updatedWood = calculateWoodChange(resources.wood, buildings, empire.production)
+  const updatedStone = calculateStoneChange(resources.stone, buildings, empire.production)
  
   return {
     ...resources,

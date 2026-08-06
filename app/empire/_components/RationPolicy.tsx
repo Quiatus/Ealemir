@@ -16,14 +16,14 @@ export default async function RationPolicy() {
       label: text('feature_empire.card_rations.text_meager'),
       description: richText('feature_empire.card_rations.effect_meager', {
         food: RATIONS_MODIFIER.meager.consumption, 
-        people: (RATIONS_MODIFIER.meager.populationGrowth) * 100, 
-        happiness: Math.abs(RATIONS_MODIFIER.meager.happiness)
+        people: (RATIONS_MODIFIER.meager.populationGrowth) * 100 - 50, 
+        morale: Math.abs(RATIONS_MODIFIER.meager.morale)
       })
     },
     {
-      id: 'standard',
-      label: text('feature_empire.card_rations.text_standard'),
-      description: richText('feature_empire.card_rations.effect_standard')
+      id: 'sufficient',
+      label: text('feature_empire.card_rations.text_sufficient'),
+      description: richText('feature_empire.card_rations.effect_sufficient')
     },
     {
       id: 'bountiful',
@@ -31,7 +31,7 @@ export default async function RationPolicy() {
       description: richText('feature_empire.card_rations.effect_bountiful', {
         food: RATIONS_MODIFIER.bountiful.consumption, 
         people: (RATIONS_MODIFIER.bountiful.populationGrowth) * 100 - 100, 
-        happiness: RATIONS_MODIFIER.bountiful.happiness
+        morale: RATIONS_MODIFIER.bountiful.morale
       })
     }
   ]

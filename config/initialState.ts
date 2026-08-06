@@ -1,8 +1,9 @@
 import { PlayerEmpire, PlayerResources } from "@/types/game"
 
 export const INITIAL_PLAYER_EMPIRE: PlayerEmpire = {
-  taxes: 'standard',
-  rations: 'standard'
+  taxes: 'customary',
+  rations: 'sufficient',
+  production: 'steady'
 }
 
 export const INITIAL_PLAYER_RESOURCES: PlayerResources = {
