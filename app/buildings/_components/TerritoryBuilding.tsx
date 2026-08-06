@@ -33,7 +33,6 @@ function ProgressBar({ current, max }: ProgressBarProps) {
 export default function TerritoryBuilding({building, buildingCost, resources, tooltip, icon}: TerritoryBuildingProps) {
   const isDisabled = disableBuildButton(building, buildingCost, resources)
 
-  console.log(isDisabled.missingCosts)
   return (
     <BuildingTooltip data={tooltip}>
       <div className={styles.buildingCard}>

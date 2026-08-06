@@ -23,6 +23,12 @@ export interface PlayerEmpire {
   rations: Rations
 }
 
+export interface PolicyOption<T> {
+  id: T;
+  label: string;
+  description: ReactNode; 
+}
+
 // RESOURCES -------------------------------------------------------------
 
 export interface PlayerResources {

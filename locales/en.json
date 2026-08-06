@@ -82,6 +82,7 @@
     },
     "card_taxes": {
       "title": "Taxes",
+      "flavor_text": "We can raise or lower the taxes upon our people, though it will heavily influence their happiness.",
       "text_lenient": "Lenient",
       "text_standard": "Standard",
       "text_oppressive": "Oppressive",
@@ -91,6 +92,7 @@
     },
     "card_rations": {
       "title": "Rations",
+      "flavor_text": "We can adjust the monthly food rations of our people, which will directly influence their happiness and the growth rate of the realm.",
       "text_meager": "Meager",
       "text_standard": "Standard",
       "text_bountiful": "Bountiful",
