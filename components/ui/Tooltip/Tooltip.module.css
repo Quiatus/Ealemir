@@ -73,3 +73,18 @@
   display: flex;
   justify-content: space-between;
 }
+
+.costRow {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  justify-content: left;
+  align-items: center;
+}
+
+.cost {
+  display: flex;
+  gap: 0.2rem;
+  align-items: center;
+  justify-content: left;
+}

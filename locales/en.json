@@ -33,7 +33,8 @@
       "morale": "Morale",
       "morale_message": "Low morale will drive our people to rebel and flee the realm, while high morale will cause our numbers to flourish.",
       "readiness": "Army status",
-      "readiness_message": "Our armies can attack once per month. After that, they become exhausted."
+      "readiness_message": "Our armies can attack once per month. After that, they become exhausted.",
+      "missing_space": "We do not have enough space."
     },
     "gold_tooltip": {
       "title": "Gold",
@@ -65,13 +66,16 @@
       "loss": "Lost"
     },
     "farm_tooltip": {
-      "title": "Farm"
+      "title": "Farm",
+      "effect_message": "Produces <norm>{food} food</norm> each month."
     },
     "lumberyard_tooltip": {
-      "title": "Lumberyard"
+      "title": "Lumberyard",
+      "effect_message": "Produces <norm>{wood} wood</norm> each month."
     },
     "quarry_tooltip": {
-      "title": "Quarry"
+      "title": "Quarry",
+      "effect_message": "Produces <norm>{stone} stone</norm> each month."
     }
   },
   "feature_empire": {

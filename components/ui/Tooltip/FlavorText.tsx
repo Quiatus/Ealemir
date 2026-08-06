@@ -1,4 +1,6 @@
-export default function FlavorText ({ text }: { text?: string }) {
+import { ReactNode } from "react";
+
+export default function FlavorText ({ text }: { text?: string | ReactNode}) {
   if (!text) return null;
 
   return (

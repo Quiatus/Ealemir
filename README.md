@@ -5,8 +5,8 @@ To Do:
 [X] add happiness calculator
 [X] add resouce cost to basic buildings (houses, lumber, farms, quarries)
 [X] add resource checker that disables the button if not enough resources
-[] add production booster
-[] complete building tooltip
+[X] add production booster
+[X] complete building tooltip
 [] add overview for resource gatherer
 [] add building construction function for basic territory buildings (farms, lumber, quarry)
   |-> add the checker here as well

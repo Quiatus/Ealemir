@@ -34,7 +34,7 @@ export default function TerritoryBuilding({building, buildingCost, resources, to
   const isDisabled = disableBuildButton(building, buildingCost, resources)
 
   return (
-    <BuildingTooltip data={tooltip}>
+    <BuildingTooltip data={tooltip} missing={isDisabled}>
       <div className={styles.buildingCard}>
         <Image src={icon} alt="Farm" width={40} height={40}></Image>
         <Button variant="plus" disabled={isDisabled.disable}>+</Button>

@@ -7,11 +7,12 @@ type buildingProp = {
 
 export function disableBuildButton( building: buildingProp, buildingCost: BuildingCostType, resources: PlayerResources) {
   let disable = false
+  let missingSpace = false
   const missingCosts = []
 
   if (building.built === building.discovered) {
     disable = true
-    missingCosts.push('space')
+    missingSpace = true
   }
 
   if (buildingCost.gold > resources.gold) {
@@ -31,6 +32,7 @@ export function disableBuildButton( building: buildingProp, buildingCost: Buildi
 
   return {
     disable,
+    missingSpace,
     missingCosts
   }
 }

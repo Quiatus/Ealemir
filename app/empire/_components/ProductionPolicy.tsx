@@ -12,12 +12,12 @@ export default async function ProductionPolicy() {
   
   const productionOptions: PolicyOption<Production>[] = [
     {
-      id: 'restrained',
-      label: text('feature_empire.card_production.text_restrained'),
-      description: richText('feature_empire.card_production.effect_restrained', {
-        food: PRODUCTION_MODIFIER.restrained.consumption * 100, 
-        production: (PRODUCTION_MODIFIER.restrained.production) * 100 - 50, 
-        morale: PRODUCTION_MODIFIER.restrained.morale
+      id: 'grueling',
+      label: text('feature_empire.card_production.text_grueling'),
+      description: richText('feature_empire.card_production.effect_grueling', {
+        food: PRODUCTION_MODIFIER.grueling.consumption * 100 - 100, 
+        production: (PRODUCTION_MODIFIER.grueling.production) * 100 - 100, 
+        morale: Math.abs(PRODUCTION_MODIFIER.grueling.morale)
       })
     },
     {
@@ -26,14 +26,14 @@ export default async function ProductionPolicy() {
       description: richText('feature_empire.card_production.effect_steady')
     },
     {
-      id: 'grueling',
-      label: text('feature_empire.card_production.text_grueling'),
-      description: richText('feature_empire.card_production.effect_grueling', {
-        food: PRODUCTION_MODIFIER.grueling.consumption * 100 - 100, 
-        production: (PRODUCTION_MODIFIER.grueling.production) * 100 - 100, 
-        morale: Math.abs(PRODUCTION_MODIFIER.grueling.morale)
+      id: 'restrained',
+      label: text('feature_empire.card_production.text_restrained'),
+      description: richText('feature_empire.card_production.effect_restrained', {
+        food: PRODUCTION_MODIFIER.restrained.consumption * 100, 
+        production: (PRODUCTION_MODIFIER.restrained.production) * 100 - 50, 
+        morale: PRODUCTION_MODIFIER.restrained.morale
       })
-    }
+    }    
   ]
 
   return (
