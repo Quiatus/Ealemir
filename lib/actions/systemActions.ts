@@ -8,6 +8,7 @@ import { redirect } from "next/navigation"
 import { calculateUpdatedBuildings } from "../engine/buildings/index"
 import { getData } from "../data/dal"
 import { PlayerBuildings, PlayerEmpire, PlayerResources } from "@/types/game"
+import { text } from "../utilities"
 
 export async function progressTurn() {
   const [currentResources, currentBuildings, currentEmpire] = await Promise.all([
@@ -32,7 +33,7 @@ export async function progressTurn() {
       
     return { 
       success: false, 
-      message: "A dark magic disrupted the realm. Your turn could not be completed." 
+      message: text("errors.progress_turn_failed_message")
     }
   }
 

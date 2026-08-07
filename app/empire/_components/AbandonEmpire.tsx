@@ -31,7 +31,7 @@ export default function AbandonEmpireCard() {
         cancelText={text('general.reset_window.button_cancel')}
         onConfirm={handleResetConfirm}
         onCancel={() => setIsResetModalOpen(false)}
-        />
+      />
     </Card>
 
   )

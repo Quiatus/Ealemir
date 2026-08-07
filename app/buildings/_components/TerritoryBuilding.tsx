@@ -58,18 +58,18 @@ export default function TerritoryBuilding({building, buildingCost, resources, to
 
   return (
     <>
-    <BuildingTooltip data={tooltip} missing={isDisabled}>
-      <div className={styles.buildingCard}>
-        <Image src={icon} alt="Farm" width={40} height={40}></Image>
-        <Button variant="plus" disabled={isDisabled.disable} onClick={() => handleBuild()}>+</Button>
-        <ProgressBar current={building.built} max={building.discovered} />
-      </div>
-    </BuildingTooltip>
-    <ErrorModal 
-      isOpen={isErrorModalOpen}
-      title={text("errors.construction_failed_title")}
-      message={errorMessage} 
-      onConfirm={() => {
+      <BuildingTooltip data={tooltip} missing={isDisabled}>
+        <div className={styles.buildingCard}>
+          <Image src={icon} alt="Farm" width={40} height={40}></Image>
+          <Button variant="plus" disabled={isDisabled.disable} onClick={() => handleBuild()}>+</Button>
+          <ProgressBar current={building.built} max={building.discovered} />
+        </div>
+      </BuildingTooltip>
+      <ErrorModal 
+        isOpen={isErrorModalOpen}
+        title={text("errors.construction_failed_title")}
+        message={errorMessage} 
+        onConfirm={() => {
           setIsErrorModalOpen(false)
           setErrorMessage(null) 
         }}

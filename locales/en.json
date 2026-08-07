@@ -144,6 +144,8 @@
   },
   "errors": {
     "construction_failed_title": "Construction failed",
-    "construction_failed_message": "A dark magic disrupted construction."
+    "construction_failed_message": "A dark magic disrupted construction.",
+    "progress_turn_failed_title": "Progress turn failed",
+    "progress_turn_failed_message": "A dark magic disrupted the realm. Your turn could not be completed."
   }
 }
