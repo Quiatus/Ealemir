@@ -104,6 +104,7 @@ export interface CapitalBuildingsQueue {
 }
 
 export type Territories = Record<string, {
+  name: string;
   built: number;
   discovered: number;
 }>;

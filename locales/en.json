@@ -141,5 +141,9 @@
         "name": "Quarry"
       }
     }
+  },
+  "errors": {
+    "construction_failed_title": "Construction failed",
+    "construction_failed_message": "A dark magic disrupted construction."
   }
 }

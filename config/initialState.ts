@@ -53,14 +53,17 @@ export const INITIAL_PLAYER_BUILDINGS = {
   //territories: null,
   territories: {
     farm: {
+      name: "farm",
       built: 1,
       discovered: 5
     },
     lumberyard: {
+      name: "lumberyard",
       built: 1,
       discovered: 1
     },
     quarry: {
+      name: "quarry",
       built: 1,
       discovered: 1
     }

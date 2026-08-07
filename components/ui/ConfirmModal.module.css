@@ -26,3 +26,8 @@
     var(--bg-surface) 100%);
   border-radius: 8px; 
 }
+
+.ok {
+  display: flex;
+  justify-content: center;
+}
