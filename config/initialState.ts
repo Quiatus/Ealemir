@@ -50,24 +50,24 @@ export const INITIAL_PLAYER_BUILDINGS = {
     queue: 0
   },
   capital_buildings: null,
-  //territories: null,
-  territories: {
-    farm: {
-      name: "farm",
-      built: 1,
-      discovered: 5
-    },
-    lumberyard: {
-      name: "lumberyard",
-      built: 1,
-      discovered: 1
-    },
-    quarry: {
-      name: "quarry",
-      built: 1,
-      discovered: 1
-    }
-  },
+  territories: null,
+  // territories: {
+  //   farm: {
+  //     name: "farm",
+  //     built: 1,
+  //     discovered: 5
+  //   },
+  //   lumberyard: {
+  //     name: "lumberyard",
+  //     built: 1,
+  //     discovered: 1
+  //   },
+  //   quarry: {
+  //     name: "quarry",
+  //     built: 1,
+  //     discovered: 1
+  //   }
+  // },
   habitats: {
     village: {
       amount: 0
