@@ -19,10 +19,17 @@ export type Rations = 'meager' | 'sufficient' | 'bountiful';
 export type Taxes = 'lenient' | 'customary' | 'oppressive';
 export type Production = 'restrained' | 'steady' | 'grueling'
 
+export interface MonthlyReport {
+  empire: string[];
+  scouts: string[];
+  events: string[];
+}
+
 export interface PlayerEmpire {
   taxes: Taxes;
   rations: Rations;
-  production: Production
+  production: Production;
+  monthly_report: MonthlyReport;
 }
 
 export interface PolicyOption<T> {

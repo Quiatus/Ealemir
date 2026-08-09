@@ -1,18 +1,30 @@
 import Card from "@/components/ui/Card";
 import { text } from "@/lib/utilities";
 import styles from './Overview.module.css'
+import { getData } from "@/lib/data/dal";
+import { PlayerEmpire } from "@/types/game";
+import { richText } from "./richText";
 
 export default async function Overview() {
+  const { monthly_report } = await getData<PlayerEmpire>('player_empire')
+  const { empire, scouts, events } = monthly_report
+ 
   return (
     <div className={styles.overview}>
       <Card title={text('feature_overview.card_report.title')} width="full" >
-        <p>...</p>
+        {
+          empire.length === 0 ? text('feature_overview.card_report.default_message') : empire.map(item => <p key={item}>{richText(item)}</p>)
+        }
       </Card>
       <Card title={text('feature_overview.card_scouts.title')} width="full" >
-        <p>The scounts have returned empty handed.</p>
+        {
+          scouts.length === 0 ? text('feature_overview.card_scouts.default_message') : scouts.map(item => <p key={item}>{richText(item)}</p>)
+        }
       </Card>
       <Card title={text('feature_overview.card_events.title')} width="full" >
-        <p>Our empire is thriving.</p>
+        {
+          events.length === 0 ? text('feature_overview.card_events.default_message') : events.map(item => <p key={item}>{richText(item)}</p>)
+        }
       </Card>
     </div>
   );

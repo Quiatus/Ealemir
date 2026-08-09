@@ -144,13 +144,16 @@
   },
   "feature_overview": {
     "card_report": {
-      "title": "The Empire's Report"
+      "title": "The Empire's Report",
+      "default_message": "Nothing to report."
     },
     "card_scouts": {
-      "title": "Scout Missives"
+      "title": "Scout Missives",
+      "default_message": "Our scouts have returned empty handed."
     },
     "card_events": {
-      "title": "State of the Realm"
+      "title": "State of the Realm",
+      "default_message": "Our empire is thriving."
     }
   },
   "errors": {

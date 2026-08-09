@@ -3,7 +3,12 @@ import { PlayerEmpire, PlayerResources } from "@/types/game"
 export const INITIAL_PLAYER_EMPIRE: PlayerEmpire = {
   taxes: 'customary',
   rations: 'sufficient',
-  production: 'steady'
+  production: 'steady',
+  monthly_report: {
+    empire: [],
+    scouts: [],
+    events: []
+  }
 }
 
 export const INITIAL_PLAYER_RESOURCES: PlayerResources = {
