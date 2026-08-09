@@ -144,10 +144,13 @@
   },
   "feature_overview": {
     "card_report": {
-      "title": "Report"
+      "title": "The Empire's Report"
     },
     "card_scouts": {
-      "title": "Scouts"
+      "title": "Scout Missives"
+    },
+    "card_events": {
+      "title": "State of the Realm"
     }
   },
   "errors": {

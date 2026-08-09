@@ -9,7 +9,10 @@ export default async function Overview() {
         <p>...</p>
       </Card>
       <Card title={text('feature_overview.card_scouts.title')} width="full" >
-        <p>...</p>
+        <p>The scounts have returned empty handed.</p>
+      </Card>
+      <Card title={text('feature_overview.card_events.title')} width="full" >
+        <p>Our empire is thriving.</p>
       </Card>
     </div>
   );
