@@ -147,3 +147,17 @@ li {
 .full-width {
   width: 100%;
 }
+
+/* Inline text styles */
+
+.inline-icon-wrapper {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  vertical-align: middle; 
+  margin: 0 0.15rem; 
+}
+
+.inline-icon {
+  filter: drop-shadow(0px 2px 3px rgba(0, 0, 0, 0.5)); 
+}

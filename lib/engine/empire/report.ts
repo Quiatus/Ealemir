@@ -47,7 +47,7 @@ function generateEmpireReport(resources: PlayerResources, buildings: PlayerBuild
 
   report.push(resourceReportConstructor(resources))
   
-  if (!space) {
+  if (!populationGain && !space) {
     report.push(text('feature_overview.card_report.report_population_full'))
   }
 
