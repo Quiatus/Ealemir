@@ -147,11 +147,16 @@
     "card_report": {
       "title": "The Empire's Report",
       "default_message": "Nothing to report.",
-      "report_gold": "We gathered <gold>{gold}</gold> {icon_gold}.",
-      "report_population": "Our empire gained <purple>{population}</purple> {icon_population}.",
+      "report_gold": "Our empire gathered <gold>{gold}</gold> {icon_gold}.",
+      "report_population": "Our realm gained <purple>{population}</purple> {icon_population}.",
       "report_population_full": "<high>Our people have nowhere left to live. Construct more dwellings or expand our borders.</high>",
       "report_food_decline": "<high>Ration demands exceed our realm's monthly yield. Construct more farms.</high>",
-      "report_food_low": "<neg>Our food stores are running dangerously low! Secure more grain, or the realm will plunge into famine.</neg>"
+      "report_food_low": "<neg>Our food stores are running dangerously low! Secure more grain, or the realm will plunge into famine.</neg>",
+      "report_resources_start": "We received",
+      "report_resources_end": "from territories.",
+      "report_food": "<food>{food}</food> {icon_food}",
+      "report_wood": "<wood>{wood}</wood> {icon_wood}",
+      "report_stone": "<stone>{stone}</stone> {icon_stone}"
     },
     "card_scouts": {
       "title": "Scout Missives",

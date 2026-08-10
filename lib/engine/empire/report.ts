@@ -2,8 +2,32 @@ import { formatNumber, text } from "@/lib/utilities";
 import { PlayerBuildings, PlayerEmpire, PlayerResources } from "@/types/game";
 import { calculateFreeSpace } from "../buildings/space";
 
-function resourceReportConstructor(food: number, wood: number, stone: number) {
-  return ''
+function resourceReportConstructor(resources: PlayerResources) {
+  const foodGain = resources.last_turn_resources_report.foodReport.gainFromCapital + resources.last_turn_resources_report.foodReport.gainFromFarms
+  const woodGain = resources.last_turn_resources_report.woodReport.gainFromLumberyards
+  const stoneGain = resources.last_turn_resources_report.stoneReport.gainFromQuarries
+
+  const report: string[] = []
+
+  if (foodGain > 0) {
+    report.push(text('feature_overview.card_report.report_food', {food: formatNumber((foodGain), 'full') }))
+  }
+
+  if (woodGain > 0) {
+    report.push(text('feature_overview.card_report.report_wood', {wood: formatNumber((woodGain), 'full') }))
+  }
+
+  if (stoneGain > 0) {
+    report.push(text('feature_overview.card_report.report_stone', {stone: formatNumber((stoneGain), 'full') }))
+  }
+
+  const result = `${text('feature_overview.card_report.report_resources_start')} ${report.join(', ')} ${text('feature_overview.card_report.report_resources_end')}`
+
+  const index = result.lastIndexOf(',');
+
+  if (index === -1) return result;
+
+  return result.slice(0, index) + ' and' + result.slice(index + 1);
 }
 
 function generateEmpireReport(resources: PlayerResources, buildings: PlayerBuildings) {
@@ -12,9 +36,6 @@ function generateEmpireReport(resources: PlayerResources, buildings: PlayerBuild
   const space = calculateFreeSpace(resources.population, buildings)
   const goldGain = resources.last_turn_resources_report.goldReport.gainFromPopulation
   const populationGain = resources.last_turn_resources_report.populationReport.gainFromGrowth
-  const foodGain = resources.last_turn_resources_report.foodReport.gainFromCapital + resources.last_turn_resources_report.foodReport.gainFromFarms
-  const woodGain = resources.last_turn_resources_report.woodReport.gainFromLumberyards
-  const stoneGain = resources.last_turn_resources_report.stoneReport.gainFromQuarries
 
   if (goldGain > 0) {
     report.push(text('feature_overview.card_report.report_gold', {gold: formatNumber((goldGain), 'full') }))
@@ -24,11 +45,11 @@ function generateEmpireReport(resources: PlayerResources, buildings: PlayerBuild
     report.push(text('feature_overview.card_report.report_population', {population: formatNumber((populationGain), 'full') }))
   }
 
+  report.push(resourceReportConstructor(resources))
+  
   if (!space) {
     report.push(text('feature_overview.card_report.report_population_full'))
   }
-
-  report.push(resourceReportConstructor(foodGain, woodGain, stoneGain))
 
   if (resources.last_turn_resources_report.foodReport.change < 0 && resources.food > Math.abs(resources.last_turn_resources_report.foodReport.change * 10)) {
     report.push(text('feature_overview.card_report.report_food_decline'))
