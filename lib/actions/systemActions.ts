@@ -9,6 +9,7 @@ import { calculateUpdatedBuildings } from "../engine/buildings/index"
 import { getData } from "../data/dal"
 import { PlayerBuildings, PlayerEmpire, PlayerResources } from "@/types/game"
 import { text } from "../utilities"
+import { generateReport } from "../engine/empire/report"
 
 export async function progressTurn() {
   const [currentResources, currentBuildings, currentEmpire] = await Promise.all([
@@ -19,16 +20,20 @@ export async function progressTurn() {
 
   const updatedBuildings = calculateUpdatedBuildings(currentBuildings)
   const updatedResources = calculateUpdatedResources(currentResources, updatedBuildings, currentEmpire)
+
+  const updatedEmpire = generateReport(updatedResources, updatedBuildings, currentEmpire) 
   
-  const [resourcesResult, buildingsResult] = await Promise.all([
+  const [resourcesResult, buildingsResult, empireResults] = await Promise.all([
     supabase.from('player_resources').update(updatedResources).eq('id', 1),
-    supabase.from('player_buildings').update(updatedBuildings).eq('id', 1)
+    supabase.from('player_buildings').update(updatedBuildings).eq('id', 1),
+    supabase.from('player_empire').update(updatedEmpire).eq('id', 1)
   ])
 
-  if (resourcesResult.error || buildingsResult.error) {
+  if (resourcesResult.error || buildingsResult.error || empireResults.error) {
     console.error("Database update failed:", {
       resources: resourcesResult.error,
-      buildings: buildingsResult.error
+      buildings: buildingsResult.error,
+      empire: empireResults.error,
     })
       
     return { 

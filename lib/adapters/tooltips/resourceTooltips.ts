@@ -51,12 +51,22 @@ export function buildPopulationTooltip(resources: PlayerResources, buildings?: P
     tooltip.color = 'red';
   }
 
-  tooltip.custom = [
-    {
-      label: text('tooltips.population_tooltip.available_space'),
-      value: availableSpace
-    }
+  if (resources.population > maxAvailableSpace) {
+    tooltip.custom = [
+      {
+        label: text('tooltips.population_tooltip.homeless'),
+        value: Math.abs(availableSpace)
+      }
   ];
+  } else {
+    tooltip.custom = [
+      {
+        label: text('tooltips.population_tooltip.available_space'),
+        value: availableSpace
+      }
+    ];
+  }
+
 
   return tooltip;
 }

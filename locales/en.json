@@ -44,6 +44,7 @@
       "title": "Population",
       "growth_population": "Growth",
       "available_space": "Available space",
+      "homeless": "Homeless",
       "no_space_message": "Our dwellings are full. Build more or conquer new land.",
       "exceeded_space_message": "Our people have nowhere to live and are leaving our empire."
     },
@@ -145,7 +146,12 @@
   "feature_overview": {
     "card_report": {
       "title": "The Empire's Report",
-      "default_message": "Nothing to report."
+      "default_message": "Nothing to report.",
+      "report_gold": "We gathered <gold>{gold}</gold> {icon_gold}.",
+      "report_population": "Our empire gained <purple>{population}</purple> {icon_population}.",
+      "report_population_full": "<high>Our people have nowhere left to live. Construct more dwellings or expand our borders.</high>",
+      "report_food_decline": "<high>Ration demands exceed our realm's monthly yield. Construct more farms.</high>",
+      "report_food_low": "<neg>Our food stores are running dangerously low! Secure more grain, or the realm will plunge into famine.</neg>"
     },
     "card_scouts": {
       "title": "Scout Missives",
