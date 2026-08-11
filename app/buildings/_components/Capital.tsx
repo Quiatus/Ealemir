@@ -3,59 +3,47 @@ import { text } from "@/lib/utilities";
 import styles from './Capital.module.css';
 import bgimage from '@/public/buildings/city_1.png'
 import Image from "next/image";
-import { dynamicInfoTooltip } from "@/lib/adapters/tooltips/infoTooltips";
-import InfoTooltip from "@/components/ui/Tooltip/InfoTooltip";
+import { PlayerBuildings } from "@/types/game";
+import { CAPITAL_BUILDINGS } from "@/config/buildings";
+import CapitalBuildingSlot from "./CapitalBuildingSlot";
 
-const build = [
-  {
-    id: '1',
-    left: '450px',
-    top: '460px',
-    width: '40px',
-    height: '40px'
-  },
-  {
-    id: '2',
-    left: '435px',
-    top: '508px',
-    width: '40px',
-    height: '40px'
-  },
-  {
-    id: '3',
-    left: '475px',
-    top: '550px',
-    width: '40px',
-    height: '40px'
-  },
-  {
-    id: '4',
-    left: '535px',
-    top: '553px',
-    width: '40px',
-    height: '40px'
-  },
-  {
-    id: '5',
-    left: '490px',
-    top: '490px',
-    width: '85px',
-    height: '60px'
-  },
-]
+interface CapitalProps {
+  buildings: PlayerBuildings;
+}
 
-export default function CapitalCard() {
-  const tooltip = dynamicInfoTooltip()
-
+export default function CapitalCard({buildings}: CapitalProps) {
   return (
     <Card title={text('feature_buildings.card_capital.title')} style="elevated" height="height-fit" width="fit">
       <div className={styles.mapContainer}>
         <Image src={bgimage.src} alt="city" width={970} height={970}></Image>
-          {build.map(b => <div key={b.id} style={{position: 'absolute', left: b.left, top: b.top}}>
-            <InfoTooltip data={tooltip.currentMonth}>
-              <div key={b.id} style={{border: '1px solid red', width: b.width, height: b.height}}></div>
-            </InfoTooltip>
-          </div>)}
+
+        {Object.entries(CAPITAL_BUILDINGS).map(([buildingId, staticData]) => {
+        
+          if (staticData.unlockLevel > buildings.capital.city_level) {
+            return null; 
+          }
+        
+          const state = buildings.capital_buildings?.[buildingId]
+          
+          return (
+            <div
+              key={buildingId}
+              className={styles.slot}
+              style={{
+                position: 'absolute',
+                width: `${staticData.pos.width}px`,
+                height: `${staticData.pos.height}px`,
+                left: `${staticData.pos.left}px`,
+                top: `${staticData.pos.top}px`,
+              }}
+            >
+              <CapitalBuildingSlot
+                buildingData={staticData}
+                dbState={state}
+              />
+            </div>
+          );
+        })}
       </div>
     </Card>
   );

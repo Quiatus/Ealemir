@@ -85,7 +85,7 @@ export type BuildingEffectType = 'gold' | 'wood' | 'stone' | 'food' | 'populatio
 export type BuildingEffectModifiers = Partial<Record<BuildingEffectType, number>>;
 
 export type BuildingCostType = {
-  turn?: number,
+  turn: number,
   gold: number,
   wood: number,
   stone: number
@@ -93,7 +93,7 @@ export type BuildingCostType = {
 
 export interface PlayerBuildings {
   capital: CapitalLevel;
-  capital_buildings: CapitalBuildingsQueue;
+  capital_buildings: CapitalBuildingsQueueMap;
   territories: Territories;
   habitats: Habitats
 }
@@ -103,12 +103,11 @@ export interface CapitalLevel {
   queue: number
 }
 
-export interface CapitalBuildingsQueue {
-  name: {
-    isBuild: boolean,
-    queue: number
-  }
+export interface CapitalBuildingState {
+  isBuilt: boolean,
+  queue: number
 }
+export type CapitalBuildingsQueueMap = Record<string, CapitalBuildingState>;
 
 export type Territories = Record<string, {
   name: string;
@@ -125,10 +124,18 @@ export interface CapitalStaticData {
 }
 
 export interface CapitalBuildingsStaticData {
+  id: string;
   name: string;
   description: string;
-  effect: BuildingEffectModifiers
+  effect: BuildingEffectModifiers;
   cost: BuildingCostType;
+  unlockLevel: number;
+  pos: {
+    width: number;
+    height: number;
+    left: number;
+    top: number
+  }
 }
 
 export interface TerritoriesStaticData {

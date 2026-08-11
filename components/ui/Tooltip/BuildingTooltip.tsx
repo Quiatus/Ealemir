@@ -4,15 +4,17 @@ import styles from './Tooltip.module.css'
 import { BuildingTooltipData } from '@/types/game'
 import { ReactNode } from 'react';
 import { useRef, useState } from 'react';
-import Image from 'next/image';
-import { formatNumber, text } from '@/lib/utilities';
+import { text } from '@/lib/utilities';
+import BuildingCosts from './BuildCosts';
+
+export interface MissingProps {
+  missingCosts: string[],
+  missingSpace: boolean
+}
 
 interface TooltipProps {
   data: BuildingTooltipData;
-  missing: {
-    missingCosts: string[],
-    missingSpace: boolean
-  }
+  missing: MissingProps;
   children: ReactNode
 }
 
@@ -46,25 +48,8 @@ export default function BuildingTooltip({ data, missing, children }: TooltipProp
 
         {missing.missingSpace && <p className='text-red'>{text('tooltips.info.missing_space')}</p>}
 
-        <p className='space-top-m text-primary'>Build costs</p>
-        <div className={`${styles.costRow} space-left-m`}>
-          {data.cost.turn && <div className={styles.cost}>
-            <Image src="/icons/resources/turn.png" alt='Turns' width={24} height={24}/>
-            <span className='text-primary text-bold'>{formatNumber((data.cost.turn), 'full')}</span>
-          </div>} 
-          {data.cost.gold && <div className={styles.cost}>
-            <Image src="/icons/resources/gold.png" alt='Gold' width={24} height={24}/>
-            <span className={`${missing.missingCosts.includes('gold') ? 'text-red' : 'text-gold'} text-bold`}>{formatNumber((data.cost.gold), 'full')}</span>
-          </div>} 
-          {data.cost.wood && <div className={styles.cost}>
-            <Image src="/icons/resources/wood.png" alt='Wood' width={24} height={24}/>
-            <span className={`${missing.missingCosts.includes('wood') ? 'text-red' : 'text-brown'} text-bold`}>{formatNumber((data.cost.wood), 'full')}</span>
-          </div>} 
-          {data.cost.stone && <div className={styles.cost}>
-            <Image src="/icons/resources/stone.png" alt='Stone' width={24} height={24}/>
-            <span className={`${missing.missingCosts.includes('stone') ? 'text-red' : 'text-gray'} text-bold`}>{formatNumber((data.cost.stone), 'full')}</span>
-          </div>} 
-        </div>        
+        <BuildingCosts data={data} missing={missing}/>
+              
       </div>
     </div>
   )

@@ -1,5 +1,4 @@
 import Card from "@/components/ui/Card";
-import { getData } from "@/lib/data/dal";
 import { text } from "@/lib/utilities";
 import { PlayerBuildings, PlayerResources } from "@/types/game";
 import { dynamicBuildingTooltip } from "@/lib/adapters/tooltips/buildingsTooltips";
@@ -7,11 +6,12 @@ import TerritoryBuilding from "./TerritoryBuilding";
 import Habitats from "./Habitats";
 import { TERRITORIES } from "@/config/buildings";
 
-export default async function TerritoriesCard() {
-  const [resources, buildings] = await Promise.all([
-    getData<PlayerResources>('player_resources'),
-    getData<PlayerBuildings>('player_buildings')
-  ])
+interface TerritoriesProps {
+  resources: PlayerResources;
+  buildings: PlayerBuildings
+}
+
+export default function TerritoriesCard({ resources, buildings }: TerritoriesProps) {
   const buildingTooltip = dynamicBuildingTooltip()
 
   return (
@@ -19,7 +19,7 @@ export default async function TerritoriesCard() {
       
       <Habitats data={buildings.habitats} />
 
-      {buildings.territories?.farm && 
+      {buildings.territories.farm.discovered > 0 && 
         <TerritoryBuilding 
           building={buildings.territories.farm}
           buildingCost={TERRITORIES.farm.cost}
@@ -28,7 +28,7 @@ export default async function TerritoriesCard() {
           icon="/icons/buildings/farm.png"
         />
       }
-      {buildings.territories?.lumberyard && 
+      {buildings.territories.lumberyard.discovered > 0 && 
         <TerritoryBuilding 
           building={buildings.territories.lumberyard}
           buildingCost={TERRITORIES.lumberyard.cost} 
@@ -37,7 +37,7 @@ export default async function TerritoriesCard() {
           icon="/icons/buildings/lumberyard.png"
         />
       }
-      {buildings.territories?.quarry && 
+      {buildings.territories.quarry.discovered > 0 && 
         <TerritoryBuilding 
           building={buildings.territories.quarry}
           buildingCost={TERRITORIES.quarry.cost} 

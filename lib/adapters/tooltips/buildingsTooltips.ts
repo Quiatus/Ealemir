@@ -1,7 +1,11 @@
 import { richText } from "@/app/richText";
 import { TERRITORIES } from "@/config/buildings";
 import { formatNumber, text } from "@/lib/utilities";
-import { BuildingTooltipData } from "@/types/game";
+import { BuildingTooltipData, CapitalBuildingsStaticData } from "@/types/game";
+
+function buildStatusMessage() {
+  return ''
+}
 
 function buildFarmTooltip(): BuildingTooltipData {
   return {
@@ -33,11 +37,23 @@ function buildQuarryTooltip(): BuildingTooltipData {
   };
 }
 
+function buildCapitalBuildingTooltip(data: CapitalBuildingsStaticData): BuildingTooltipData {
+  return {
+    title: data.name,
+    status: buildStatusMessage(),
+    messages: {
+      afterTitle: richText('tooltips.quarry_tooltip.effect_message', {stone: formatNumber(Number(TERRITORIES.quarry.effect.stone), 'full')})
+    },
+    cost: data.cost
+  };
+}
 
-export function dynamicBuildingTooltip() {
+
+export function dynamicBuildingTooltip(data: CapitalBuildingsStaticData) {
   return {
     farm: buildFarmTooltip(),
     lumberyard: buildLumberyardTooltip(),
     quarry: buildQuarryTooltip(),
+    capitalBuilding: buildCapitalBuildingTooltip(data)
   };
 }

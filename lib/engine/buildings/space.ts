@@ -18,7 +18,7 @@ export function calculateMaxSpace(data: PlayerBuildings) {
   const activeBuildings = Object.entries(data.capital_buildings || {});
   for (const [buildingId, state] of activeBuildings) {
 
-    if (state.isBuild) {
+    if (state.isBuilt) {
     const staticData = CAPITAL_BUILDINGS[buildingId];
 
       if (staticData?.effect?.space) {

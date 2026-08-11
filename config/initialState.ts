@@ -54,25 +54,33 @@ export const INITIAL_PLAYER_BUILDINGS = {
     city_level: 1,
     queue: 0
   },
-  capital_buildings: null,
-  territories: null,
-  // territories: {
-  //   farm: {
-  //     name: "farm",
-  //     built: 1,
-  //     discovered: 5
-  //   },
-  //   lumberyard: {
-  //     name: "lumberyard",
-  //     built: 1,
-  //     discovered: 1
-  //   },
-  //   quarry: {
-  //     name: "quarry",
-  //     built: 1,
-  //     discovered: 1
-  //   }
-  // },
+  capital_buildings: {
+    house01: {
+      isBuilt: true,
+      queue: 0
+    },
+    house02: {
+      isBuilt: false,
+      queue: 5
+    }
+  },
+  territories: {
+    farm: {
+      name: "farm",
+      built: 1,
+      discovered: 1
+    },
+    lumberyard: {
+      name: "lumberyard",
+      built: 0,
+      discovered: 0
+    },
+    quarry: {
+      name: "quarry",
+      built: 0,
+      discovered: 0
+    }
+  },
   habitats: {
     village: {
       amount: 0
