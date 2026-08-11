@@ -62,6 +62,14 @@ export const INITIAL_PLAYER_BUILDINGS = {
     house02: {
       isBuilt: false,
       queue: 5
+    },
+    house03: {
+      isBuilt: false,
+      queue: 0
+    },
+    house04: {
+      isBuilt: false,
+      queue: 0
     }
   },
   territories: {

@@ -88,3 +88,8 @@
   align-items: center;
   justify-content: left;
 }
+
+.status {
+  margin-top: 0.5rem;
+  text-align: center;
+}

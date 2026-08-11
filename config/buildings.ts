@@ -13,7 +13,7 @@ export const CAPITAL: Record<number, CapitalStaticData> = {
 
 const BASE_HOUSE = {
   name: text('feature_buildings.capital_buildings.house.name'),
-  description: "",
+  description: text('feature_buildings.capital_buildings.house.description'),
   effect: { space: 100 },
   cost: { turn: 5, gold: 500, wood: 10, stone: 0 },
 };
@@ -68,19 +68,16 @@ export const CAPITAL_BUILDINGS: Record<string, CapitalBuildingsStaticData> = {
 export const TERRITORIES: Record<string, TerritoriesStaticData> = {
   farm: {
     name: text('feature_buildings.territories.farm.name'),
-    description: "",
     effect: { food: 5},
     cost: { turn: 0, gold: 200, wood: 50, stone: 10 }
   },
   lumberyard: {
     name: text('feature_buildings.territories.lumberyard.name'),
-    description: "",
     effect: { wood: 5},
     cost: { turn: 0, gold: 1000, wood: 10, stone: 5 }
   },
   quarry: {
     name: text('feature_buildings.territories.quarry.name'),
-    description: "",
     effect: { stone: 2},
     cost: { turn: 0, gold: 5000, wood: 100, stone: 10 }
   }

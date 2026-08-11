@@ -5,6 +5,7 @@ import Image from 'next/image';
 const HIGHLIGHT_STYLES: Record<string, string> = {
   high: 'text-orange',
   bold: 'text-bold',
+  italic: 'text-italic',
   norm: 'text-primary',
   pos: 'text-green',
   neg: 'text-red',

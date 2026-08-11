@@ -36,6 +36,13 @@
       "readiness_message": "Our armies can attack once per month. After that, they become exhausted.",
       "missing_space": "We do not have enough space."
     },
+    "construction_tooltip": {
+      "construction_cost": "Construction costs",
+      "not_constructed": "Not constructed",
+      "constructed": "Constructed",
+      "in_construction": "<bold>In construction</bold> <italic>({queue} turns left)</italic>",
+      "in_construction_one": "<bold>In construction</bold> <italic>(1 turn left)</italic>"
+    },
     "gold_tooltip": {
       "title": "Gold",
       "income_population": "Taxes"
@@ -128,7 +135,8 @@
     },
     "capital_buildings": {
       "house": {
-        "name": "House"
+        "name": "House",
+        "description": "Provides space for <norm>{effect} people</norm>."
       }
     },
     "territories": {

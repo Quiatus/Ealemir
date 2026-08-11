@@ -41,7 +41,7 @@ export default function TerritoryBuilding({building, buildingCost, resources, to
   const [isPending, startTransition] = useTransition()
   const [errorMessage, setErrorMessage] = useState<string | null>(null)
   const [isErrorModalOpen, setIsErrorModalOpen] = useState(false);
-  const isDisabled = disableBuildButton(building, buildingCost, resources)
+  const isDisabled = disableBuildButton(buildingCost, resources, building)
 
   function handleBuild(){
     if (isPending) return

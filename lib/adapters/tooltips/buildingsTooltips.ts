@@ -1,10 +1,28 @@
 import { richText } from "@/app/richText";
 import { TERRITORIES } from "@/config/buildings";
 import { formatNumber, text } from "@/lib/utilities";
-import { BuildingTooltipData, CapitalBuildingsStaticData } from "@/types/game";
+import { BuildingTooltipData, CapitalBuildingsStaticData, CapitalBuildingState } from "@/types/game";
 
-function buildStatusMessage() {
-  return ''
+function buildStatusMessage({isBuilt, queue}: CapitalBuildingState) {
+  let message = ''
+
+  if (isBuilt) {
+    message = text('tooltips.construction_tooltip.constructed')
+  }
+
+  if (!isBuilt && queue === 0) {
+    message = text('tooltips.construction_tooltip.not_constructed')
+  } 
+
+  if (!isBuilt && queue > 1) {
+    message = text('tooltips.construction_tooltip.in_construction', {queue: formatNumber(Number(queue), 'full')})
+  }
+
+  if (!isBuilt && queue === 1) {
+    message = text('tooltips.construction_tooltip.in_construction_one')
+  }
+
+  return message
 }
 
 function buildFarmTooltip(): BuildingTooltipData {
@@ -37,23 +55,22 @@ function buildQuarryTooltip(): BuildingTooltipData {
   };
 }
 
-function buildCapitalBuildingTooltip(data: CapitalBuildingsStaticData): BuildingTooltipData {
+export function buildCapitalBuildingTooltip( data: CapitalBuildingsStaticData, dbState: CapitalBuildingState ): BuildingTooltipData {
   return {
     title: data.name,
-    status: buildStatusMessage(),
+    status: buildStatusMessage(dbState),
     messages: {
-      afterTitle: richText('tooltips.quarry_tooltip.effect_message', {stone: formatNumber(Number(TERRITORIES.quarry.effect.stone), 'full')})
+      afterTitle: richText(data.description, {effect: formatNumber(Number(Object.values(data.effect)[0]), 'full')})
     },
     cost: data.cost
   };
 }
 
 
-export function dynamicBuildingTooltip(data: CapitalBuildingsStaticData) {
+export function dynamicBuildingTooltip() {
   return {
     farm: buildFarmTooltip(),
     lumberyard: buildLumberyardTooltip(),
     quarry: buildQuarryTooltip(),
-    capitalBuilding: buildCapitalBuildingTooltip(data)
   };
 }

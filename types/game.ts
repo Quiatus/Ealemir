@@ -140,7 +140,6 @@ export interface CapitalBuildingsStaticData {
 
 export interface TerritoriesStaticData {
   name: string;
-  description: string;
   effect: BuildingEffectModifiers
   cost: BuildingCostType;
 }

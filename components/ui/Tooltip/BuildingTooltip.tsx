@@ -6,6 +6,7 @@ import { ReactNode } from 'react';
 import { useRef, useState } from 'react';
 import { text } from '@/lib/utilities';
 import BuildingCosts from './BuildCosts';
+import { richText } from '@/app/richText';
 
 export interface MissingProps {
   missingCosts: string[],
@@ -45,6 +46,8 @@ export default function BuildingTooltip({ data, missing, children }: TooltipProp
         <p className={styles.titleResource}>{data.title}</p>
         
         {data.messages?.afterTitle && <p className='text-flavor'>{data.messages?.afterTitle}</p>} 
+
+        {data.status && <p className={styles.status}>{richText(data.status)}</p>}
 
         {missing.missingSpace && <p className='text-red'>{text('tooltips.info.missing_space')}</p>}
 

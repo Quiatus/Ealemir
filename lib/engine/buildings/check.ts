@@ -5,12 +5,12 @@ type buildingProp = {
   discovered: number;
 }
 
-export function disableBuildButton( building: buildingProp, buildingCost: BuildingCostType, resources: PlayerResources) {
+export function disableBuildButton( buildingCost: BuildingCostType, resources: PlayerResources, building?: buildingProp) {
   let disable = false
   let missingSpace = false
   const missingCosts = []
 
-  if (building.built === building.discovered) {
+  if (building && (building.built === building.discovered)) {
     disable = true
     missingSpace = true
   }

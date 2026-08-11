@@ -1,6 +1,5 @@
 To Do:
 
-[] check tooltip data for buildings
 [] add building construction for capital buildings level 1
 [] add simple random events (find resource caches, land to expand basic resources)
 [] add level 2 capital buildings - houses, tavern 

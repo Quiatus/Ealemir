@@ -11,7 +11,7 @@ export default async function BuildingsPage() {
 
   return (
     <div className="cards-row">
-      <CapitalCard buildings={buildings} />
+      <CapitalCard resources={resources} buildings={buildings} />
       <TerritoriesCard resources={resources} buildings={buildings} />
     </div>
   )
