@@ -1,0 +1,12 @@
+.slot {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: 600; 
+  text-shadow: 
+    -1px -1px 0 rgba(0, 0, 0, 0.8),
+     1px -1px 0 rgba(0, 0, 0, 0.8),
+    -1px  1px 0 rgba(0, 0, 0, 0.8),
+     1px  1px 0 rgba(0, 0, 0, 0.8),
+     0px  2px 4px rgba(0, 0, 0, 0.9);
+}

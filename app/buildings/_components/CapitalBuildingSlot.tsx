@@ -2,6 +2,7 @@ import BuildingTooltip from "@/components/ui/Tooltip/BuildingTooltip";
 import { buildCapitalBuildingTooltip } from "@/lib/adapters/tooltips/buildingsTooltips";
 import { disableBuildButton } from "@/lib/engine/buildings/check";
 import { CapitalBuildingsStaticData, CapitalBuildingState, PlayerResources } from "@/types/game";
+import styles from './CapitalBuildingSlot.module.css'
 
 interface CapitalBuildingSlotProps {
   resources: PlayerResources;
@@ -24,8 +25,8 @@ export default function CapitalBuildingSlot({ resources, buildingData, dbState }
   return (
     <div style={{ position: 'absolute', left: `${buildingData.pos.left}px`, top: `${buildingData.pos.top}px` }}>
       <BuildingTooltip data={tooltipData} missing={isDisabled}>
-        <div style={{ border: '1px solid red', width: `${buildingData.pos.width}px`, height: `${buildingData.pos.height}px` }}>
-
+        <div className={styles.slot} style={{ border: '1px solid red', width: `${buildingData.pos.width}px`, height: `${buildingData.pos.height}px` }}>
+          {progress}%
         </div>
       </BuildingTooltip>
     </div>

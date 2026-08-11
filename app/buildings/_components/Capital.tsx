@@ -6,6 +6,7 @@ import Image from "next/image";
 import { PlayerBuildings, PlayerResources } from "@/types/game";
 import { CAPITAL_BUILDINGS } from "@/config/buildings";
 import CapitalBuildingSlot from "./CapitalBuildingSlot";
+import CityCenter from "./CityCenter";
 
 interface CapitalProps {
   resources: PlayerResources;
@@ -18,6 +19,8 @@ export default function CapitalCard({resources, buildings}: CapitalProps) {
     <Card title={text('feature_buildings.card_capital.title')} style="elevated" height="height-fit" width="fit">
       <div className={styles.mapContainer}>
         <Image src={bgimage.src} alt="city" width={970} height={970}></Image>
+
+        <CityCenter resources={resources} dbState={buildings.capital}/>
 
         {Object.entries(CAPITAL_BUILDINGS).map(([buildingId, staticData]) => {
           if (staticData.unlockLevel > buildings.capital.city_level) return null; 
