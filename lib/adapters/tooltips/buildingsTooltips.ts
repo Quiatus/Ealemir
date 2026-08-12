@@ -1,7 +1,7 @@
 import { richText } from "@/app/richText";
 import { TERRITORIES } from "@/config/buildings";
 import { formatNumber, text } from "@/lib/utilities";
-import { BuildingTooltipData, CapitalBuildingsStaticData, CapitalBuildingState } from "@/types/game";
+import { BuildingTooltipData, CapitalBuildingsStaticData, CapitalBuildingState, CapitalStaticData } from "@/types/game";
 
 function buildStatusMessage({isBuilt, queue}: CapitalBuildingState) {
   let message = ''
@@ -66,6 +66,37 @@ export function buildCapitalBuildingTooltip( data: CapitalBuildingsStaticData, d
   };
 }
 
+export function buildCityCenterTooltip( data: CapitalStaticData, queue: number ): BuildingTooltipData {
+  let message = ''
+
+  if (queue > 1) {
+    message = text('tooltips.construction_tooltip.upgrading', {queue: formatNumber(Number(queue), 'full')})
+  }
+
+  if (queue === 1) {
+    message = text('tooltips.construction_tooltip.upgrading_one')
+  }
+
+  return {
+    title: data.name,
+    levelName: `Level ${data.level} - ${data.levelName}`,
+    status: message,
+    messages: {
+      afterTitle: text('tooltips.city_center_tooltip.message')
+    },
+    cost: data.cost,
+    custom: [
+      {
+        label: text('tooltips.city_center_tooltip.space'),
+        value: formatNumber(Number(data.space), 'full')
+      },
+      {
+        label: text('tooltips.city_center_tooltip.food'),
+        value: formatNumber(Number(data.food), 'full')
+      },
+    ]
+  };
+}
 
 export function dynamicBuildingTooltip() {
   return {

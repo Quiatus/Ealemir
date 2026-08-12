@@ -36,12 +36,21 @@
       "readiness_message": "Our armies can attack once per month. After that, they become exhausted.",
       "missing_space": "We do not have enough space."
     },
+    "city_center_tooltip": {
+      "message": "Upgrade the city center to expand your capital and unlock new buildings and bonuses.",
+      "bonuses": "Bonuses",
+      "space": "Housing",
+      "food": "Food"
+    },
     "construction_tooltip": {
       "construction_cost": "Construction costs",
+      "upgrade_cost": "Upgrade costs",
       "not_constructed": "Not constructed",
       "constructed": "Constructed",
       "in_construction": "<bold>In construction</bold> <italic>({queue} turns left)</italic>",
-      "in_construction_one": "<bold>In construction</bold> <italic>(1 turn left)</italic>"
+      "in_construction_one": "<bold>In construction</bold> <italic>(1 turn left)</italic>",
+      "upgrading": "<bold>Upgrading</bold> <italic>({queue} turns left)</italic>",
+      "upgrading_one": "<bold>Upgrading</bold> <italic>(1 turn left)</italic>"
     },
     "gold_tooltip": {
       "title": "Gold",
@@ -131,7 +140,8 @@
       "title": "Territories"
     },
     "capital": {
-      "level_1_name": "Hamlet"
+      "name": "City Center",
+      "level_1_title": "Hamlet"
     },
     "capital_buildings": {
       "house": {

@@ -1,6 +1,5 @@
 To Do:
 
-[] add tooltip for city center
 [] add building construction for capital buildings level 1
 [] add simple random events (find resource caches, land to expand basic resources)
 [] add level 2 capital buildings - houses, tavern 
@@ -17,3 +16,4 @@ To Do:
 [X] add building construction function for basic territory buildings (farms, lumber, quarry)
 [X] add error messages
 [X] add overview for resource gatherer
+[X] add tooltip for city center

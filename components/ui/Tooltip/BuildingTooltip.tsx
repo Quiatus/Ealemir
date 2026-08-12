@@ -7,6 +7,7 @@ import { useRef, useState } from 'react';
 import { text } from '@/lib/utilities';
 import BuildingCosts from './BuildCosts';
 import { richText } from '@/app/richText';
+import ResourceRow from './ResourceRow';
 
 export interface MissingProps {
   missingCosts: string[],
@@ -45,13 +46,17 @@ export default function BuildingTooltip({ data, missing, children }: TooltipProp
       <div ref={tooltipRef} className={`${styles.tooltip} ${styles.tooltipResource} ${flipTop ? styles.tooltipTop : styles.tooltipBottom}`}>
         <p className={styles.titleResource}>{data.title}</p>
         
-        {data.messages?.afterTitle && <p className='text-flavor'>{data.messages?.afterTitle}</p>} 
-
-        {data.status && <p className={styles.status}>{richText(data.status)}</p>}
+        {data.levelName && <p className={styles.level}>{richText(data.levelName)}</p>}
+        
+        {data.messages?.afterTitle && <p className='text-flavor space-m'>{data.messages?.afterTitle}</p>} 
 
         {missing.missingSpace && <p className='text-red'>{text('tooltips.info.missing_space')}</p>}
 
-        <BuildingCosts data={data} missing={missing}/>
+        <ResourceRow title={text('tooltips.city_center_tooltip.bonuses')} items={data.custom || []} />
+        
+        {data.status && <p className={styles.status}>{richText(data.status)}</p>}
+
+        {(data.status === 'Constructed' || data.status?.startsWith('In construction')) ? null : <BuildingCosts data={data} missing={missing}/>}
               
       </div>
     </div>

@@ -117,6 +117,7 @@ export type Territories = Record<string, {
 
 export interface CapitalStaticData {
   level: number;
+  levelName: string;
   food: number;
   name: string;
   space: number;
@@ -176,8 +177,10 @@ export interface BuildingMessages {
 
 export interface BuildingTooltipData {
   title: string;
+  levelName?: string;
   status?: string;
-  messages: BuildingMessages; 
+  messages: BuildingMessages;
+  custom?: TooltipResourceDetail[]; 
   cost: BuildingCostType
 }
 

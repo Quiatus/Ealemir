@@ -4,7 +4,8 @@ import { CapitalBuildingsStaticData, CapitalStaticData, TerritoriesStaticData } 
 export const CAPITAL: Record<number, CapitalStaticData> = {
   1: { 
     level: 1, 
-    name: text('feature_buildings.capital.level_1_name'), 
+    name: text('feature_buildings.capital.name'),
+    levelName: text('feature_buildings.capital.level_1_title'), 
     food: 10, 
     space: 200,
     cost: { turn: 50, gold: 5000, wood: 100, stone: 20 },

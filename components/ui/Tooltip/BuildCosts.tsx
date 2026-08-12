@@ -10,9 +10,14 @@ interface BuildCostProps {
 }
 
 export default function BuildingCosts({data, missing}: BuildCostProps) {
+  let title = text('tooltips.construction_tooltip.construction_cost')
+
+  if (data.title === 'City Center') {
+    title = text('tooltips.construction_tooltip.upgrade_cost')
+  }
   return (
     <>
-      <p className='space-top-m text-primary'>{text('tooltips.construction_tooltip.construction_cost')}</p>
+      <p className='space-top-m text-primary'>{title}</p>
       <div className={`${styles.costRow} space-left-m`}>
         {data.cost.turn > 0 && <div className={styles.cost}>
           <Image src="/icons/resources/turn.png" alt='Turns' width={24} height={24}/>

@@ -1,7 +1,6 @@
 import Card from "@/components/ui/Card";
 import { text } from "@/lib/utilities";
 import styles from './Capital.module.css';
-import bgimage from '@/public/buildings/city_1.png'
 import Image from "next/image";
 import { PlayerBuildings, PlayerResources } from "@/types/game";
 import { CAPITAL_BUILDINGS } from "@/config/buildings";
@@ -18,7 +17,7 @@ export default function CapitalCard({resources, buildings}: CapitalProps) {
   return (
     <Card title={text('feature_buildings.card_capital.title')} style="elevated" height="height-fit" width="fit">
       <div className={styles.mapContainer}>
-        <Image src={bgimage.src} alt="city" width={970} height={970}></Image>
+        <Image src={`buildings/city_${buildings.capital.city_level}.png`} alt="city" width={970} height={970}></Image>
 
         <CityCenter resources={resources} dbState={buildings.capital}/>
 
