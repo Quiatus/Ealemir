@@ -17,7 +17,7 @@ export const INITIAL_PLAYER_RESOURCES: PlayerResources = {
   population: 50,
   food: 5,
   wood: 200,
-  stone: 5,
+  stone: 50,
   fame: 0,
   last_turn_resources_report: {
     goldReport: {
@@ -79,7 +79,7 @@ export const INITIAL_PLAYER_BUILDINGS = {
   territories: {
     farm: {
       name: "farm",
-      built: 1,
+      built: 0,
       discovered: 1
     },
     lumberyard: {

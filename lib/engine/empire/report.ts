@@ -1,6 +1,6 @@
 import { formatNumber, text } from "@/lib/utilities";
 import { PlayerBuildings, PlayerEmpire, PlayerResources } from "@/types/game";
-import { calculateFreeSpace } from "../buildings/space";
+import { calculateFreeSpace } from "../buildings/checks";
 
 function resourceReportConstructor(resources: PlayerResources) {
   const foodGain = resources.last_turn_resources_report.foodReport.gainFromCapital + resources.last_turn_resources_report.foodReport.gainFromFarms

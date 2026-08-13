@@ -197,6 +197,7 @@
     "progress_turn_failed_title": "Progress turn failed",
     "progress_turn_failed_message": "A dark magic disrupted the realm. Your turn could not be completed.",
     "already_constructing_message": "Building already constructed.",
-    "already_upgrading_message": "Capital is already being upgraded."
+    "already_upgrading_message": "Capital is already being upgraded.",
+    "max_level_reached": "Capital is already at the max level."
   }
 }

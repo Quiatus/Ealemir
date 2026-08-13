@@ -64,3 +64,7 @@ export function formatNumber(num: number, formatting: numberFormats = 'short'): 
 
   return num.toString(); 
 }
+
+export function calculateElapsedPercentage(total: number, remaining: number) {
+  return Math.ceil(((total - (remaining || 0)) / total ) * 100)
+}

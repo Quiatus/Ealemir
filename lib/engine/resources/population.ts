@@ -1,5 +1,5 @@
 import { PlayerBuildings, PlayerEmpire } from "@/types/game"
-import { calculateFreeSpace, calculateMaxSpace } from "../buildings/space"
+import { calculateFreeSpace, calculateMaxSpace } from "../buildings/checks"
 import { randomResourceRange } from "@/lib/utilities"
 import { EMPIRE_BASELINES, RATIONS_MODIFIER } from "@/config/empire";
 import { calculateMorale } from "../empire/morale";

@@ -1,4 +1,4 @@
-import { calculateFreeSpace, calculateMaxSpace } from "@/lib/engine/buildings/space";
+import { calculateFreeSpace, calculateMaxSpace } from "@/lib/engine/buildings/checks";
 import { text } from "@/lib/utilities";
 import { PlayerBuildings, PlayerResources, ResourceTooltipData } from "@/types/game";
 

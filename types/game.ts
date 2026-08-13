@@ -109,6 +109,7 @@ export interface CapitalBuildingState {
   name: string;
   queue: number
 }
+
 export type CapitalBuildingsQueueMap = Record<string, CapitalBuildingState>;
 
 export type Territories = Record<string, {
