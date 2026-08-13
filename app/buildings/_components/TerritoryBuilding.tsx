@@ -48,7 +48,7 @@ export default function TerritoryBuilding({building, buildingCost, resources, to
     if (isDisabled.disable) return
     
     startTransition(async () => {
-      const result = await updateTerritoryBuildings({building, buildingCost, resources})
+      const result = await updateTerritoryBuildings({building, buildingCost})
       if (result && !result.success) {
         setIsErrorModalOpen(true)
         setErrorMessage(result.message || text("errors.construction_failed_message"))

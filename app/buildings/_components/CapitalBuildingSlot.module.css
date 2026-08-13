@@ -10,3 +10,10 @@
      1px  1px 0 rgba(0, 0, 0, 0.8),
      0px  2px 4px rgba(0, 0, 0, 0.9);
 }
+
+.capitalButton {
+  cursor: pointer;
+  border-radius: 0.5rem;
+  background: rgba(0, 0, 0, 0.3);
+  border: none;
+}

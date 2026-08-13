@@ -9,7 +9,7 @@ export function deductResources( currentResources: PlayerResources, cost: Univer
     const key = resourceKey as keyof PlayerResources;
     const costAmount = amount as number;
 
-    if (!costAmount) continue;
+    if (!costAmount || key === 'turn') continue;
 
     if ((currentResources[key] as number) < costAmount) {
       throw new Error(`Insufficient ${key} to complete this action.`);

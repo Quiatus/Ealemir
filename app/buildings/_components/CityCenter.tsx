@@ -24,7 +24,7 @@ export default function CityCenter({ resources, dbState }: CityCenterProps) {
   return (
     <div style={{ position: 'absolute', left: `465px`, top: `485px` }}>
       <BuildingTooltip data={tooltipData} missing={isDisabled}>
-        <div style={{ border: '1px solid red', width: `100px`, height: `55px` }}>
+        <div style={{ width: `100px`, height: `55px` }}>
 
         </div>
       </BuildingTooltip>

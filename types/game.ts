@@ -115,6 +115,12 @@ export type Territories = Record<string, {
   discovered: number;
 }>;
 
+export interface CapitalBuildingSlotProps {
+  resources: PlayerResources;
+  buildingData: CapitalBuildingsStaticData;
+  dbState: CapitalBuildingState;
+}
+
 export interface CapitalStaticData {
   level: number;
   levelName: string;

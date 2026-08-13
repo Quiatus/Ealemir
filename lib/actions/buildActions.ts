@@ -1,6 +1,6 @@
 'use server'
 
-import { BuildingCostType, PlayerBuildings, PlayerResources } from "@/types/game"
+import { BuildingCostType, CapitalBuildingsStaticData, PlayerBuildings, PlayerResources } from "@/types/game"
 import { revalidatePath } from "next/cache"
 import { getData, updateData } from "../data/dal"
 import { deductResources } from "../engine/resources/resourceDeductor";
@@ -13,13 +13,15 @@ interface TerritoryBuildingProps {
     discovered: number;
   };
   buildingCost: BuildingCostType;
-  resources: PlayerResources;
 }
  
-export async function updateTerritoryBuildings({ building, buildingCost, resources}: TerritoryBuildingProps) {
+export async function updateTerritoryBuildings({ building, buildingCost}: TerritoryBuildingProps) {
   try {
-    const currentBuildings = await getData<PlayerBuildings>('player_buildings')
-    const updatedResources = deductResources(resources, buildingCost)
+    const [currentBuildings, currentResources] = await Promise.all([
+      getData<PlayerBuildings>('player_buildings'),
+      getData<PlayerResources>('player_resources')
+    ]);
+    const updatedResources = deductResources(currentResources, buildingCost)
     
     const updatedBuilding = {
       ...building,
@@ -34,6 +36,50 @@ export async function updateTerritoryBuildings({ building, buildingCost, resourc
     await Promise.all([
       updateData<PlayerResources>('player_resources', updatedResources),
       updateData<PlayerBuildings>('player_buildings', {territories: updatedTerritories})
+    ])
+    
+    revalidatePath('/', 'layout')
+    return { success: true }
+    
+  } catch (error) {
+    console.error("Failed to build: ", error)
+
+    return { 
+      success: false, 
+      message: text("errors.construction_failed_message")
+    }
+  }
+}
+
+export async function constructCapitalBuilding(buildingData: CapitalBuildingsStaticData) {
+  try {
+    const [currentBuildings, currentResources] = await Promise.all([
+      getData<PlayerBuildings>('player_buildings'),
+      getData<PlayerResources>('player_resources')
+    ]);
+
+    const buildingState = currentBuildings.capital_buildings?.[buildingData.id];
+
+    if (buildingState?.isBuilt || (buildingState?.queue ?? 0) > 0) {
+      return { 
+        success: false, 
+        message: text("errors.already_constructing_message") 
+      };
+    }
+
+    const updatedResources = deductResources(currentResources, buildingData.cost)
+
+    const updatedQueue = {
+      ...currentBuildings.capital_buildings,
+      [buildingData.id]: {
+        isBuilt: false,
+        queue: buildingData.cost.turn
+      } 
+    }
+
+    await Promise.all([
+      updateData<PlayerResources>('player_resources', updatedResources),
+      updateData<PlayerBuildings>('player_buildings', {capital_buildings: updatedQueue})
     ])
     
     revalidatePath('/', 'layout')
