@@ -56,12 +56,12 @@ export const INITIAL_PLAYER_BUILDINGS = {
   },
   capital_buildings: {
     house01: {
-      isBuilt: true,
+      isBuilt: false,
       queue: 0
     },
     house02: {
       isBuilt: false,
-      queue: 5
+      queue: 0
     },
     house03: {
       isBuilt: false,

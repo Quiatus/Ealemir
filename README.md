@@ -2,6 +2,7 @@ To Do:
 
 [] add building construction for capital buildings level 1
 [] add simple random events (find resource caches, land to expand basic resources)
+[] add capital upgrade
 [] add level 2 capital buildings - houses, tavern 
 [] add tavern feature - unlocks first few conversation
 [] add militia 

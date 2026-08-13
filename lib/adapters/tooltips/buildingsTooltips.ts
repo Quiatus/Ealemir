@@ -28,9 +28,7 @@ function buildStatusMessage({isBuilt, queue}: CapitalBuildingState) {
 function buildFarmTooltip(): BuildingTooltipData {
   return {
     title: text('tooltips.farm_tooltip.title'),
-    messages: {
-      afterTitle: richText('tooltips.farm_tooltip.effect_message', {food: formatNumber(Number(TERRITORIES.farm.effect.food), 'full')})
-    },
+    messages: richText('tooltips.farm_tooltip.effect_message', {food: formatNumber(Number(TERRITORIES.farm.effect.food), 'full')}),
     cost: TERRITORIES.farm.cost
   };
 }
@@ -38,9 +36,7 @@ function buildFarmTooltip(): BuildingTooltipData {
 function buildLumberyardTooltip(): BuildingTooltipData {
   return {
     title: text('tooltips.lumberyard_tooltip.title'),
-    messages: {
-      afterTitle: richText('tooltips.lumberyard_tooltip.effect_message', {wood: formatNumber(Number(TERRITORIES.lumberyard.effect.wood), 'full')})
-    },
+    messages: richText('tooltips.lumberyard_tooltip.effect_message', {wood: formatNumber(Number(TERRITORIES.lumberyard.effect.wood), 'full')}),
     cost: TERRITORIES.lumberyard.cost
   };
 }
@@ -48,9 +44,7 @@ function buildLumberyardTooltip(): BuildingTooltipData {
 function buildQuarryTooltip(): BuildingTooltipData {
   return {
     title: text('tooltips.quarry_tooltip.title'),
-    messages: {
-      afterTitle: richText('tooltips.quarry_tooltip.effect_message', {stone: formatNumber(Number(TERRITORIES.quarry.effect.stone), 'full')})
-    },
+    messages: richText('tooltips.quarry_tooltip.effect_message', {stone: formatNumber(Number(TERRITORIES.quarry.effect.stone), 'full')}),
     cost: TERRITORIES.quarry.cost
   };
 }
@@ -59,9 +53,7 @@ export function buildCapitalBuildingTooltip( data: CapitalBuildingsStaticData, d
   return {
     title: data.name,
     status: buildStatusMessage(dbState),
-    messages: {
-      afterTitle: richText(data.description, {effect: formatNumber(Number(Object.values(data.effect)[0]), 'full')})
-    },
+    messages: richText(data.description, {effect: formatNumber(Number(Object.values(data.effect)[0]), 'full')}),
     cost: data.cost
   };
 }
@@ -81,9 +73,7 @@ export function buildCityCenterTooltip( data: CapitalStaticData, queue: number )
     title: data.name,
     levelName: `Level ${data.level} - ${data.levelName}`,
     status: message,
-    messages: {
-      afterTitle: text('tooltips.city_center_tooltip.message')
-    },
+    messages: text('tooltips.city_center_tooltip.message'),
     cost: data.cost,
     custom: [
       {

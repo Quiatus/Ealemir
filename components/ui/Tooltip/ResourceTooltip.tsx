@@ -5,8 +5,7 @@ import { ResourceTooltipData } from '@/types/game'
 import { formatNumber, text } from '@/lib/utilities';
 import ResourceRow from './ResourceRow';
 import { ReactNode } from 'react';
-import FlavorText from './FlavorText';
-import { useRef, useState } from 'react';
+import { useTooltipPosition } from '@/lib/hooks/useTooltipPosition';
 
 interface TooltipProps {
   data: ResourceTooltipData;
@@ -14,26 +13,10 @@ interface TooltipProps {
 }
 
 export default function ResourceTooltip({ data, children }: TooltipProps) {
-  const tooltipRef = useRef<HTMLDivElement>(null);
-  const wrapperRef = useRef<HTMLDivElement>(null);
-  const [flipTop, setFlipTop] = useState(false);
-
-  function handleMouseEnter () {
-    if (tooltipRef.current && wrapperRef.current) {
-      const tooltipHeight = tooltipRef.current.getBoundingClientRect().height;
-      const wrapperBottom = wrapperRef.current.getBoundingClientRect().bottom;
-      const theoreticalBottom = wrapperBottom + tooltipHeight;
-      
-      if (theoreticalBottom > window.innerHeight - 16) {
-        setFlipTop(true);
-      } else {
-        setFlipTop(false);
-      }
-    }
-  };
+  const { tooltipRef, wrapperRef, flipTop, calculatePosition } = useTooltipPosition();
 
   return (
-    <div ref={wrapperRef} className={styles.tooltipWrapper} onMouseEnter={handleMouseEnter}> 
+    <div ref={wrapperRef} className={styles.tooltipWrapper} onMouseEnter={calculatePosition}> 
       {children}
 
       <div ref={tooltipRef} className={`${styles.tooltip} ${styles.tooltipResource} ${flipTop ? styles.tooltipTop : styles.tooltipBottom}`}>
@@ -44,27 +27,15 @@ export default function ResourceTooltip({ data, children }: TooltipProps) {
           <span className='text-bold'>{formatNumber(data.total, 'full')}</span>
         </div>
 
-        <FlavorText text={data.messages?.afterTotal} />
+        {data.messages?.afterTotal && <p className='text-flavor space-m'>{data.messages?.afterTotal}</p>} 
 
         <ResourceRow items={data.custom || []} />
 
-        <FlavorText text={data.messages?.afterCustom} />
+        {data.messages?.afterCustom && <p className='text-flavor space-m'>{data.messages?.afterCustom}</p>} 
 
-        <ResourceRow 
-          title={text('tooltips.info.income')} 
-          items={data.income} 
-          valueClass="text-green" 
-          prefix="+" 
-        />
+        <ResourceRow title={text('tooltips.info.income')} items={data.income} valueClass="text-green" prefix="+" />
 
-        <ResourceRow 
-          title={text('tooltips.info.expenditure')} 
-          items={data.expenditures} 
-          valueClass="text-red" 
-          prefix="-" 
-        />
-
-        <FlavorText text={data.messages?.beforeChange} />
+        <ResourceRow title={text('tooltips.info.expenditure')} items={data.expenditures} valueClass="text-red" prefix="-" />
 
         <div className={`${styles.row} space-top-m`}>
           <span>{text('tooltips.info.change')}</span>

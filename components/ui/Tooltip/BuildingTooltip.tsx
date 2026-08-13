@@ -3,11 +3,11 @@
 import styles from './Tooltip.module.css'
 import { BuildingTooltipData } from '@/types/game'
 import { ReactNode } from 'react';
-import { useRef, useState } from 'react';
 import { text } from '@/lib/utilities';
 import BuildingCosts from './BuildCosts';
 import { richText } from '@/app/richText';
 import ResourceRow from './ResourceRow';
+import { useTooltipPosition } from '@/lib/hooks/useTooltipPosition';
 
 export interface MissingProps {
   missingCosts: string[],
@@ -21,26 +21,10 @@ interface TooltipProps {
 }
 
 export default function BuildingTooltip({ data, missing, children }: TooltipProps) {
-  const tooltipRef = useRef<HTMLDivElement>(null);
-  const wrapperRef = useRef<HTMLDivElement>(null);
-  const [flipTop, setFlipTop] = useState(false);
-
-  function handleMouseEnter () {
-    if (tooltipRef.current && wrapperRef.current) {
-      const tooltipHeight = tooltipRef.current.getBoundingClientRect().height;
-      const wrapperBottom = wrapperRef.current.getBoundingClientRect().bottom;
-      const theoreticalBottom = wrapperBottom + tooltipHeight;
-      
-      if (theoreticalBottom > window.innerHeight - 16) {
-        setFlipTop(true);
-      } else {
-        setFlipTop(false);
-      }
-    }
-  };
+  const { tooltipRef, wrapperRef, flipTop, calculatePosition } = useTooltipPosition();
 
   return (
-    <div ref={wrapperRef} className={styles.tooltipWrapper} onMouseEnter={handleMouseEnter}> 
+    <div ref={wrapperRef} className={styles.tooltipWrapper} onMouseEnter={calculatePosition}> 
       {children}
 
       <div ref={tooltipRef} className={`${styles.tooltip} ${styles.tooltipResource} ${flipTop ? styles.tooltipTop : styles.tooltipBottom}`}>
@@ -48,7 +32,7 @@ export default function BuildingTooltip({ data, missing, children }: TooltipProp
         
         {data.levelName && <p className={styles.level}>{richText(data.levelName)}</p>}
         
-        {data.messages?.afterTitle && <p className='text-flavor space-m'>{data.messages?.afterTitle}</p>} 
+        {data.messages && <p className='text-flavor space-m'>{data.messages}</p>} 
 
         {missing.missingSpace && <p className='text-red'>{text('tooltips.info.missing_space')}</p>}
 
@@ -56,8 +40,7 @@ export default function BuildingTooltip({ data, missing, children }: TooltipProp
         
         {data.status && <p className={styles.status}>{richText(data.status)}</p>}
 
-        {(data.status === 'Constructed' || data.status?.startsWith('In construction')) ? null : <BuildingCosts data={data} missing={missing}/>}
-              
+        {(data.status === 'Constructed' || data.status?.startsWith('In construction')) ? null : <BuildingCosts data={data} missing={missing}/>}    
       </div>
     </div>
   )

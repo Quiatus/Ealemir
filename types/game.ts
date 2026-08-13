@@ -171,15 +171,11 @@ export interface InfoTooltipData {
   custom?: TooltipResourceDetail[];
 }
 
-export interface BuildingMessages {
-  afterTitle?: string | ReactNode;
-}
-
 export interface BuildingTooltipData {
   title: string;
   levelName?: string;
   status?: string;
-  messages: BuildingMessages;
+  messages: string | ReactNode;
   custom?: TooltipResourceDetail[]; 
   cost: BuildingCostType
 }
@@ -187,7 +183,6 @@ export interface BuildingTooltipData {
 export interface ResourceMessages {
   afterTotal?: string;
   afterCustom?: string;
-  beforeChange?: string;
 }
 
 export interface ResourceTooltipData {
