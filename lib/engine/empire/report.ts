@@ -37,6 +37,13 @@ function generateEmpireReport(resources: PlayerResources, buildings: PlayerBuild
   const goldGain = resources.last_turn_resources_report.goldReport.gainFromPopulation
   const populationGain = resources.last_turn_resources_report.populationReport.gainFromGrowth
 
+  if (buildings.finished) {
+    buildings.finished.split(',').map(building => {
+      if (building === 'Capital City') report.push(text('feature_overview.card_report.report_capital_upgraded', {level: buildings.capital.city_level}))
+      else report.push(text('feature_overview.card_report.report_building_constructed', {building}))
+    })
+  }
+
   if (goldGain > 0) {
     report.push(text('feature_overview.card_report.report_gold', {gold: formatNumber((goldGain), 'full') }))
   }

@@ -40,7 +40,12 @@ export default function BuildingTooltip({ data, missing, children }: TooltipProp
         
         {data.status && <p className={styles.status}>{richText(data.status)}</p>}
 
-        {(data.status?.includes('Constructed') || data.status?.includes('In construction')) || data.status?.includes('Max level') ? null : <BuildingCosts data={data} missing={missing}/> }    
+        {(data.status?.includes('Constructed') || 
+          data.status?.includes('In construction')) || 
+          data.status?.includes('Max level') || 
+          data.status?.includes('Upgrading') ? 
+          null : 
+          <BuildingCosts data={data} missing={missing}/> }    
       </div>
     </div>
   )

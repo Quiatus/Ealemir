@@ -10,7 +10,7 @@ export const CAPITAL: Record<number, CapitalStaticData> = {
     levelName: text('feature_buildings.capital.level_1_title'), 
     food: 10, 
     space: 200,
-    cost: { turn: 5, gold: 500, wood: 10, stone: 2 },
+    cost: { turn: 50, gold: 500, wood: 10, stone: 2 },
   },
   2: { 
     level: 2, 

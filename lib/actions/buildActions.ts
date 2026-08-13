@@ -70,10 +70,12 @@ export async function constructCapitalBuilding(buildingData: CapitalBuildingsSta
 
     const updatedResources = deductResources(currentResources, buildingData.cost)
 
+    const updatedBuilding = currentBuildings.capital_buildings[buildingData.id]
+    
     const updatedQueue = {
       ...currentBuildings.capital_buildings,
       [buildingData.id]: {
-        isBuilt: false,
+        ...updatedBuilding,
         queue: buildingData.cost.turn
       } 
     }

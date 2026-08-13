@@ -176,7 +176,9 @@
       "report_resources_end": "from territories.",
       "report_food": "<food>{food}</food> {icon_food}",
       "report_wood": "<wood>{wood}</wood> {icon_wood}",
-      "report_stone": "<stone>{stone}</stone> {icon_stone}"
+      "report_stone": "<stone>{stone}</stone> {icon_stone}",
+      "report_capital_upgraded": "<high>Capital city upgraded to level {level}.</high>",
+      "report_building_constructed": "A new {building} has been built."
     },
     "card_scouts": {
       "title": "Scout Missives",

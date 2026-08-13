@@ -95,7 +95,8 @@ export interface PlayerBuildings {
   capital: CapitalLevel;
   capital_buildings: CapitalBuildingsQueueMap;
   territories: Territories;
-  habitats: Habitats
+  habitats: Habitats;
+  finished: string
 }
 
 export interface CapitalLevel {
@@ -105,6 +106,7 @@ export interface CapitalLevel {
 
 export interface CapitalBuildingState {
   isBuilt: boolean,
+  name: string;
   queue: number
 }
 export type CapitalBuildingsQueueMap = Record<string, CapitalBuildingState>;
