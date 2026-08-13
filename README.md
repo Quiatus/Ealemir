@@ -1,9 +1,7 @@
 To Do:
 
-[] add building construction for capital buildings level 1
-[] add simple random events (find resource caches, land to expand basic resources)
-[] add capital upgrade
 [] add level 2 capital buildings - houses, tavern 
+[] add simple random events (find resource caches, land to expand basic resources)
 [] add tavern feature - unlocks first few conversation
 [] add militia 
 
@@ -18,3 +16,5 @@ To Do:
 [X] add error messages
 [X] add overview for resource gatherer
 [X] add tooltip for city center
+[X] add building construction for capital buildings level 1
+[X] add capital upgrade

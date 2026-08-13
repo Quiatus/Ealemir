@@ -44,7 +44,7 @@ export default function CapitalBuildingSlot({ resources, buildingData, dbState }
         <div className={styles.slot} style={{ /*border: '1px solid red',*/ width: `${buildingData.pos.width}px`, height: `${buildingData.pos.height}px` }}>
           {!isBuilt && !isConstructing && 
             <button className={styles.capitalButton} style={{ width: `${buildingData.pos.width}px`, height: `${buildingData.pos.height}px`}} onClick={() => handleBuild()} disabled={isDisabled.disable}>
-              <Image src="/icons/buildings/construct.png" alt="" layout="fill" />
+              <Image src="/icons/buildings/construct2.png" alt="" layout="fill" />
             </button>}
           {isConstructing && <span>{progress}%</span>}
         </div>

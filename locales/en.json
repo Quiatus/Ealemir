@@ -38,6 +38,7 @@
     },
     "city_center_tooltip": {
       "message": "Upgrade the city center to expand your capital and unlock new buildings and bonuses.",
+      "max_level": "Max level reached",
       "bonuses": "Bonuses",
       "space": "Housing",
       "food": "Food"
@@ -141,7 +142,8 @@
     },
     "capital": {
       "name": "City Center",
-      "level_1_title": "Hamlet"
+      "level_1_title": "Hamlet",
+      "level_2_title": "Village"
     },
     "capital_buildings": {
       "house": {
@@ -188,8 +190,11 @@
   "errors": {
     "construction_failed_title": "Construction failed",
     "construction_failed_message": "A dark magic disrupted construction.",
+    "upgrade_failed_title": "Upgrade failed",
+    "upgrade_failed_message": "We cannot upgrade our capital at this time.",
     "progress_turn_failed_title": "Progress turn failed",
     "progress_turn_failed_message": "A dark magic disrupted the realm. Your turn could not be completed.",
-    "already_constructing_message": "Building already constructed."
+    "already_constructing_message": "Building already constructed.",
+    "already_upgrading_message": "Capital is already being upgraded."
   }
 }

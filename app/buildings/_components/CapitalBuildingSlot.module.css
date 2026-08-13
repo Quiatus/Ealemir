@@ -13,7 +13,12 @@
 
 .capitalButton {
   cursor: pointer;
-  border-radius: 0.5rem;
-  background: rgba(0, 0, 0, 0.3);
+  background: transparent;
   border: none;
+}
+
+.buttonCityCenter {
+  background: transparent;
+  border: none;
+  cursor: pointer;
 }

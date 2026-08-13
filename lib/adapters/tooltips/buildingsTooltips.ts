@@ -1,5 +1,5 @@
 import { richText } from "@/app/richText";
-import { TERRITORIES } from "@/config/buildings";
+import { MAX_CAPITAL_LEVEL, TERRITORIES } from "@/config/buildings";
 import { formatNumber, text } from "@/lib/utilities";
 import { BuildingTooltipData, CapitalBuildingsStaticData, CapitalBuildingState, CapitalStaticData } from "@/types/game";
 
@@ -67,6 +67,10 @@ export function buildCityCenterTooltip( data: CapitalStaticData, queue: number )
 
   if (queue === 1) {
     message = text('tooltips.construction_tooltip.upgrading_one')
+  }
+
+  if (data.level === MAX_CAPITAL_LEVEL) {
+    message = text('tooltips.city_center_tooltip.max_level')
   }
 
   return {

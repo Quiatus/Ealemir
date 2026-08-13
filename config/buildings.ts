@@ -1,6 +1,8 @@
 import { text } from "@/lib/utilities";
 import { CapitalBuildingsStaticData, CapitalStaticData, TerritoriesStaticData } from "@/types/game";
 
+export const MAX_CAPITAL_LEVEL = 2
+
 export const CAPITAL: Record<number, CapitalStaticData> = {
   1: { 
     level: 1, 
@@ -8,7 +10,15 @@ export const CAPITAL: Record<number, CapitalStaticData> = {
     levelName: text('feature_buildings.capital.level_1_title'), 
     food: 10, 
     space: 200,
-    cost: { turn: 50, gold: 5000, wood: 100, stone: 20 },
+    cost: { turn: 5, gold: 500, wood: 10, stone: 2 },
+  },
+  2: { 
+    level: 2, 
+    name: text('feature_buildings.capital.name'),
+    levelName: text('feature_buildings.capital.level_2_title'), 
+    food: 50, 
+    space: 500,
+    cost: { turn: 100, gold: 50000, wood: 1000, stone: 200 },
   }
 };
 
