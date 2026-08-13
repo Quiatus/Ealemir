@@ -3,7 +3,6 @@ import { PlayerBuildings } from "@/types/game";
 export function calculateUpdatedBuildings(data: PlayerBuildings) {
   const updatedCapitalBuildings = { ...data.capital_buildings };
   const updatedCityCenter = { ...data.capital };
-  let finished = ''
   const finishedConstruction: string[] = []
 
   if (updatedCityCenter.queue > 1) {
@@ -15,7 +14,6 @@ export function calculateUpdatedBuildings(data: PlayerBuildings) {
   }
 
   for (const [buildingId, state] of Object.entries(updatedCapitalBuildings)) {
-    
     if (!state.isBuilt && state.queue > 0) {
       if (state.queue > 1) {
         updatedCapitalBuildings[buildingId] = {
@@ -33,11 +31,9 @@ export function calculateUpdatedBuildings(data: PlayerBuildings) {
     }
   }
 
-  if (finishedConstruction.length > 0) finished = finishedConstruction.join(',')
-
   return {
     ...data,
-    finished,
+    finished: finishedConstruction.join(','),
     capital: updatedCityCenter,
     capital_buildings: updatedCapitalBuildings
   };
