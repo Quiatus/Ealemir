@@ -4,7 +4,8 @@
       "overview": "Overview",
       "empire": "Empire",
       "buildings": "Buildings",
-      "military": "Military"
+      "military": "Military",
+      "tavern": "Tavern"
     },
     "reset_window": {
       "title": "Abandon our Empire?",
@@ -149,6 +150,10 @@
       "house": {
         "name": "House",
         "description": "Provides space for <norm>{effect} people</norm>."
+      },
+      "tavern": {
+        "name": "Tavern",
+        "description": "A bustling hearth where weary travelers trade rumors of uncharted lands and offer the realm new quests."
       }
     },
     "territories": {
@@ -178,7 +183,7 @@
       "report_wood": "<wood>{wood}</wood> {icon_wood}",
       "report_stone": "<stone>{stone}</stone> {icon_stone}",
       "report_capital_upgraded": "<high>Capital city upgraded to level {level}.</high>",
-      "report_building_constructed": "A new {building} has been built."
+      "report_building_constructed": "A new <high>{building}</high> has been built."
     },
     "card_scouts": {
       "title": "Scout Missives",

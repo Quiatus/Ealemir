@@ -6,6 +6,7 @@ export interface MenuItem {
   name: string;
   path: string;
   space?: boolean; 
+  requiredBuilding?: string;
 }
 
 export interface GameData {

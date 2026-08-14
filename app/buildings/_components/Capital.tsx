@@ -17,8 +17,7 @@ export default function CapitalCard({resources, buildings}: CapitalProps) {
   return (
     <Card title={text('feature_buildings.card_capital.title')} style="elevated" height="height-fit" width="fit">
       <div className={styles.mapContainer}>
-        {/* <Image src={`buildings/city_${buildings.capital.city_level}.png`} alt="city" width={970} height={970} /> */}
-        <Image src={`buildings/city_1.png`} alt="city" width={970} height={970} />
+        <Image src={`buildings/city_${buildings.capital.city_level}.png`} alt="city" width={970} height={970} />
 
         <CityCenter resources={resources} dbState={buildings.capital}/>
 

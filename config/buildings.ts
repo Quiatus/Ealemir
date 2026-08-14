@@ -10,7 +10,7 @@ export const CAPITAL: Record<number, CapitalStaticData> = {
     levelName: text('feature_buildings.capital.level_1_title'), 
     food: 10, 
     space: 200,
-    cost: { turn: 50, gold: 500, wood: 10, stone: 2 },
+    cost: { turn: 5, gold: 500, wood: 10, stone: 2 },
   },
   2: { 
     level: 2, 
@@ -72,6 +72,64 @@ export const CAPITAL_BUILDINGS: Record<string, CapitalBuildingsStaticData> = {
       height: 35, 
       left: 525, 
       top: 545
+    }    
+  },
+  house05: {
+    ...BASE_HOUSE,
+    id: 'house05',
+    unlockLevel: 2,
+    pos: {
+      width: 35, 
+      height: 35, 
+      left: 425, 
+      top: 550
+    }    
+  },
+  house06: {
+    ...BASE_HOUSE,
+    id: 'house06',
+    unlockLevel: 2,
+    pos: {
+      width: 35, 
+      height: 35, 
+      left: 493, 
+      top: 580
+    }    
+  },
+  house07: {
+    ...BASE_HOUSE,
+    id: 'house07',
+    unlockLevel: 2,
+    pos: {
+      width: 35, 
+      height: 35, 
+      left: 485, 
+      top: 615
+    }    
+  },
+  house08: {
+    ...BASE_HOUSE,
+    id: 'house08',
+    unlockLevel: 2,
+    pos: {
+      width: 35, 
+      height: 35, 
+      left: 535, 
+      top: 590
+    }    
+  },
+  tavern: {
+    id: 'tavern',
+    name: text('feature_buildings.capital_buildings.tavern.name'),
+    description: text('feature_buildings.capital_buildings.tavern.description'),
+    effect: {},
+    cost: { turn: 5, gold: 500, wood: 10, stone: 0 },
+    unlockLevel: 2,
+    pos: {
+      width: 45, 
+      height: 45, 
+      left: 630, 
+      top: 450
     }    
   }
 }

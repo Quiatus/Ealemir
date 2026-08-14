@@ -74,6 +74,31 @@ export const INITIAL_PLAYER_BUILDINGS = {
       isBuilt: false,
       name: 'house',
       queue: 0
+    },
+    house05: {
+      isBuilt: false,
+      name: 'house',
+      queue: 0
+    },
+    house06: {
+      isBuilt: false,
+      name: 'house',
+      queue: 0
+    },
+    house07: {
+      isBuilt: false,
+      name: 'house',
+      queue: 0
+    },
+    house08: {
+      isBuilt: false,
+      name: 'house',
+      queue: 0
+    },
+    tavern: {
+      isBuilt: false,
+      name: 'tavern',
+      queue: 0
     }
   },
   territories: {

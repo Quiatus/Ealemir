@@ -3,6 +3,7 @@ import { calculateFreeSpace, calculateMaxSpace } from "../buildings/checks"
 import { randomResourceRange } from "@/lib/utilities"
 import { EMPIRE_BASELINES, RATIONS_MODIFIER } from "@/config/empire";
 import { calculateMorale } from "../empire/morale";
+import { POPULATION_GAIN_RANGE } from "@/config/resources";
 
 export function calculatePopulationChange(population: number, buildings: PlayerBuildings, empire: PlayerEmpire) {
   const avaiableSpace = calculateFreeSpace(population, buildings)
@@ -15,7 +16,7 @@ export function calculatePopulationChange(population: number, buildings: PlayerB
   
   const lowPopCompensator = Math.floor(Math.random() * 19 + 2)
   
-  let populationGrowth = Math.floor((randomResourceRange(population, 0.001, 0.005) + lowPopCompensator) * RATIONS_MODIFIER[empire.rations].populationGrowth * moraleModifier) 
+  let populationGrowth = Math.floor((randomResourceRange(population, POPULATION_GAIN_RANGE.min, POPULATION_GAIN_RANGE.max) + lowPopCompensator) * RATIONS_MODIFIER[empire.rations].populationGrowth * moraleModifier) 
   
   if (!avaiableSpace || overpopulation) {
     populationGrowth = 0

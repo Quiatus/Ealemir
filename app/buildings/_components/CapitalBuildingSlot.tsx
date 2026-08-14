@@ -29,7 +29,7 @@ export default function CapitalBuildingSlot({ resources, buildingData, dbState }
               style={{ width: `${buildingData.pos.width}px`, height: `${buildingData.pos.height}px`}} 
               onClick={() => handleBuild(isDisabled.disable)} 
               disabled={isDisabled.disable}>
-                <Image src="/icons/buildings/construct2.png" alt="" layout="fill" />
+                <Image src="/icons/buildings/construct2.png" alt="" width={24} height={24}/>
             </button>}
           {isConstructing && <span>{progress}%</span>}
         </div>

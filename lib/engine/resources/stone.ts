@@ -9,7 +9,6 @@ export function calculateStoneChange(stone: number, buildings: PlayerBuildings, 
   const totalChange = incomeFromQuarries;
   const totalStone = stone + totalChange; 
 
-  
   return {
     stone: totalStone,
     stoneReport: {
