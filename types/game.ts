@@ -205,3 +205,34 @@ export interface ResourceTooltipData {
   expenditures: TooltipResourceDetail[];
   change: number;
 }
+
+// EVENTS ----------------------------------------------------------------
+
+export type EventType = 'instant' | 'encounter' | 'ongoing' ;
+
+export interface EventUnlockConditions {
+  minTurn?: number;
+  minFame?: number;
+  minCapitalLevel?: number;
+  requiredBuildings?: string[];
+}
+
+export interface GameEventConfig {
+  id: string;
+  title: string;
+  description: string;
+  type: EventType;
+  weight: number;
+  duration?: number;
+  conditions?: EventUnlockConditions;
+  effects: {
+    resources?: Partial<Record<string, number>>;
+    modifiers?: Record<string, number>;
+    unlockLocationId?: string; 
+  };
+}
+
+export interface ActiveOngoingEvent {
+  eventId: string;
+  turnsRemaining: number;
+}
