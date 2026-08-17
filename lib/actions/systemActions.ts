@@ -10,6 +10,8 @@ import { getData } from "../data/dal"
 import { PlayerBuildings, PlayerEmpire, PlayerResources } from "@/types/game"
 import { text } from "../utilities"
 import { generateReport } from "../engine/empire/report"
+import { calculateTurnEvents } from "../engine/empire/events"
+import { ALL_EVENTS } from "@/config/events"
 
 export async function progressTurn() {
   const [currentResources, currentBuildings, currentEmpire] = await Promise.all([
@@ -19,9 +21,10 @@ export async function progressTurn() {
   ])
 
   const updatedBuildings = calculateUpdatedBuildings(currentBuildings)
-  const updatedResources = calculateUpdatedResources(currentResources, updatedBuildings, currentEmpire)
+  const eventResults = calculateTurnEvents(Object.values(ALL_EVENTS), currentResources, currentEmpire, updatedBuildings.capital.city_level);
 
-  const updatedEmpire = generateReport(updatedResources, updatedBuildings, currentEmpire) 
+  const updatedResources = calculateUpdatedResources(eventResults.updatedResources, updatedBuildings, eventResults.updatedEmpire)
+  const updatedEmpire = generateReport(eventResults.updatedResources, updatedBuildings, eventResults.updatedEmpire, eventResults.eventLogs) 
   
   const [resourcesResult, buildingsResult, empireResults] = await Promise.all([
     supabase.from('player_resources').update(updatedResources).eq('id', 1),

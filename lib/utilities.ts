@@ -29,6 +29,10 @@ export function randomResourceRange(res: number, min: number, max: number) {
   return Math.floor(Math.random() * (res * max - res * min) + res * min)
 }
 
+export function randomRange(min: number, max: number): number {
+  return Math.floor((Math.random() * (max - min + 1)) + min)
+}
+
 export function formatNumber(num: number, formatting: numberFormats = 'short'): string {
   if (formatting === 'full') {
     return resourceFormatter.format(num);

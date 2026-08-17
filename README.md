@@ -1,6 +1,7 @@
 To Do:
 
 [] add simple random events (find resource caches, land to expand basic resources)
+[] rework modifiers
 [] add notification bar and notifications
 [] add empire status (overpopulation, riot)
 [] add tavern feature - unlocks first few conversation

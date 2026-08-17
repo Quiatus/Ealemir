@@ -31,6 +31,7 @@ export interface PlayerEmpire {
   rations: Rations;
   production: Production;
   monthly_report: MonthlyReport;
+  active_events: ActiveOngoingEvent[]
 }
 
 export interface PolicyOption<T> {
@@ -212,27 +213,38 @@ export type EventType = 'instant' | 'encounter' | 'ongoing' ;
 
 export interface EventUnlockConditions {
   minTurn?: number;
+  maxTurn?: number;
   minFame?: number;
   minCapitalLevel?: number;
-  requiredBuildings?: string[];
+  minMight?: number;
 }
 
 export interface GameEventConfig {
   id: string;
-  title: string;
+  exclusiveEventIds?: string[];
   description: string;
   type: EventType;
-  weight: number;
-  duration?: number;
+  rarity: number;
+  duration?: {
+    min: number;
+    max: number
+  };
   conditions?: EventUnlockConditions;
   effects: {
-    resources?: Partial<Record<string, number>>;
+    resources?: Partial<Record<string, {min: number; max: number}>>;
     modifiers?: Record<string, number>;
     unlockLocationId?: string; 
+    unlockMissionId?: string;
   };
 }
 
 export interface ActiveOngoingEvent {
-  eventId: string;
+  event: GameEventConfig;
   turnsRemaining: number;
+}
+
+export interface DynamicWeightContext {
+  turn: number;
+  fame: number;
+  capitalLevel: number;
 }

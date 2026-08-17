@@ -194,6 +194,14 @@
       "default_message": "Our empire is thriving."
     }
   },
+  "feature_events": {
+    "instant": {
+      "discovery_gold_description": "<high>DISCOVERY!</high> We found <gold>{amount}</gold> {icon_gold}."
+    },
+    "ongoing": {
+      "discovery_gold_description": "<high>EVENT!</high> Ongoing <italic>({duration} left)</italic>."
+    }
+  },
   "errors": {
     "construction_failed_title": "Construction failed",
     "construction_failed_message": "A dark magic disrupted construction.",
