@@ -234,7 +234,7 @@ export interface GameEventConfig {
     resources?: Partial<Record<string, {min: number; max: number}>>;
     modifiers?: Record<string, number>;
     unlockLocationId?: string; 
-    unlockMissionId?: string;
+    unlockEncounterId?: string;
   };
 }
 

@@ -69,17 +69,11 @@ function generateEmpireReport(resources: PlayerResources, buildings: PlayerBuild
   return report
 }
 
-function generateEventReport() {
-  const report: string[] = []
-
-  return report
-}
-
-export function generateReport(resources: PlayerResources, buildings: PlayerBuildings, empireData: PlayerEmpire, eventLogs: string[]) {
+export function generateReport(resources: PlayerResources, buildings: PlayerBuildings, empireData: PlayerEmpire, instantEventLogs: string[], ongoingEventsLog: string[]) {
   const monthly_report = {
     empire: generateEmpireReport(resources, buildings),
-    scouts: eventLogs,
-    events: generateEventReport()
+    scouts: instantEventLogs,
+    events: ongoingEventsLog,
   }
 
   return {

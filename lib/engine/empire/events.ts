@@ -67,7 +67,8 @@ export function pickWeightedEvents(eligiblePool: GameEventConfig[], count: numbe
 
 export function calculateTurnEvents(allEvents: GameEventConfig[], resources: PlayerResources, currentEmpire: PlayerEmpire, capitalLevel: number) {
   const updatedResources = { ...resources };
-  const eventLogs: string[] = [];
+  const instantEventsLog: string[] = [];
+  const ongoingEventsLog: string[] = [];
   let amount = 0
   let duration = 0
 
@@ -78,7 +79,7 @@ export function calculateTurnEvents(allEvents: GameEventConfig[], resources: Pla
 
   activeEvents.forEach(active => {
     if (active.turnsRemaining > 1) {
-      eventLogs.push(text(active.event.description, {duration: active.turnsRemaining - 1}))
+      ongoingEventsLog.push(text(active.event.description, {duration: active.turnsRemaining - 1}))
       nextActiveOngoing.push({
         ...active,
         turnsRemaining: active.turnsRemaining - 1
@@ -100,7 +101,7 @@ export function calculateTurnEvents(allEvents: GameEventConfig[], resources: Pla
 
     if (event.type === 'ongoing' && event.duration) {
       duration = randomRange(event.duration.min, event.duration.max);
-      eventLogs.push(text(event.description, {duration}))
+      ongoingEventsLog.push(text(event.description, {duration}))
       nextActiveOngoing.push({
         event,
         turnsRemaining: duration
@@ -112,7 +113,7 @@ export function calculateTurnEvents(allEvents: GameEventConfig[], resources: Pla
         if (range && updatedResources[resKey as keyof PlayerResources] !== undefined) { 
           amount = randomRange(range.min, range.max);
           (updatedResources[resKey as keyof PlayerResources] as number) += amount;
-          eventLogs.push(text(event.description, {amount}))
+          instantEventsLog.push(text(event.description, {amount}))
         }
       }
     }
@@ -144,9 +145,7 @@ export function calculateTurnEvents(allEvents: GameEventConfig[], resources: Pla
       ...currentEmpire,
       active_events: nextActiveOngoing
     },
-    eventLogs
-      //discoveredLocations: nextDiscoveredLocations
-    
-    //activeModifiers
+    instantEventsLog,
+    ongoingEventsLog
   };
 }
