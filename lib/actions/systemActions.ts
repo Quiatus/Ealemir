@@ -23,8 +23,8 @@ export async function progressTurn() {
   const updatedBuildings = calculateUpdatedBuildings(currentBuildings)
   const eventResults = calculateTurnEvents(Object.values(ALL_EVENTS), currentResources, currentEmpire, updatedBuildings.capital.city_level);
 
-  const updatedResources = calculateUpdatedResources(eventResults.updatedResources, updatedBuildings, eventResults.updatedEmpire)
-  const updatedEmpire = generateReport(eventResults.updatedResources, updatedBuildings, eventResults.updatedEmpire, eventResults.instantEventsLog, eventResults.ongoingEventsLog) 
+  const updatedResources = calculateUpdatedResources(currentResources, updatedBuildings, eventResults.updatedEmpire, eventResults.eventResourceChanges)
+  const updatedEmpire = generateReport(updatedResources, updatedBuildings, eventResults.updatedEmpire, eventResults.instantEventsLog, eventResults.ongoingEventsLog) 
   
   const [resourcesResult, buildingsResult, empireResults] = await Promise.all([
     supabase.from('player_resources').update(updatedResources).eq('id', 1),

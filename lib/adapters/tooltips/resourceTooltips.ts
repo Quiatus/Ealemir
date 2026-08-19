@@ -12,6 +12,10 @@ function buildGoldTooltip(resources: PlayerResources): ResourceTooltipData {
       {
         label: text('tooltips.gold_tooltip.income_population'),
         value: resources.last_turn_resources_report.goldReport.gainFromPopulation
+      },
+      {
+        label: text('tooltips.gold_tooltip.income_events'),
+        value: resources.last_turn_resources_report.goldReport.gainFromEvents
       }
     ],
     expenditures: [],
@@ -30,6 +34,10 @@ export function buildPopulationTooltip(resources: PlayerResources, buildings?: P
       {
         label: text('tooltips.population_tooltip.growth_population'),
         value: resources.last_turn_resources_report.populationReport.gainFromGrowth
+      },
+      {
+        label: text('tooltips.population_tooltip.income_events'),
+        value: resources.last_turn_resources_report.populationReport.gainFromEvents
       }
     ],
     expenditures: [],
@@ -85,6 +93,10 @@ function buildFoodTooltip(resources: PlayerResources): ResourceTooltipData {
       {
         label: text('tooltips.food_tooltip.income_farms'),
         value: resources.last_turn_resources_report.foodReport.gainFromFarms
+      },
+      {
+        label: text('tooltips.food_tooltip.income_events'),
+        value: resources.last_turn_resources_report.foodReport.gainFromEvents
       }
     ],
     expenditures: [
@@ -108,6 +120,10 @@ function buildWoodTooltip(resources: PlayerResources): ResourceTooltipData {
         label: text('tooltips.wood_tooltip.income_lumberyards'),
         value: resources.last_turn_resources_report.woodReport.gainFromLumberyards
       },
+      {
+        label: text('tooltips.wood_tooltip.income_events'),
+        value: resources.last_turn_resources_report.woodReport.gainFromEvents
+      }
     ],
     expenditures: [],
     change: resources.last_turn_resources_report.woodReport.change
@@ -125,6 +141,10 @@ function buildStoneTooltip(resources: PlayerResources): ResourceTooltipData {
         label: text('tooltips.stone_tooltip.income_quarries'),
         value: resources.last_turn_resources_report.stoneReport.gainFromQuarries
       },
+      {
+        label: text('tooltips.stone_tooltip.income_events'),
+        value: resources.last_turn_resources_report.stoneReport.gainFromEvents
+      }
     ],
     expenditures: [],
     change: resources.last_turn_resources_report.stoneReport.change

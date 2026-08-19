@@ -5,12 +5,18 @@ import { calculateFoodChange } from "./food"
 import { calculateWoodChange } from "./wood"
 import { calculateStoneChange } from "./stone"
 
-export function calculateUpdatedResources(resources: PlayerResources, buildings: PlayerBuildings, empire: PlayerEmpire) {
-  const updatedPopulation = calculatePopulationChange(resources.population, buildings, empire)
-  const updatedGold = calculateGoldChange(resources.gold, updatedPopulation.population, empire.taxes)
-  const updatedFood = calculateFoodChange(resources.food, updatedPopulation.population, buildings, empire)
-  const updatedWood = calculateWoodChange(resources.wood, buildings, empire.production)
-  const updatedStone = calculateStoneChange(resources.stone, buildings, empire.production)
+export function calculateUpdatedResources(resources: PlayerResources, buildings: PlayerBuildings, empire: PlayerEmpire, eventChanges: Partial<Record<keyof PlayerResources, number>>) {
+  const goldFromEvents = eventChanges.gold || 0;
+  const populationFromEvents = eventChanges.population || 0;
+  const foodFromEvents = eventChanges.food || 0;
+  const woodFromEvents = eventChanges.wood || 0;
+  const stoneFromEvents = eventChanges.stone || 0;
+
+  const updatedPopulation = calculatePopulationChange(resources.population, buildings, empire, populationFromEvents)
+  const updatedGold = calculateGoldChange(resources.gold, updatedPopulation.population, empire.taxes, goldFromEvents)
+  const updatedFood = calculateFoodChange(resources.food, updatedPopulation.population, buildings, empire, foodFromEvents)
+  const updatedWood = calculateWoodChange(resources.wood, buildings, empire.production, woodFromEvents)
+  const updatedStone = calculateStoneChange(resources.stone, buildings, empire.production, stoneFromEvents)
  
   return {
     ...resources,

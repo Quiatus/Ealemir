@@ -3,9 +3,9 @@ import { GOLD_GAIN_RANGE } from "@/config/resources"
 import { randomResourceRange } from "@/lib/utilities"
 import { Taxes } from "@/types/game"
 
-export function calculateGoldChange(gold: number, population: number, taxes: Taxes) {
+export function calculateGoldChange(gold: number, population: number, taxes: Taxes, goldFromEvents: number) {
   const incomeFromPopulation = Math.floor(randomResourceRange(population, GOLD_GAIN_RANGE.min, GOLD_GAIN_RANGE.max) * TAXES_MODIFIER[taxes].income) 
-  const totalChange = incomeFromPopulation
+  const totalChange = incomeFromPopulation + goldFromEvents
   let totalGold = gold + incomeFromPopulation
 
   if (totalGold < 0) {
@@ -16,7 +16,8 @@ export function calculateGoldChange(gold: number, population: number, taxes: Tax
     gold: totalGold,
     goldReport: {
       change: totalChange,
-      gainFromPopulation: incomeFromPopulation
+      gainFromPopulation: incomeFromPopulation,
+      gainFromEvents: goldFromEvents
     }
   }
 }

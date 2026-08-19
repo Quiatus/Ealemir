@@ -56,11 +56,13 @@
     },
     "gold_tooltip": {
       "title": "Gold",
-      "income_population": "Taxes"
+      "income_population": "Taxes",
+      "income_events": "Events"
     },
     "population_tooltip": {
       "title": "Population",
       "growth_population": "Growth",
+      "income_events": "Events",
       "available_space": "Available space",
       "homeless": "Homeless",
       "no_space_message": "Our dwellings are full. Build more or conquer new land.",
@@ -70,15 +72,18 @@
       "title": "Food",
       "income_capital": "Capital city",
       "income_farms": "Farms",
+      "income_events": "Events",
       "consumed": "Consumed"
     },
     "wood_tooltip": {
       "title": "Wood",
-      "income_lumberyards": "Lumberyards"
+      "income_lumberyards": "Lumberyards",
+      "income_events": "Events"
     },
     "stone_tooltip": {
       "title": "Stone",
-      "income_quarries": "Quarries"
+      "income_quarries": "Quarries",
+      "income_events": "Events"
     },
     "fame_tooltip": {
       "title": "Fame",

@@ -1,11 +1,10 @@
 To Do:
 
-[] add simple random events (find resource caches, land to expand basic resources)
 [] rework modifiers
-[] add notification bar and notifications
+[] add simple random events (find resource caches, land to expand basic resources)
 [] add empire status (overpopulation, riot)
+[] add notification bar and notifications
 [] add tavern feature - unlocks first few conversation
-[] add militia 
 
 [X] add taxes, rations modifiers to empire management
 [X] add remaining resources to topbar
@@ -21,3 +20,4 @@ To Do:
 [X] add building construction for capital buildings level 1
 [X] add capital upgrade
 [X] add level 2 capital buildings - houses, tavern 
+[X] extract event info from events and pass into resource calculator

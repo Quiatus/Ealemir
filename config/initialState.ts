@@ -24,24 +24,29 @@ export const INITIAL_PLAYER_RESOURCES: PlayerResources = {
     goldReport: {
       change: 0,
       gainFromPopulation: 0,
+      gainFromEvents: 0
     },
     populationReport: {
       change: 0,
       gainFromGrowth: 0,
+      gainFromEvents: 0
     },
     foodReport: {
       change: 0,
       gainFromCapital: 0,
       gainFromFarms: 0,
+      gainFromEvents: 0,
       consumed: 0
     },
     woodReport: {
       change: 0,
-      gainFromLumberyards: 0
+      gainFromLumberyards: 0,
+      gainFromEvents: 0
     },
     stoneReport: {
       change: 0,
-      gainFromQuarries: 0
+      gainFromQuarries: 0,
+      gainFromEvents: 0
     },
     fameReport: {
       loss: 0,

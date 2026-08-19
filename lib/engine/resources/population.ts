@@ -5,7 +5,7 @@ import { EMPIRE_BASELINES, RATIONS_MODIFIER } from "@/config/empire";
 import { calculateMorale } from "../empire/morale";
 import { POPULATION_GAIN_RANGE } from "@/config/resources";
 
-export function calculatePopulationChange(population: number, buildings: PlayerBuildings, empire: PlayerEmpire) {
+export function calculatePopulationChange(population: number, buildings: PlayerBuildings, empire: PlayerEmpire, populationFromEvents: number) {
   const avaiableSpace = calculateFreeSpace(population, buildings)
   const maxAvailableSpace = calculateMaxSpace(buildings);
   const overpopulation = population > maxAvailableSpace
@@ -26,7 +26,7 @@ export function calculatePopulationChange(population: number, buildings: PlayerB
     populationGrowth = avaiableSpace
   }
 
-  const totalChange = populationGrowth
+  const totalChange = populationGrowth + populationFromEvents
   let totalPopulation = population + totalChange
 
   if (totalPopulation < 0) {
@@ -37,7 +37,8 @@ export function calculatePopulationChange(population: number, buildings: PlayerB
     population: totalPopulation,
     populationReport: {
       change: totalChange,
-      gainFromGrowth: populationGrowth
+      gainFromGrowth: populationGrowth,
+      gainFromEvents: populationFromEvents
     }
   }
 }

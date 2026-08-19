@@ -5,8 +5,8 @@ import { PlayerResources } from '@/types/game';
 export function rollEventCount(): number {
   const roll = Math.random();
 
-  if (roll < 0.60) return 0;
-  if (roll < 0.85) return 1;
+  if (roll < 0.65) return 0;
+  if (roll < 0.80) return 1;
   if (roll < 0.95) return 2;
   return 3;
 }
@@ -52,29 +52,14 @@ export function pickWeightedEvents(eligiblePool: GameEventConfig[], count: numbe
   return selectedEvents;
 }
 
-// export function processTurnEvents(
-//   allEvents: GameEventConfig[],
-//   context: { turn: number; fame: number; capitalLevel: number; activeIds: Set<string> }
-// ): GameEventConfig[] {
-//   const eventCount = rollEventCount();
-//   if (eventCount === 0) return [];
-
-//   const eligiblePool = allEvents.filter(event => isEventEligible(event, context));
-//   if (eligiblePool.length === 0) return [];
-
-//   return pickWeightedEvents(eligiblePool, eventCount);
-// }
-
 export function calculateTurnEvents(allEvents: GameEventConfig[], resources: PlayerResources, currentEmpire: PlayerEmpire, capitalLevel: number) {
-  const updatedResources = { ...resources };
   const instantEventsLog: string[] = [];
-  const ongoingEventsLog: string[] = [];
+  const ongoingEventsLog: string[] = [];  
+  const eventResourceChanges: Partial<Record<keyof PlayerResources, number>> = {};
   let amount = 0
   let duration = 0
-
-  // 1. Tick down and filter ongoing events
+  
   const nextActiveOngoing: ActiveOngoingEvent[] = [];
-
   const activeEvents = currentEmpire.active_events || [];
 
   activeEvents.forEach(active => {
@@ -87,18 +72,12 @@ export function calculateTurnEvents(allEvents: GameEventConfig[], resources: Pla
     }
   });
 
-  // 2. Roll & trigger new events
   const activeIds = new Set(nextActiveOngoing.map(e => e.event.id));
   const eventCount = rollEventCount();
-  
   const eligibleEvents = eventCount > 0 ? allEvents.filter(e => isEventEligible(e, { turn: resources.turn, fame: resources.fame, capitalLevel, activeIds })) : [];
-
   const triggeredEvents = pickWeightedEvents(eligibleEvents, eventCount);
- // const nextDiscoveredLocations = [...eventsState.discoveredLocations];
 
-  // 3. Process effects of newly triggered events
   for (const event of triggeredEvents) {
-
     if (event.type === 'ongoing' && event.duration) {
       duration = randomRange(event.duration.min, event.duration.max);
       ongoingEventsLog.push(text(event.description, {duration}))
@@ -107,40 +86,30 @@ export function calculateTurnEvents(allEvents: GameEventConfig[], resources: Pla
         turnsRemaining: duration
       });
     }
-    // One-off resource grants/penalties
+   
+    // if (event.effects.resources) {
+    //   for (const [resKey, range] of Object.entries(event.effects.resources)) {
+    //     if (range && updatedResources[resKey as keyof PlayerResources] !== undefined) { 
+    //       amount = randomRange(range.min, range.max);
+    //       (updatedResources[resKey as keyof PlayerResources] as number) += amount;
+    //       instantEventsLog.push(text(event.description, {amount}))
+    //     }
+    //   }
+    // }
+
     if (event.effects.resources) {
       for (const [resKey, range] of Object.entries(event.effects.resources)) {
-        if (range && updatedResources[resKey as keyof PlayerResources] !== undefined) { 
+        if (range) {
           amount = randomRange(range.min, range.max);
-          (updatedResources[resKey as keyof PlayerResources] as number) += amount;
+          eventResourceChanges[resKey as keyof PlayerResources] = (eventResourceChanges[resKey as keyof PlayerResources] || 0) + amount;
           instantEventsLog.push(text(event.description, {amount}))
         }
       }
     }
-
-    // Encounters / Locations to conquer
-    // if (event.effects.unlockLocationId && !nextDiscoveredLocations.includes(event.effects.unlockLocationId)) {
-    //   nextDiscoveredLocations.push(event.effects.unlockLocationId);
-    // }
-
-    // Ongoing events queue
   }
 
-  // 4. Aggregate active modifiers for the economy engine
-  // const activeModifiers: Record<string, number> = {};
-  // const activeConfigMap = new Map(allEvents.map(e => [e.id, e]));
-
-  // for (const active of nextActiveOngoing) {
-  //   const config = activeConfigMap.get(active.eventId);
-  //   if (config?.effects.modifiers) {
-  //     for (const [key, modValue] of Object.entries(config.effects.modifiers)) {
-  //       activeModifiers[key] = (activeModifiers[key] ?? 0) + modValue;
-  //     }
-  //   }
-  // }
-
   return {
-    updatedResources,
+    eventResourceChanges,
     updatedEmpire: {
       ...currentEmpire,
       active_events: nextActiveOngoing

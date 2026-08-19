@@ -55,25 +55,30 @@ export interface PlayerResources {
 export interface LastTurnResourceReport {
   goldReport: {
     change: number,
-    gainFromPopulation: number
+    gainFromPopulation: number,
+    gainFromEvents: number
   },
   populationReport: {
     change: number,
-    gainFromGrowth: number
+    gainFromGrowth: number,
+    gainFromEvents: number
   },
   foodReport: {
     change: number,
     gainFromCapital: number,
     gainFromFarms: number,
+    gainFromEvents: number,
     consumed: number
   },
   woodReport: {
     change: number,
-    gainFromLumberyards: number
+    gainFromLumberyards: number,
+    gainFromEvents: number
   },
   stoneReport: {
     change: number,
-    gainFromQuarries: number
+    gainFromQuarries: number,
+    gainFromEvents: number
   },
   fameReport: {
       loss: number,
