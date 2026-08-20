@@ -73,8 +73,23 @@ export function calculateTurnEvents(allEvents: GameEventConfig[], resources: Pla
 
   const eventCount = rollEventCount();
   const activeIds = new Set(nextActiveOngoing.map(e => e.event.id));
-  const eligibleEvents = eventCount > 0 ? allEvents.filter(e => isEventEligible(e, { turn: resources.turn, fame: resources.fame, capitalLevel, activeIds })) : [];
-  const triggeredEvents = pickWeightedEvents(eligibleEvents, eventCount);
+  const triggeredEvents: GameEventConfig[] = [];
+  
+  for (let i = 0; i < eventCount; i++) {
+    const eligibleEvents = allEvents.filter(e => 
+      isEventEligible(e, { turn: resources.turn, fame: resources.fame, capitalLevel, activeIds })
+    );
+
+    if (eligibleEvents.length === 0) break;
+    
+    const pickedArray = pickWeightedEvents(eligibleEvents, 1);
+    
+    if (pickedArray.length > 0) {
+      const picked = pickedArray[0];
+      triggeredEvents.push(picked);
+      activeIds.add(picked.id);
+    }
+  }
 
   for (const event of triggeredEvents) {
     if (event.type === 'ongoing' && event.duration) {

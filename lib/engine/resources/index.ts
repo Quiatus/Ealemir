@@ -13,10 +13,10 @@ export function calculateUpdatedResources(resources: PlayerResources, buildings:
   const stoneFromEvents = eventChanges.stone || 0;
 
   const updatedPopulation = calculatePopulationChange(resources.population, buildings, empire, populationFromEvents)
-  const updatedGold = calculateGoldChange(resources.gold, updatedPopulation.population, empire.taxes, goldFromEvents)
+  const updatedGold = calculateGoldChange(resources.gold, updatedPopulation.population, empire, goldFromEvents)
   const updatedFood = calculateFoodChange(resources.food, updatedPopulation.population, buildings, empire, foodFromEvents)
-  const updatedWood = calculateWoodChange(resources.wood, buildings, empire.production, woodFromEvents)
-  const updatedStone = calculateStoneChange(resources.stone, buildings, empire.production, stoneFromEvents)
+  const updatedWood = calculateWoodChange(resources.wood, buildings, empire, woodFromEvents)
+  const updatedStone = calculateStoneChange(resources.stone, buildings, empire, stoneFromEvents)
  
   return {
     ...resources,

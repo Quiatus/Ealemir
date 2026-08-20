@@ -1,7 +1,7 @@
 To Do:
 
-[] rework modifiers
-[] add simple random events (find resource caches, land to expand basic resources)
+[] add simple random events
+  |-> find random resources, more ongoing events (for gold, population), build system to add free space 
 [] add empire status (overpopulation, riot)
 [] add notification bar and notifications
 [] add tavern feature - unlocks first few conversation
@@ -21,3 +21,4 @@ To Do:
 [X] add capital upgrade
 [X] add level 2 capital buildings - houses, tavern 
 [X] extract event info from events and pass into resource calculator
+[X] rework modifiers

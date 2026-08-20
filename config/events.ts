@@ -33,6 +33,3 @@ export const ALL_EVENTS: Record<string, GameEventConfig> = {
     }
   },
 }
-
-
-

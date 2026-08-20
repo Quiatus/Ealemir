@@ -6,7 +6,7 @@ function calculateFoodModifiers(empire: PlayerEmpire) {
   let farmModifier = 1
 
   empire.active_events.forEach(e => {
-    if (typeof e.event.effects.modifiers?.food === 'number') farmModifier = e.event.effects.modifiers.food
+    if (typeof e.event.effects.modifiers?.food === 'number') farmModifier *= e.event.effects.modifiers.food
   });
 
   const production = PRODUCTION_MODIFIER[empire.production].production
