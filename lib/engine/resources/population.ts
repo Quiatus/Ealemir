@@ -8,9 +8,9 @@ import { POPULATION_GAIN_RANGE } from "@/config/resources";
 export function calculatePopulationChange(population: number, buildings: PlayerBuildings, empire: PlayerEmpire, populationFromEvents: number) {
   const avaiableSpace = calculateFreeSpace(population, buildings)
   const maxAvailableSpace = calculateMaxSpace(buildings);
-  const overpopulation = population > maxAvailableSpace
   let moraleModifier = 1
   const morale = calculateMorale(empire)
+  const overpopulation = population > maxAvailableSpace
 
   if (morale === 100) moraleModifier = EMPIRE_BASELINES.moralePopulationGrowth
   

@@ -22,7 +22,6 @@ export async function progressTurn() {
 
   const updatedBuildings = calculateUpdatedBuildings(currentBuildings)
   const eventResults = calculateTurnEvents(Object.values(ALL_EVENTS), currentResources, currentEmpire, updatedBuildings.capital.city_level);
-
   const updatedResources = calculateUpdatedResources(currentResources, updatedBuildings, eventResults.updatedEmpire, eventResults.eventResourceChanges)
   const updatedEmpire = generateReport(updatedResources, updatedBuildings, eventResults.updatedEmpire, eventResults.instantEventsLog, eventResults.ongoingEventsLog) 
   

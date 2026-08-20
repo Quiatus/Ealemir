@@ -55,13 +55,12 @@ export function pickWeightedEvents(eligiblePool: GameEventConfig[], count: numbe
 export function calculateTurnEvents(allEvents: GameEventConfig[], resources: PlayerResources, currentEmpire: PlayerEmpire, capitalLevel: number) {
   const instantEventsLog: string[] = [];
   const ongoingEventsLog: string[] = [];  
+  const nextActiveOngoing: ActiveOngoingEvent[] = [];
   const eventResourceChanges: Partial<Record<keyof PlayerResources, number>> = {};
   let amount = 0
   let duration = 0
   
-  const nextActiveOngoing: ActiveOngoingEvent[] = [];
   const activeEvents = currentEmpire.active_events || [];
-
   activeEvents.forEach(active => {
     if (active.turnsRemaining > 1) {
       ongoingEventsLog.push(text(active.event.description, {duration: active.turnsRemaining - 1}))
@@ -72,8 +71,8 @@ export function calculateTurnEvents(allEvents: GameEventConfig[], resources: Pla
     }
   });
 
-  const activeIds = new Set(nextActiveOngoing.map(e => e.event.id));
   const eventCount = rollEventCount();
+  const activeIds = new Set(nextActiveOngoing.map(e => e.event.id));
   const eligibleEvents = eventCount > 0 ? allEvents.filter(e => isEventEligible(e, { turn: resources.turn, fame: resources.fame, capitalLevel, activeIds })) : [];
   const triggeredEvents = pickWeightedEvents(eligibleEvents, eventCount);
 
@@ -81,21 +80,8 @@ export function calculateTurnEvents(allEvents: GameEventConfig[], resources: Pla
     if (event.type === 'ongoing' && event.duration) {
       duration = randomRange(event.duration.min, event.duration.max);
       ongoingEventsLog.push(text(event.description, {duration}))
-      nextActiveOngoing.push({
-        event,
-        turnsRemaining: duration
-      });
+      nextActiveOngoing.push({ event, turnsRemaining: duration });
     }
-   
-    // if (event.effects.resources) {
-    //   for (const [resKey, range] of Object.entries(event.effects.resources)) {
-    //     if (range && updatedResources[resKey as keyof PlayerResources] !== undefined) { 
-    //       amount = randomRange(range.min, range.max);
-    //       (updatedResources[resKey as keyof PlayerResources] as number) += amount;
-    //       instantEventsLog.push(text(event.description, {amount}))
-    //     }
-    //   }
-    // }
 
     if (event.effects.resources) {
       for (const [resKey, range] of Object.entries(event.effects.resources)) {

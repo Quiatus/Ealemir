@@ -10,13 +10,29 @@ export const ALL_EVENTS: Record<string, GameEventConfig> = {
       resources: { gold: {min: 50, max: 150} }
     }
   },
-  test_ongoing: {
-    id: "test_ongoing",
-    description: 'feature_events.ongoing.discovery_gold_description',
+  bountiful_harvest: {
+    id: "bountiful_harvest",
+    exclusiveEventIds: ["drought"],
+    description: 'feature_events.ongoing.bountiful_harvest',
     type: "ongoing",
     rarity: 50,
     duration: {min: 5, max: 10},
-    effects: {}
-
-  }
+    effects: {
+      modifiers: {food: 2}
+    }
+  },
+  drought: {
+    id: "drought",
+    exclusiveEventIds: ["bountiful_harvest"],
+    description: 'feature_events.ongoing.drought',
+    type: "ongoing",
+    rarity: 20,
+    duration: {min: 5, max: 10},
+    effects: {
+      modifiers: {food: 0}
+    }
+  },
 }
+
+
+

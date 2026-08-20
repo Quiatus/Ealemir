@@ -204,7 +204,8 @@
       "discovery_gold_description": "<high>DISCOVERY!</high> We found <gold>{amount}</gold> {icon_gold}."
     },
     "ongoing": {
-      "discovery_gold_description": "<high>EVENT!</high> Ongoing <italic>({duration} left)</italic>."
+      "bountiful_harvest": "<green>BOUNTIFUL HARVEST</green> Thanks to the favourable weather, our farms production is doubled <italic>({duration} month(s) left)</italic>.",
+      "drought": "<neg>DROUGHT</neg> Our realm is suffering from severe drought. The farms yield no harvest. <italic>({duration} month(s) left)</italic>."
     }
   },
   "errors": {

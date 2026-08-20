@@ -13,7 +13,8 @@ const HIGHLIGHT_STYLES: Record<string, string> = {
   wood: 'text-brown',
   stone: 'text-gray',
   gold: 'text-gold',
-  purple: 'text-purple'
+  purple: 'text-purple',
+  green: 'text-green'
 };
 
 export function richText(key: string, variables?: Record<string, string | number>): React.ReactNode {
