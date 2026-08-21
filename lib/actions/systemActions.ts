@@ -12,6 +12,7 @@ import { text } from "../utilities"
 import { generateReport } from "../engine/empire/report"
 import { calculateTurnEvents } from "../engine/empire/events"
 import { ALL_EVENTS } from "@/config/events"
+import { calculateUnlockedSpace } from "../engine/buildings/build"
 
 export async function progressTurn() {
   const [currentResources, currentBuildings, currentEmpire] = await Promise.all([
@@ -22,12 +23,13 @@ export async function progressTurn() {
 
   const updatedBuildings = calculateUpdatedBuildings(currentBuildings)
   const eventResults = calculateTurnEvents(Object.values(ALL_EVENTS), currentResources, currentEmpire, updatedBuildings.capital.city_level);
-  const updatedResources = calculateUpdatedResources(currentResources, updatedBuildings, eventResults.updatedEmpire, eventResults.eventResourceChanges)
-  const updatedEmpire = generateReport(updatedResources, updatedBuildings, eventResults.updatedEmpire, eventResults.instantEventsLog, eventResults.ongoingEventsLog) 
+  const updatedResources = calculateUpdatedResources(currentResources, updatedBuildings, eventResults.updatedEmpire, eventResults.eventResourceChanges);
+  const updatedEmpire = generateReport(updatedResources, updatedBuildings, eventResults.updatedEmpire, eventResults.instantEventsLog, eventResults.ongoingEventsLog);
+  const finalBuildings = calculateUnlockedSpace(updatedBuildings, eventResults.unlockedLocationIds)
   
   const [resourcesResult, buildingsResult, empireResults] = await Promise.all([
     supabase.from('player_resources').update(updatedResources).eq('id', 1),
-    supabase.from('player_buildings').update(updatedBuildings).eq('id', 1),
+    supabase.from('player_buildings').update(finalBuildings).eq('id', 1),
     supabase.from('player_empire').update(updatedEmpire).eq('id', 1)
   ])
 

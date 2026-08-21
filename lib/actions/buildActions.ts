@@ -7,7 +7,7 @@ import { processConstruction } from "../engine/buildings/build";
 
 interface TerritoryBuildingProps { 
   building: {
-    name: string;
+    id: string;
     built: number;
     discovered: number;
   };
@@ -18,7 +18,7 @@ export async function updateTerritoryBuildings({ building, buildingCost }: Terri
   return processConstruction((currentBuildings) => {
     const updatedTerritories = {
       ...currentBuildings.territories,
-      [building.name]: {
+      [building.id]: {
         ...building,
         built: building.built + 1
       }

@@ -39,3 +39,18 @@ export async function processConstruction(mutateLogic: (buildings: PlayerBuildin
     };
   }
 }
+
+export function calculateUnlockedSpace(updatedBuildings: PlayerBuildings, unlockedLocationIds: string[]) {
+  const updatedTerritories = updatedBuildings.territories
+
+  if (unlockedLocationIds.length > 0) {
+    unlockedLocationIds.forEach(element => {
+      updatedTerritories[element].discovered += 1
+    })
+  }
+
+  return {
+    ...updatedBuildings,
+    territories: updatedTerritories
+  }
+}

@@ -13,10 +13,8 @@ export function rollEventCount(): number {
 
 export function isEventEligible(event: GameEventConfig, context: DynamicWeightContext & { activeIds: Set<string> }): boolean {
   if (context.activeIds.has(event.id) || event.exclusiveEventIds?.some(item => context.activeIds.has(item))) return false;
-  
   if (event.conditions?.minTurn && context.turn < event.conditions.minTurn) return false;
   if (event.conditions?.maxTurn && context.turn > event.conditions.maxTurn) return false;
-
   if (event.conditions?.minFame && context.fame < event.conditions.minFame) return false;
   if (event.conditions?.minCapitalLevel && context.capitalLevel < event.conditions.minCapitalLevel) return false;
 
@@ -57,6 +55,7 @@ export function calculateTurnEvents(allEvents: GameEventConfig[], resources: Pla
   const ongoingEventsLog: string[] = [];  
   const nextActiveOngoing: ActiveOngoingEvent[] = [];
   const eventResourceChanges: Partial<Record<keyof PlayerResources, number>> = {};
+  const unlockedLocationIds: string[] = []
   let amount = 0
   let duration = 0
   
@@ -107,10 +106,16 @@ export function calculateTurnEvents(allEvents: GameEventConfig[], resources: Pla
         }
       }
     }
+
+    if (event.effects.unlockLocationId) {
+      unlockedLocationIds.push(event.effects.unlockLocationId)
+      instantEventsLog.push(text(event.description))
+    }
   }
 
   return {
     eventResourceChanges,
+    unlockedLocationIds,
     updatedEmpire: {
       ...currentEmpire,
       active_events: nextActiveOngoing

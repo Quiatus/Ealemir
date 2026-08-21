@@ -201,7 +201,8 @@
   },
   "feature_events": {
     "instant": {
-      "discovery_gold_description": "<high>DISCOVERY!</high> We found <gold>{amount}</gold> {icon_gold}."
+      "discovery_gold_description": "We found <gold>{amount}</gold> {icon_gold}.",
+      "fertile_land": "Our scouts have surveyed fertile ground, ripe for the plow. A new <food>farm</food> may now be built."
     },
     "ongoing": {
       "bountiful_harvest": "<green>BOUNTIFUL HARVEST</green> Thanks to the favourable weather, our farms production is doubled <italic>({duration} month(s) left)</italic>.",

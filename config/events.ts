@@ -5,7 +5,7 @@ export const ALL_EVENTS: Record<string, GameEventConfig> = {
     id: "test_gold",
     description: 'feature_events.instant.discovery_gold_description',
     type: "instant",
-    rarity: 80,
+    rarity: 50,
     effects: {
       resources: { gold: {min: 50, max: 150} }
     }
@@ -30,6 +30,15 @@ export const ALL_EVENTS: Record<string, GameEventConfig> = {
     duration: {min: 5, max: 10},
     effects: {
       modifiers: {food: 0}
+    }
+  },
+  fertile_land: {
+    id: "fertile_land",
+    description: 'feature_events.instant.fertile_land',
+    type: "instant",
+    rarity: 50,
+    effects: {
+      unlockLocationId: 'farm'
     }
   },
 }

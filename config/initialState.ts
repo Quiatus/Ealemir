@@ -109,17 +109,17 @@ export const INITIAL_PLAYER_BUILDINGS = {
   },
   territories: {
     farm: {
-      name: "farm",
+      id: "farm",
       built: 0,
-      discovered: 1
+      discovered: 0
     },
     lumberyard: {
-      name: "lumberyard",
+      id: "lumberyard",
       built: 0,
       discovered: 0
     },
     quarry: {
-      name: "quarry",
+      id: "quarry",
       built: 0,
       discovered: 0
     }
