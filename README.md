@@ -1,7 +1,6 @@
 To Do:
 
 [] add simple random events
-  |-> find random resources, more ongoing events (for gold, population), build system to add free space 
 [] add empire status (overpopulation, riot)
 [] add notification bar and notifications
 [] add tavern feature - unlocks first few conversation

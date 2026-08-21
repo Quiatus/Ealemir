@@ -1,9 +1,9 @@
 import { GameEventConfig } from "@/types/game";
 
 export const ALL_EVENTS: Record<string, GameEventConfig> = {
-  test_gold: {
-    id: "test_gold",
-    description: 'feature_events.instant.discovery_gold_description',
+  gold_small_a: {
+    id: "gold_small_a",
+    description: 'feature_events.instant.gold_small_a',
     type: "instant",
     rarity: 50,
     effects: {

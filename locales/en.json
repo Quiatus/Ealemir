@@ -201,12 +201,12 @@
   },
   "feature_events": {
     "instant": {
-      "discovery_gold_description": "We found <gold>{amount}</gold> {icon_gold}.",
+      "gold_small_a": "A scout uncovered a small stash buried beneath a withered tree. It contained <gold>{amount}</gold> {icon_gold}.",
       "fertile_land": "Our scouts have surveyed fertile ground, ripe for the plow. A new <food>farm</food> may now be built."
     },
     "ongoing": {
-      "bountiful_harvest": "<green>BOUNTIFUL HARVEST</green> Thanks to the favourable weather, our farms production is doubled <italic>({duration} month(s) left)</italic>.",
-      "drought": "<neg>DROUGHT</neg> Our realm is suffering from severe drought. The farms yield no harvest. <italic>({duration} month(s) left)</italic>."
+      "bountiful_harvest": "<gb>BOUNTIFUL HARVEST!</gb> Thanks to the favourable weather, our <food>farms</food> production is doubled <italic>({duration} month(s) left)</italic>.",
+      "drought": "<rb>DROUGHT!</rb> Our realm is suffering from severe drought. Our <food>farms</food> yield no harvest. <italic>({duration} month(s) left)</italic>."
     }
   },
   "errors": {
