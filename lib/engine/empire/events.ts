@@ -1,3 +1,4 @@
+import { ONE_EVENT_CHANCE, THREE_EVENT_CHANCE, TWO_EVENT_CHANCE } from "@/config/events";
 import { randomRange, text } from "@/lib/utilities";
 import { ActiveOngoingEvent, DynamicWeightContext, GameEventConfig, PlayerEmpire } from "@/types/game";
 import { PlayerResources } from '@/types/game';
@@ -5,9 +6,9 @@ import { PlayerResources } from '@/types/game';
 export function rollEventCount(): number {
   const roll = Math.random();
 
-  if (roll < 0.65) return 0;
-  if (roll < 0.80) return 1;
-  if (roll < 0.95) return 2;
+  if (roll < ONE_EVENT_CHANCE) return 0;
+  if (roll < TWO_EVENT_CHANCE) return 1;
+  if (roll < THREE_EVENT_CHANCE) return 2;
   return 3;
 }
 

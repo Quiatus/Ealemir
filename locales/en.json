@@ -7,6 +7,7 @@
       "military": "Military",
       "tavern": "Tavern"
     },
+
     "reset_window": {
       "title": "Abandon our Empire?",
       "message": "Are you sure you want to leave your empire? Everything you have achieved will be lost forever!",
@@ -14,6 +15,7 @@
       "button_cancel": "Cancel"
     }
   },
+
   "tooltips": {
     "info": {
       "current_month": "Current month",
@@ -37,6 +39,7 @@
       "readiness_message": "Our armies can attack once per month. After that, they become exhausted.",
       "missing_space": "We do not have enough space."
     },
+    
     "city_center_tooltip": {
       "message": "Upgrade the city center to expand your capital and unlock new buildings and bonuses.",
       "max_level": "Max level reached",
@@ -44,6 +47,7 @@
       "space": "Housing",
       "food": "Food"
     },
+
     "construction_tooltip": {
       "construction_cost": "Construction costs",
       "upgrade_cost": "Upgrade costs",
@@ -54,11 +58,13 @@
       "upgrading": "<bold>Upgrading</bold> <italic>({queue} turns left)</italic>",
       "upgrading_one": "<bold>Upgrading</bold> <italic>(1 turn left)</italic>"
     },
+
     "gold_tooltip": {
       "title": "Gold",
       "income_population": "Taxes",
       "income_events": "Events"
     },
+
     "population_tooltip": {
       "title": "Population",
       "growth_population": "Growth",
@@ -68,6 +74,7 @@
       "no_space_message": "Our dwellings are full. Build more or conquer new land.",
       "exceeded_space_message": "Our people have nowhere to live and are leaving our empire."
     },
+
     "food_tooltip": {
       "title": "Food",
       "income_capital": "Capital city",
@@ -75,39 +82,47 @@
       "income_events": "Events",
       "consumed": "Consumed"
     },
+
     "wood_tooltip": {
       "title": "Wood",
       "income_lumberyards": "Lumberyards",
       "income_events": "Events"
     },
+
     "stone_tooltip": {
       "title": "Stone",
       "income_quarries": "Quarries",
       "income_events": "Events"
     },
+
     "fame_tooltip": {
       "title": "Fame",
       "loss": "Lost"
     },
+
     "farm_tooltip": {
       "title": "Farm",
       "effect_message": "Produces <norm>{food} food</norm> each month."
     },
+
     "lumberyard_tooltip": {
       "title": "Lumberyard",
       "effect_message": "Produces <norm>{wood} wood</norm> each month."
     },
+
     "quarry_tooltip": {
       "title": "Quarry",
       "effect_message": "Produces <norm>{stone} stone</norm> each month."
     }
   },
+
   "feature_empire": {
     "card_abandon_empire": {
       "title": "Abandon Empire",
       "message": "Leave our people behind and found a new empire.",
       "button_abandon": "Abandon"
     },
+
     "card_taxes": {
       "title": "Taxes",
       "flavor_text": "We can raise or lower the taxes upon our people, though it will heavily influence their morale.",
@@ -118,6 +133,7 @@
       "effect_customary": "Default tax policy.",
       "effect_oppressive": "Rises taxes by <pos>{tax}%</pos>. Reduces morale by <neg>{morale}%</neg>."
     },
+
     "card_rations": {
       "title": "Rations",
       "flavor_text": "We can adjust the monthly food rations of our people, which will directly influence their morale and the growth rate of the realm.",
@@ -128,6 +144,7 @@
       "effect_sufficient": "Default rations policy.",
       "effect_bountiful": "Each ration sustains <neg>{food}</neg> citizens. Rises population growth by <pos>{people}%</pos> and morale by <pos>{morale}%</pos>."
     },
+
     "card_production": {
       "title": "Production",
       "flavor_text": "Adjust production across our farms, lumberyards and quarries. Grueling labor increases output, but drains food and lowers morale.",
@@ -139,40 +156,49 @@
       "effect_grueling": "Inceases production by <pos>{production}%</pos>. Rises ration demands by <neg>{food}%</neg> and reduces morale by <neg>{morale}%</neg>."
     }
   },
+
   "feature_buildings": {
     "card_capital": {
       "title": "Empire's Capital"
     },
+
     "card_territories": {
       "title": "Territories"
     },
+
     "capital": {
       "name": "City Center",
       "level_1_title": "Hamlet",
       "level_2_title": "Village"
     },
+
     "capital_buildings": {
       "house": {
         "name": "House",
         "description": "Provides space for <norm>{effect} people</norm>."
       },
+
       "tavern": {
         "name": "Tavern",
         "description": "A bustling hearth where weary travelers trade rumors of uncharted lands and offer the realm new quests."
       }
     },
+
     "territories": {
       "farm": {
         "name": "Farm"
       },
+
       "lumberyard": {
         "name": "Lumberyard"
       },
+
       "quarry": {
         "name": "Quarry"
       }
     }
   },
+
   "feature_overview": {
     "card_report": {
       "title": "The Empire's Report",
@@ -190,25 +216,42 @@
       "report_capital_upgraded": "<high>Capital city upgraded to level {level}.</high>",
       "report_building_constructed": "A new <high>{building}</high> has been built."
     },
+
     "card_scouts": {
       "title": "Scout Missives",
       "default_message": "Our scouts have returned empty handed."
     },
+
     "card_events": {
       "title": "State of the Realm",
       "default_message": "Our empire is thriving."
     }
   },
+
   "feature_events": {
     "instant": {
-      "gold_small_a": "A scout uncovered a small stash buried beneath a withered tree. It contained <gold>{amount}</gold> {icon_gold}.",
-      "fertile_land": "Our scouts have surveyed fertile ground, ripe for the plow. A new <food>farm</food> may now be built."
+      "gold_early_a": "A scout uncovered a small stash buried beneath a withered tree. It contained <gold>{amount}</gold> {icon_gold}.",
+      "gold_early_b": "Our scouts found an abandoned camp and recovered a small chest containing <gold>{amount}</gold> {icon_gold}.",
+      "gold_early_c": "While clearing out the undergrowth, a laborer found a weathered pouch containing <gold>{amount}</gold> {icon_gold}.",
+      "food_early_a": "Our scouts discovered an old farmstead and scavenged <food>{amount}</food> {icon_food}.",
+      "food_early_b": "Our outriders found a deserted camp, recovering <food>{amount}</food> {icon_food} left behind.",
+      "food_early_c": "Our scouts discovered a wild orchard and harvested <food>{amount}</food> {icon_food}.",
+      "wood_early_a": "Our scouts discovered an old lumberyard and scavenged <wood>{amount}</wood> {icon_wood}.",
+      "wood_early_b": "Our scouts surveyed a ruined settlement and salvaged <wood>{amount}</wood> {icon_wood}.",
+      "wood_early_c": "Our outriders found an abandoned logging camp, securing <wood>{amount}</wood> {icon_wood} left behind.",
+      "stone_early_a": "Our laborers surveyed a ruined village and salvaged <stone>{amount}</stone> {icon_stone}.",
+      "stone_early_b": "Our scouts surveyed a forgotten quarry and salvaged <stone>{amount}</stone> {icon_stone}.",
+      "fertile_land": "Our scouts have surveyed fertile ground, ripe for the plow. A new <food>farm</food> may now be built.",
+      "lush_forest": "Our scouts discovered dense woodland. A new <wood>lumberyard</wood> may now be built.",
+      "stone_deposit": "Our scouts surveyed a rugged stone deposit. A new <stone>quarry</stone> may now be built."
     },
+
     "ongoing": {
       "bountiful_harvest": "<gb>BOUNTIFUL HARVEST!</gb> Thanks to the favourable weather, our <food>farms</food> production is doubled <italic>({duration} month(s) left)</italic>.",
       "drought": "<rb>DROUGHT!</rb> Our realm is suffering from severe drought. Our <food>farms</food> yield no harvest. <italic>({duration} month(s) left)</italic>."
     }
   },
+
   "errors": {
     "construction_failed_title": "Construction failed",
     "construction_failed_message": "A dark magic disrupted construction.",

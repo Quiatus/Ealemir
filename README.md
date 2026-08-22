@@ -1,9 +1,7 @@
 To Do:
 
-[] add simple random events
 [] add empire status (overpopulation, riot)
 [] add notification bar and notifications
-[] add tavern feature - unlocks first few conversation
 
 [X] add taxes, rations modifiers to empire management
 [X] add remaining resources to topbar
@@ -21,3 +19,4 @@ To Do:
 [X] add level 2 capital buildings - houses, tavern 
 [X] extract event info from events and pass into resource calculator
 [X] rework modifiers
+[X] add simple random events
