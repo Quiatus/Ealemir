@@ -1,6 +1,6 @@
 To Do:
 
-[] add empire status (overpopulation, riot)
+[] add empire status (overpopulation, riot, famine)
 [] add notification bar and notifications
 
 [X] add taxes, rations modifiers to empire management

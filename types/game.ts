@@ -61,7 +61,9 @@ export interface LastTurnResourceReport {
   populationReport: {
     change: number,
     gainFromGrowth: number,
-    gainFromEvents: number
+    gainFromEvents: number,
+    lostDesertion: number,
+    lostDeath: number
   },
   foodReport: {
     change: number,

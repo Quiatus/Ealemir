@@ -29,7 +29,9 @@ export const INITIAL_PLAYER_RESOURCES: PlayerResources = {
     populationReport: {
       change: 0,
       gainFromGrowth: 0,
-      gainFromEvents: 0
+      gainFromEvents: 0,
+      lostDesertion: 0,
+      lostDeath: 0
     },
     foodReport: {
       change: 0,

@@ -40,7 +40,16 @@ export function buildPopulationTooltip(resources: PlayerResources, buildings?: P
         value: resources.last_turn_resources_report.populationReport.gainFromEvents
       }
     ],
-    expenditures: [],
+    expenditures: [
+      {
+        label: text('tooltips.population_tooltip.deserted_population'),
+        value: resources.last_turn_resources_report.populationReport.lostDesertion
+      },
+      {
+        label: text('tooltips.population_tooltip.death_population'),
+        value: resources.last_turn_resources_report.populationReport.lostDeath
+      },
+    ],
     change: resources.last_turn_resources_report.populationReport.change
   };
 

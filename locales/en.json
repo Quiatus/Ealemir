@@ -71,6 +71,8 @@
       "income_events": "Events",
       "available_space": "Available space",
       "homeless": "Homeless",
+      "deserted_population": "Desertion",
+      "death_population": "Perished",
       "no_space_message": "Our dwellings are full. Build more or conquer new land.",
       "exceeded_space_message": "Our people have nowhere to live and are leaving our empire."
     },
