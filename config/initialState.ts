@@ -34,7 +34,8 @@ export const INITIAL_PLAYER_RESOURCES: PlayerResources = {
       lostOverpopulation: 0,
       lostFamine: 0,
       lostDeath: 0,
-      deathsFamine: 0
+      deathsFamine: 0,
+      deathsRiot: 0
     },
     foodReport: {
       change: 0,

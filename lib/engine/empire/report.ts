@@ -66,6 +66,7 @@ function generateStatusReport(resources: PlayerResources, buildings: PlayerBuild
   const famineDeaths = resources.last_turn_resources_report.populationReport.deathsFamine
   const famine = resources.last_turn_resources_report.foodReport.famine
   const lostFameFamine = resources.last_turn_resources_report.fameReport.lossFamine
+  const riotDeaths = resources.last_turn_resources_report.populationReport.deathsRiot
 
   if (!space && overpopulationLost === 0) {
     ongoingEventsLog.push(text('feature_overview.card_report.report_population_full'))
@@ -85,6 +86,10 @@ function generateStatusReport(resources: PlayerResources, buildings: PlayerBuild
 
   if (famine) {
     ongoingEventsLog.push(text('feature_overview.card_report.report_famine', {lost: formatNumber((famineLost), 'full'), deaths: formatNumber((famineDeaths), 'full'), fame: formatNumber((lostFameFamine), 'full')}))
+  }
+
+  if (riotDeaths > 0) {
+    ongoingEventsLog.push(text('feature_overview.card_report.report_riot', {deaths: formatNumber((riotDeaths), 'full')}))
   }
 
   return ongoingEventsLog

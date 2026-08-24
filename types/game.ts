@@ -66,7 +66,8 @@ export interface LastTurnResourceReport {
     lostOverpopulation: number,
     lostFamine: number,
     lostDeath: number,
-    deathsFamine: number
+    deathsFamine: number,
+    deathsRiot: number
   },
   foodReport: {
     change: number,

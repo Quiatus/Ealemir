@@ -3,16 +3,16 @@ import { calculateFreeSpace, calculateMaxSpace } from "../buildings/checks"
 import { randomResourceRange } from "@/lib/utilities"
 import { EMPIRE_BASELINES, RATIONS_MODIFIER } from "@/config/empire";
 import { calculateMorale } from "../empire/morale";
-import { FAMINE_DEATHS_RANGE, FAMINE_LEFT_RANGE, OVERPOPULATION_LEFT_RANGE, POPULATION_GAIN_RANGE } from "@/config/resources";
+import { FAMINE_DEATHS_RANGE, FAMINE_LEFT_RANGE, OVERPOPULATION_LEFT_RANGE, POPULATION_GAIN_RANGE, RIOT_DEATHS_RANGE } from "@/config/resources";
 
 function checkOverpopulation(buildings: PlayerBuildings, population: number): boolean {
   const maxAvailableSpace = calculateMaxSpace(buildings);
   return population > maxAvailableSpace
 }
 
-function calculatePopulationModifiers(empire: PlayerEmpire) {
+function calculatePopulationModifiers(empire: PlayerEmpire, famine: boolean) {
   let moraleModifier = 1
-  const morale = calculateMorale(empire)
+  const {morale, riot} = calculateMorale(empire, famine, true)
   const lowPopCompensator = Math.floor(Math.random() * 19 + 2)
   const rations = RATIONS_MODIFIER[empire.rations].populationGrowth
 
@@ -21,7 +21,8 @@ function calculatePopulationModifiers(empire: PlayerEmpire) {
   return {
     lowPopCompensator,
     moraleModifier,
-    rations
+    rations,
+    riot
   }
 }
 
@@ -47,28 +48,34 @@ function calculateDesertionLoses(overpopulation: boolean, famine: boolean, popul
   }
 }
 
-function calculateDeathLoses(population: number, famine: boolean) {
+function calculateDeathLoses(population: number, famine: boolean, riot: boolean) {
   let deathsFamine = 0
+  let deathsRiot = 0
   let totalDeaths = 0
 
   if (famine) {
     deathsFamine = Math.ceil(randomResourceRange(population, FAMINE_DEATHS_RANGE.min, FAMINE_DEATHS_RANGE.max))
   }
 
-  totalDeaths = deathsFamine 
+  if (riot) {
+    deathsRiot = Math.ceil(randomResourceRange(population, RIOT_DEATHS_RANGE.min, RIOT_DEATHS_RANGE.max))
+  }
+
+  totalDeaths = deathsFamine + deathsRiot
 
   return {
     totalDeaths,
+    deathsRiot,
     deathsFamine
   }
 }
 
 export function calculatePopulationChange(population: number, buildings: PlayerBuildings, empire: PlayerEmpire, populationFromEvents: number, famine: boolean) {
-  const {lowPopCompensator, moraleModifier, rations} = calculatePopulationModifiers(empire)
+  const {lowPopCompensator, moraleModifier, rations, riot} = calculatePopulationModifiers(empire, famine)
   const avaiableSpace = calculateFreeSpace(population, buildings)
   const overpopulation = checkOverpopulation(buildings, population)
   const {lostOverpopulation, lostFamine, totalLostDesertion} = calculateDesertionLoses(overpopulation, famine, population)
-  const {deathsFamine, totalDeaths} = calculateDeathLoses(population, famine)
+  const {deathsFamine, deathsRiot, totalDeaths} = calculateDeathLoses(population, famine, riot)
   
   let populationGrowth = Math.ceil((randomResourceRange(population, POPULATION_GAIN_RANGE.min, POPULATION_GAIN_RANGE.max) + lowPopCompensator) * rations * moraleModifier) 
   
@@ -90,7 +97,8 @@ export function calculatePopulationChange(population: number, buildings: PlayerB
       lostOverpopulation,
       lostFamine,
       lostDeath: totalDeaths,
-      deathsFamine
+      deathsFamine,
+      deathsRiot
     }
   }
 }

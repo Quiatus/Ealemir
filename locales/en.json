@@ -34,7 +34,7 @@
       "might": "Might",
       "might_message": "Total military might of our empire.",
       "morale": "Morale",
-      "morale_message": "Low morale will drive our people to rebel and flee the realm, while high morale will cause our numbers to flourish.",
+      "morale_message": "Low morale will drive our people to rebel, while high morale will cause our numbers to flourish.",
       "readiness": "Army status",
       "readiness_message": "Our armies can attack once per month. After that, they become exhausted.",
       "missing_space": "We do not have enough space."
@@ -224,6 +224,7 @@
       "report_capital_upgraded": "<high>Capital city upgraded to level {level}.</high>",
       "report_building_constructed": "A new <high>{building}</high> has been built.",
       "report_overpopulation": "<neg>Settlements have exceeded their limit. Having nowhere to dwell, </neg><purple>{lost}</purple>{icon_population} <neg>deserted the realm.</neg>",
+      "report_riot": "<neg>Riots erupted against our rule. Order was forcibly restored by the guard, but </neg><purple>{deaths}</purple>{icon_population} <neg>were slain in the unrest.</neg>",
       "report_famine": "<neg>A famine is ravaging the realm.</neg><purple>{deaths}</purple>{icon_population} <neg>died of starvation and</neg> <purple>{lost}</purple>{icon_population} <neg>deserted. The deserters speak ill of our empire. We lost</neg>{fame}{icon_fame}."
     },
 

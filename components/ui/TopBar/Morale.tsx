@@ -4,11 +4,12 @@ import { calculateMorale } from '@/lib/engine/empire/morale'
 import { PlayerEmpire } from '@/types/game'
 
 type MoraleProps = {
-  data: PlayerEmpire
+  empire: PlayerEmpire;
+  famine: boolean 
 }
 
-export default function Morale({ data }: MoraleProps) {
-  const morale = calculateMorale(data)
+export default function Morale({ empire, famine }: MoraleProps) {
+const {morale} = calculateMorale(empire, famine)
   let color = 'gold'
 
   if (morale < 20) color = 'red'

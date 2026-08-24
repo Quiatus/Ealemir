@@ -51,7 +51,7 @@ export default async function TopBar() {
           <ResourceItem icon='/icons/resources/might.png' label='Might' value={0} color='primary'/>
         </InfoTooltip>
         <InfoTooltip data={moraleTooltip.morale}>
-          <Morale data={empire} />
+          <Morale empire={empire} famine={resources.last_turn_resources_report.foodReport.famine} />
         </InfoTooltip>
         <InfoTooltip data={statusTooltip.status}>
           <ArmyStatus status='Exhausted'/>
