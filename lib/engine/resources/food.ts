@@ -21,6 +21,7 @@ function calculateFoodModifiers(empire: PlayerEmpire) {
 }
 
 export function calculateFoodChange(food: number, population: number, buildings: PlayerBuildings, empire: PlayerEmpire, foodFromEvents: number) {
+  let famine = false
   const {production, consumption, farmModifier, rations} = calculateFoodModifiers(empire)
   const farmsBuilt = buildings.territories?.farm?.built || 0;
 
@@ -32,7 +33,10 @@ export function calculateFoodChange(food: number, population: number, buildings:
   const totalChange = incomeFromCapital + incomeFromFarms + foodFromEvents - consumed;
   let totalFood = food + totalChange; 
 
-  if (totalFood < 0) totalFood = 0
+  if (totalFood < 0) {
+    famine = true
+    totalFood = 0
+  }
   
   return {
     food: totalFood,
@@ -41,6 +45,7 @@ export function calculateFoodChange(food: number, population: number, buildings:
       gainFromCapital: incomeFromCapital,
       gainFromFarms: incomeFromFarms,
       gainFromEvents: foodFromEvents,
+      famine,
       consumed
     }
   }

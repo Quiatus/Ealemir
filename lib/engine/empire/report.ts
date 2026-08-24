@@ -38,6 +38,9 @@ function generateEmpireReport(resources: PlayerResources, buildings: PlayerBuild
   const populationGain = resources.last_turn_resources_report.populationReport.gainFromGrowth
   const foodChange = resources.last_turn_resources_report.foodReport.change
   const overpopulationLost = resources.last_turn_resources_report.populationReport.lostOverpopulation
+  const famineLost = resources.last_turn_resources_report.populationReport.lostFamine
+  const famineDeaths = resources.last_turn_resources_report.populationReport.deathsFamine
+  const famine = resources.last_turn_resources_report.foodReport.famine
 
   if (buildings.finished) {
     buildings.finished.split(',').map(building => {
@@ -64,12 +67,16 @@ function generateEmpireReport(resources: PlayerResources, buildings: PlayerBuild
     report.push(text('feature_overview.card_report.report_food_decline'))
   }
 
-  if (foodChange < 0 && resources.food <= Math.abs(foodChange * 10)) {
+  if (!famine && foodChange < 0 && resources.food <= Math.abs(foodChange * 10)) {
     report.push(text('feature_overview.card_report.report_food_low'))
   }
 
   if (overpopulationLost > 0) {
     report.push(text('feature_overview.card_report.report_overpopulation', {lost: formatNumber((overpopulationLost), 'full')}))
+  }
+
+  if (famine) {
+    report.push(text('feature_overview.card_report.report_famine', {lost: formatNumber((famineLost), 'full'), deaths: formatNumber((famineDeaths), 'full')}))
   }
 
   return report

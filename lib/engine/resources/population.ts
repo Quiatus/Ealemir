@@ -1,10 +1,14 @@
 import { PlayerBuildings, PlayerEmpire } from "@/types/game"
-import { calculateFreeSpace } from "../buildings/checks"
+import { calculateFreeSpace, calculateMaxSpace } from "../buildings/checks"
 import { randomResourceRange } from "@/lib/utilities"
 import { EMPIRE_BASELINES, RATIONS_MODIFIER } from "@/config/empire";
 import { calculateMorale } from "../empire/morale";
-import { OVERPOPULATION_LEFT_RANGE, POPULATION_GAIN_RANGE } from "@/config/resources";
-import { checkOverpopulation } from "../empire/status";
+import { FAMINE_DEATHS_RANGE, FAMINE_LEFT_RANGE, OVERPOPULATION_LEFT_RANGE, POPULATION_GAIN_RANGE } from "@/config/resources";
+
+function checkOverpopulation(buildings: PlayerBuildings, population: number): boolean {
+  const maxAvailableSpace = calculateMaxSpace(buildings);
+  return population > maxAvailableSpace
+}
 
 function calculatePopulationModifiers(empire: PlayerEmpire) {
   let moraleModifier = 1
@@ -21,34 +25,57 @@ function calculatePopulationModifiers(empire: PlayerEmpire) {
   }
 }
 
-function calculateDesertionLoses(overpopulation: boolean, population: number) {
+function calculateDesertionLoses(overpopulation: boolean, famine: boolean, population: number) {
   let lostOverpopulation = 0
+  let lostFamine = 0
   let totalLostDesertion = 0
 
   if (overpopulation) {
     lostOverpopulation = Math.floor(randomResourceRange(population, OVERPOPULATION_LEFT_RANGE.min, OVERPOPULATION_LEFT_RANGE.max))
   }
 
-  totalLostDesertion = lostOverpopulation
+  if (famine) {
+    lostFamine = Math.floor(randomResourceRange(population, FAMINE_LEFT_RANGE.min, FAMINE_LEFT_RANGE.max))
+  }
+
+  totalLostDesertion = lostOverpopulation + lostFamine
 
   return {
     lostOverpopulation,
+    lostFamine,
     totalLostDesertion
   }
 }
 
-export function calculatePopulationChange(population: number, buildings: PlayerBuildings, empire: PlayerEmpire, populationFromEvents: number) {
+function calculateDeathLoses(population: number, famine: boolean) {
+  let deathsFamine = 0
+  let totalDeaths = 0
+
+  if (famine) {
+    deathsFamine = Math.floor(randomResourceRange(population, FAMINE_DEATHS_RANGE.min, FAMINE_DEATHS_RANGE.max))
+  }
+
+  totalDeaths = deathsFamine 
+
+  return {
+    totalDeaths,
+    deathsFamine
+  }
+}
+
+export function calculatePopulationChange(population: number, buildings: PlayerBuildings, empire: PlayerEmpire, populationFromEvents: number, famine: boolean) {
   const {lowPopCompensator, moraleModifier, rations} = calculatePopulationModifiers(empire)
   const avaiableSpace = calculateFreeSpace(population, buildings)
   const overpopulation = checkOverpopulation(buildings, population)
-  const {lostOverpopulation, totalLostDesertion} = calculateDesertionLoses(overpopulation, population)
+  const {lostOverpopulation, lostFamine, totalLostDesertion} = calculateDesertionLoses(overpopulation, famine, population)
+  const {deathsFamine, totalDeaths} = calculateDeathLoses(population, famine)
   
   let populationGrowth = Math.floor((randomResourceRange(population, POPULATION_GAIN_RANGE.min, POPULATION_GAIN_RANGE.max) + lowPopCompensator) * rations * moraleModifier) 
   
   if (avaiableSpace <= 0 || overpopulation) populationGrowth = 0
   if (!overpopulation && populationGrowth > avaiableSpace) populationGrowth = avaiableSpace
 
-  const totalChange = populationGrowth + populationFromEvents - totalLostDesertion
+  const totalChange = populationGrowth + populationFromEvents - totalLostDesertion - totalDeaths
   let totalPopulation = population + totalChange
 
   if (totalPopulation < 0) totalPopulation = 0
@@ -61,7 +88,9 @@ export function calculatePopulationChange(population: number, buildings: PlayerB
       gainFromEvents: populationFromEvents,
       lostDesertion: totalLostDesertion,
       lostOverpopulation,
-      lostDeath: 0
+      lostFamine,
+      lostDeath: totalDeaths,
+      deathsFamine
     }
   }
 }

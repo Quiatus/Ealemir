@@ -64,13 +64,16 @@ export interface LastTurnResourceReport {
     gainFromEvents: number,
     lostDesertion: number,
     lostOverpopulation: number,
-    lostDeath: number
+    lostFamine: number,
+    lostDeath: number,
+    deathsFamine: number
   },
   foodReport: {
     change: number,
     gainFromCapital: number,
     gainFromFarms: number,
     gainFromEvents: number,
+    famine: boolean,
     consumed: number
   },
   woodReport: {

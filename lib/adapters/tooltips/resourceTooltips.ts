@@ -63,10 +63,10 @@ export function buildPopulationTooltip(resources: PlayerResources, buildings?: P
 
   if (!availableSpace) {
     tooltip.messages.afterCustom = richText('tooltips.population_tooltip.no_space_message');
-    tooltip.color = 'orange';
+    //tooltip.color = 'orange';
   } else if (resources.population > maxAvailableSpace) {
     tooltip.messages.afterCustom = richText('tooltips.population_tooltip.exceeded_space_message');
-    tooltip.color = 'red';
+    //tooltip.color = 'red';
   }
 
   if (resources.population > maxAvailableSpace) {
