@@ -31,11 +31,11 @@ function calculateDesertionLoses(overpopulation: boolean, famine: boolean, popul
   let totalLostDesertion = 0
 
   if (overpopulation) {
-    lostOverpopulation = Math.floor(randomResourceRange(population, OVERPOPULATION_LEFT_RANGE.min, OVERPOPULATION_LEFT_RANGE.max))
+    lostOverpopulation = Math.ceil(randomResourceRange(population, OVERPOPULATION_LEFT_RANGE.min, OVERPOPULATION_LEFT_RANGE.max))
   }
 
   if (famine) {
-    lostFamine = Math.floor(randomResourceRange(population, FAMINE_LEFT_RANGE.min, FAMINE_LEFT_RANGE.max))
+    lostFamine = Math.ceil(randomResourceRange(population, FAMINE_LEFT_RANGE.min, FAMINE_LEFT_RANGE.max))
   }
 
   totalLostDesertion = lostOverpopulation + lostFamine
@@ -52,7 +52,7 @@ function calculateDeathLoses(population: number, famine: boolean) {
   let totalDeaths = 0
 
   if (famine) {
-    deathsFamine = Math.floor(randomResourceRange(population, FAMINE_DEATHS_RANGE.min, FAMINE_DEATHS_RANGE.max))
+    deathsFamine = Math.ceil(randomResourceRange(population, FAMINE_DEATHS_RANGE.min, FAMINE_DEATHS_RANGE.max))
   }
 
   totalDeaths = deathsFamine 
@@ -70,7 +70,7 @@ export function calculatePopulationChange(population: number, buildings: PlayerB
   const {lostOverpopulation, lostFamine, totalLostDesertion} = calculateDesertionLoses(overpopulation, famine, population)
   const {deathsFamine, totalDeaths} = calculateDeathLoses(population, famine)
   
-  let populationGrowth = Math.floor((randomResourceRange(population, POPULATION_GAIN_RANGE.min, POPULATION_GAIN_RANGE.max) + lowPopCompensator) * rations * moraleModifier) 
+  let populationGrowth = Math.ceil((randomResourceRange(population, POPULATION_GAIN_RANGE.min, POPULATION_GAIN_RANGE.max) + lowPopCompensator) * rations * moraleModifier) 
   
   if (avaiableSpace <= 0 || overpopulation) populationGrowth = 0
   if (!overpopulation && populationGrowth > avaiableSpace) populationGrowth = avaiableSpace

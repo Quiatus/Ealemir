@@ -33,15 +33,10 @@ function resourceReportConstructor(resources: PlayerResources) {
 function generateEmpireReport(resources: PlayerResources, buildings: PlayerBuildings) {
   const report: string[] = []
 
-  const space = calculateFreeSpace(resources.population, buildings)
+  
   const goldGain = resources.last_turn_resources_report.goldReport.gainFromPopulation
   const populationGain = resources.last_turn_resources_report.populationReport.gainFromGrowth
-  const foodChange = resources.last_turn_resources_report.foodReport.change
-  const overpopulationLost = resources.last_turn_resources_report.populationReport.lostOverpopulation
-  const famineLost = resources.last_turn_resources_report.populationReport.lostFamine
-  const famineDeaths = resources.last_turn_resources_report.populationReport.deathsFamine
-  const famine = resources.last_turn_resources_report.foodReport.famine
-  const lostFameFamine = resources.last_turn_resources_report.fameReport.lossFamine
+
 
   if (buildings.finished) {
     buildings.finished.split(',').map(building => {
@@ -59,35 +54,47 @@ function generateEmpireReport(resources: PlayerResources, buildings: PlayerBuild
   }
 
   report.push(resourceReportConstructor(resources))
-  
+
+  return report
+}
+
+function generateStatusReport(resources: PlayerResources, buildings: PlayerBuildings, ongoingEventsLog: string[]) {
+  const space = calculateFreeSpace(resources.population, buildings)
+  const foodChange = resources.last_turn_resources_report.foodReport.change
+  const overpopulationLost = resources.last_turn_resources_report.populationReport.lostOverpopulation
+  const famineLost = resources.last_turn_resources_report.populationReport.lostFamine
+  const famineDeaths = resources.last_turn_resources_report.populationReport.deathsFamine
+  const famine = resources.last_turn_resources_report.foodReport.famine
+  const lostFameFamine = resources.last_turn_resources_report.fameReport.lossFamine
+
   if (!space && overpopulationLost === 0) {
-    report.push(text('feature_overview.card_report.report_population_full'))
+    ongoingEventsLog.push(text('feature_overview.card_report.report_population_full'))
   }
 
   if (foodChange < 0 && resources.food > Math.abs(foodChange * 10)) {
-    report.push(text('feature_overview.card_report.report_food_decline'))
+    ongoingEventsLog.push(text('feature_overview.card_report.report_food_decline'))
   }
 
   if (!famine && foodChange < 0 && resources.food <= Math.abs(foodChange * 10)) {
-    report.push(text('feature_overview.card_report.report_food_low'))
+    ongoingEventsLog.push(text('feature_overview.card_report.report_food_low'))
   }
 
   if (overpopulationLost > 0) {
-    report.push(text('feature_overview.card_report.report_overpopulation', {lost: formatNumber((overpopulationLost), 'full')}))
+    ongoingEventsLog.push(text('feature_overview.card_report.report_overpopulation', {lost: formatNumber((overpopulationLost), 'full')}))
   }
 
   if (famine) {
-    report.push(text('feature_overview.card_report.report_famine', {lost: formatNumber((famineLost), 'full'), deaths: formatNumber((famineDeaths), 'full'), fame: formatNumber((lostFameFamine), 'full')}))
+    ongoingEventsLog.push(text('feature_overview.card_report.report_famine', {lost: formatNumber((famineLost), 'full'), deaths: formatNumber((famineDeaths), 'full'), fame: formatNumber((lostFameFamine), 'full')}))
   }
 
-  return report
+  return ongoingEventsLog
 }
 
 export function generateReport(resources: PlayerResources, buildings: PlayerBuildings, empireData: PlayerEmpire, instantEventLogs: string[], ongoingEventsLog: string[]) {
   const monthly_report = {
     empire: generateEmpireReport(resources, buildings),
     scouts: instantEventLogs,
-    events: ongoingEventsLog,
+    events: generateStatusReport(resources, buildings, ongoingEventsLog),
   }
 
   return {

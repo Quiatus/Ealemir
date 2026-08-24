@@ -131,9 +131,11 @@
       "text_lenient": "Lenient",
       "text_customary": "Customary",
       "text_oppressive": "Oppressive",
-      "effect_lenient": "Lowers taxes by <neg>{tax}%</neg>. Rises morale by <pos>{morale}%</pos>.",
+      "effect_lenient": "Lowers taxes by <neg>{tax}%</neg>. Rises morale.",
+      "effect_lenient_2": "Lowers taxes by <neg>{tax}%</neg>. Rises morale by <pos>{morale}%</pos>.",
       "effect_customary": "Default tax policy.",
-      "effect_oppressive": "Rises taxes by <pos>{tax}%</pos>. Reduces morale by <neg>{morale}%</neg>."
+      "effect_oppressive": "Rises taxes by <pos>{tax}%</pos>. Reduces morale.",
+      "effect_oppressive_2": "Rises taxes by <pos>{tax}%</pos>. Reduces morale by <neg>{morale}%</neg>."
     },
 
     "card_rations": {
@@ -142,9 +144,11 @@
       "text_meager": "Meager",
       "text_sufficient": "Sufficient",
       "text_bountiful": "Bountiful",
-      "effect_meager": "Each ration sustains <pos>{food}</pos> citizens. Reduces population growth by <neg>{people}%</neg> and morale by <neg>{morale}%</neg>.",
+      "effect_meager": "Each ration sustains <pos>{food}</pos> citizens. Reduces population growth and morale.",
+      "effect_meager_2": "Each ration sustains <pos>{food}</pos> citizens. Reduces population growth by <neg>{people}%</neg> and morale by <neg>{morale}%</neg>.",
       "effect_sufficient": "Default rations policy.",
-      "effect_bountiful": "Each ration sustains <neg>{food}</neg> citizens. Rises population growth by <pos>{people}%</pos> and morale by <pos>{morale}%</pos>."
+      "effect_bountiful": "Each ration sustains <neg>{food}</neg> citizens. Rises population growth and morale.",
+      "effect_bountiful_2": "Each ration sustains <neg>{food}</neg> citizens. Rises population growth by <pos>{people}%</pos> and morale by <pos>{morale}%</pos>."
     },
 
     "card_production": {
@@ -153,9 +157,11 @@
       "text_restrained": "Restrained",
       "text_steady": "Steady",
       "text_grueling": "Grueling",
-      "effect_restrained": "Lessens production by <neg>{production}%</neg>. Reduces ration demands by <pos>{food}%</pos> and rises morale by <pos>{morale}%</pos>.",
+      "effect_restrained": "Lessens production by <neg>{production}%</neg>. Reduces ration demands by <pos>{food}%</pos> and rises morale.",
+      "effect_restrained_2": "Lessens production by <neg>{production}%</neg>. Reduces ration demands by <pos>{food}%</pos> and rises morale by <pos>{morale}%</pos>.",
       "effect_steady": "Default production policy.",
-      "effect_grueling": "Inceases production by <pos>{production}%</pos>. Rises ration demands by <neg>{food}%</neg> and reduces morale by <neg>{morale}%</neg>."
+      "effect_grueling": "Inceases production by <pos>{production}%</pos>. Rises ration demands by <neg>{food}%</neg> and reduces morale.",
+      "effect_grueling_2": "Inceases production by <pos>{production}%</pos>. Rises ration demands by <neg>{food}%</neg> and reduces morale by <neg>{morale}%</neg>."
     }
   },
 
@@ -218,7 +224,7 @@
       "report_capital_upgraded": "<high>Capital city upgraded to level {level}.</high>",
       "report_building_constructed": "A new <high>{building}</high> has been built.",
       "report_overpopulation": "<neg>Settlements have exceeded their limit. Having nowhere to dwell, </neg><purple>{lost}</purple>{icon_population} <neg>deserted the realm.</neg>",
-      "report_famine": "<neg>Our people are starving! </neg><purple>{deaths}</purple>{icon_population} <neg>people died and</neg> <purple>{lost}</purple>{icon_population} <neg>deserted the realm. The deserters are spreading ill news about our empire. We lost</neg>{fame}{icon_fame}."
+      "report_famine": "<neg>A famine is ravaging the realm.</neg><purple>{deaths}</purple>{icon_population} <neg>died of starvation and</neg> <purple>{lost}</purple>{icon_population} <neg>deserted. The deserters speak ill of our empire. We lost</neg>{fame}{icon_fame}."
     },
 
     "card_scouts": {

@@ -12,6 +12,7 @@ function calculateFoodModifiers(empire: PlayerEmpire) {
   const production = PRODUCTION_MODIFIER[empire.production].production
   const consumption = PRODUCTION_MODIFIER[empire.production].consumption
   const rations = RATIONS_MODIFIER[empire.rations].consumption
+  
   return {
     production,
     consumption,
@@ -25,7 +26,7 @@ export function calculateFoodChange(food: number, population: number, buildings:
   const {production, consumption, farmModifier, rations} = calculateFoodModifiers(empire)
   const farmsBuilt = buildings.territories?.farm?.built || 0;
 
-  const incomeFromCapital = CAPITAL[buildings.capital.city_level].food * production * farmModifier
+  const incomeFromCapital = Math.ceil(CAPITAL[buildings.capital.city_level].food * production * farmModifier)
   const incomeFromFarms = Math.ceil(farmsBuilt * TERRITORIES.farm.effect.food! * production * farmModifier);
   
   const consumed = Math.ceil((population / rations) * consumption);

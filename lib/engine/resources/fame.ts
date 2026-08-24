@@ -6,7 +6,7 @@ export function calculateFameChange(fame: number, famine: boolean) {
   let lossFamine = 0
 
   if (fame > 0 && famine) {
-    lossFamine = Math.floor(randomResourceRange(fame, FAME_LOSS_RANGE.min, FAME_LOSS_RANGE.max))
+    lossFamine = Math.ceil(randomResourceRange(fame, FAME_LOSS_RANGE.min, FAME_LOSS_RANGE.max))
   }
 
   totalLostFame = lossFamine

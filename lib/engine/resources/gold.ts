@@ -14,7 +14,7 @@ function calculateGoldModifiers(empire: PlayerEmpire) {
 export function calculateGoldChange(gold: number, population: number, empire: PlayerEmpire, goldFromEvents: number) {
   const {production} = calculateGoldModifiers(empire)
 
-  const incomeFromPopulation = Math.floor(randomResourceRange(population, GOLD_GAIN_RANGE.min, GOLD_GAIN_RANGE.max) * production) 
+  const incomeFromPopulation = Math.ceil(randomResourceRange(population, GOLD_GAIN_RANGE.min, GOLD_GAIN_RANGE.max) * production) 
 
   const totalChange = incomeFromPopulation + goldFromEvents
   let totalGold = gold + incomeFromPopulation
