@@ -218,7 +218,7 @@
       "report_capital_upgraded": "<high>Capital city upgraded to level {level}.</high>",
       "report_building_constructed": "A new <high>{building}</high> has been built.",
       "report_overpopulation": "<neg>Settlements have exceeded their limit. Having nowhere to dwell, </neg><purple>{lost}</purple>{icon_population} <neg>deserted the realm.</neg>",
-      "report_famine": "<neg>Our people are starving! </neg><purple>{deaths}</purple>{icon_population} <neg>people died and</neg> <purple>{lost}</purple>{icon_population} <neg>deserted the realm.</neg>"
+      "report_famine": "<neg>Our people are starving! </neg><purple>{deaths}</purple>{icon_population} <neg>people died and</neg> <purple>{lost}</purple>{icon_population} <neg>deserted the realm. The deserters are spreading ill news about our empire. We lost</neg>{fame}{icon_fame}."
     },
 
     "card_scouts": {

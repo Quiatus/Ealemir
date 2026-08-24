@@ -41,6 +41,7 @@ function generateEmpireReport(resources: PlayerResources, buildings: PlayerBuild
   const famineLost = resources.last_turn_resources_report.populationReport.lostFamine
   const famineDeaths = resources.last_turn_resources_report.populationReport.deathsFamine
   const famine = resources.last_turn_resources_report.foodReport.famine
+  const lostFameFamine = resources.last_turn_resources_report.fameReport.lossFamine
 
   if (buildings.finished) {
     buildings.finished.split(',').map(building => {
@@ -76,7 +77,7 @@ function generateEmpireReport(resources: PlayerResources, buildings: PlayerBuild
   }
 
   if (famine) {
-    report.push(text('feature_overview.card_report.report_famine', {lost: formatNumber((famineLost), 'full'), deaths: formatNumber((famineDeaths), 'full')}))
+    report.push(text('feature_overview.card_report.report_famine', {lost: formatNumber((famineLost), 'full'), deaths: formatNumber((famineDeaths), 'full'), fame: formatNumber((lostFameFamine), 'full')}))
   }
 
   return report

@@ -18,7 +18,17 @@ export const FAMINE_DEATHS_RANGE = {
   max: 0.20
 }
 
+export const RIOT_DEATHS_RANGE = {
+  min: 0.05,
+  max: 0.15
+}
+
 export const GOLD_GAIN_RANGE = {
   min: 0.075,
   max: 0.125
+}
+
+export const FAME_LOSS_RANGE = {
+  min: 0.005,
+  max: 0.015
 }

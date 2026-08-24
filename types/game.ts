@@ -87,6 +87,7 @@ export interface LastTurnResourceReport {
     gainFromEvents: number
   },
   fameReport: {
+      lossFamine: number,
       loss: number,
       change: number
     }

@@ -4,6 +4,7 @@ import { calculateGoldChange } from "./gold"
 import { calculateFoodChange } from "./food"
 import { calculateWoodChange } from "./wood"
 import { calculateStoneChange } from "./stone"
+import { calculateFameChange } from "./fame"
 
 export function calculateUpdatedResources(resources: PlayerResources, buildings: PlayerBuildings, empire: PlayerEmpire, eventChanges: Partial<Record<keyof PlayerResources, number>>) {
   const goldFromEvents = eventChanges.gold || 0;
@@ -17,6 +18,7 @@ export function calculateUpdatedResources(resources: PlayerResources, buildings:
   const updatedGold = calculateGoldChange(resources.gold, updatedPopulation.population, empire, goldFromEvents)
   const updatedWood = calculateWoodChange(resources.wood, buildings, empire, woodFromEvents)
   const updatedStone = calculateStoneChange(resources.stone, buildings, empire, stoneFromEvents)
+  const updatedFame = calculateFameChange(resources.fame, updatedFood.foodReport.famine)
  
   return {
     ...resources,
@@ -26,16 +28,14 @@ export function calculateUpdatedResources(resources: PlayerResources, buildings:
     population: updatedPopulation.population,
     wood: updatedWood.wood,
     stone: updatedStone.stone,
+    fame: updatedFame.fame,
     last_turn_resources_report: {
       goldReport: updatedGold.goldReport,
       populationReport: updatedPopulation.populationReport,
       foodReport: updatedFood.foodReport,
       woodReport: updatedWood.woodReport,
       stoneReport: updatedStone.stoneReport,
-      fameReport: {
-        loss: 0,
-        change: 0      
-      }
+      fameReport: updatedFame.fameReport
     }
   }
 }
