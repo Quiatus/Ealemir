@@ -63,6 +63,7 @@ export interface LastTurnResourceReport {
     gainFromGrowth: number,
     gainFromEvents: number,
     lostDesertion: number,
+    lostOverpopulation: number,
     lostDeath: number
   },
   foodReport: {
@@ -199,8 +200,8 @@ export interface BuildingTooltipData {
 }
 
 export interface ResourceMessages {
-  afterTotal?: string;
-  afterCustom?: string;
+  afterTotal?: string | ReactNode;
+  afterCustom?: string | ReactNode;
 }
 
 export interface ResourceTooltipData {

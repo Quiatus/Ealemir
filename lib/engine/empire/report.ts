@@ -36,6 +36,8 @@ function generateEmpireReport(resources: PlayerResources, buildings: PlayerBuild
   const space = calculateFreeSpace(resources.population, buildings)
   const goldGain = resources.last_turn_resources_report.goldReport.gainFromPopulation
   const populationGain = resources.last_turn_resources_report.populationReport.gainFromGrowth
+  const foodChange = resources.last_turn_resources_report.foodReport.change
+  const overpopulationLost = resources.last_turn_resources_report.populationReport.lostOverpopulation
 
   if (buildings.finished) {
     buildings.finished.split(',').map(building => {
@@ -54,16 +56,20 @@ function generateEmpireReport(resources: PlayerResources, buildings: PlayerBuild
 
   report.push(resourceReportConstructor(resources))
   
-  if (!populationGain && !space) {
+  if (!space && overpopulationLost === 0) {
     report.push(text('feature_overview.card_report.report_population_full'))
   }
 
-  if (resources.last_turn_resources_report.foodReport.change < 0 && resources.food > Math.abs(resources.last_turn_resources_report.foodReport.change * 10)) {
+  if (foodChange < 0 && resources.food > Math.abs(foodChange * 10)) {
     report.push(text('feature_overview.card_report.report_food_decline'))
   }
 
-  if (resources.last_turn_resources_report.foodReport.change < 0 && resources.food <= Math.abs(resources.last_turn_resources_report.foodReport.change * 10)) {
+  if (foodChange < 0 && resources.food <= Math.abs(foodChange * 10)) {
     report.push(text('feature_overview.card_report.report_food_low'))
+  }
+
+  if (overpopulationLost > 0) {
+    report.push(text('feature_overview.card_report.report_overpopulation', {lost: formatNumber((overpopulationLost), 'full')}))
   }
 
   return report

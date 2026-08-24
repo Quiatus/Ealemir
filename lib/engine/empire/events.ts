@@ -1,5 +1,5 @@
 import { ONE_EVENT_CHANCE, THREE_EVENT_CHANCE, TWO_EVENT_CHANCE } from "@/config/events";
-import { randomRange, text } from "@/lib/utilities";
+import { formatNumber, randomRange, text } from "@/lib/utilities";
 import { ActiveOngoingEvent, DynamicWeightContext, GameEventConfig, PlayerEmpire } from "@/types/game";
 import { PlayerResources } from '@/types/game';
 
@@ -103,7 +103,7 @@ export function calculateTurnEvents(allEvents: GameEventConfig[], resources: Pla
         if (range) {
           amount = randomRange(range.min, range.max);
           eventResourceChanges[resKey as keyof PlayerResources] = (eventResourceChanges[resKey as keyof PlayerResources] || 0) + amount;
-          instantEventsLog.push(text(event.description, {amount}))
+          instantEventsLog.push(text(event.description, {amount: formatNumber((amount), 'full')}))
         }
       }
     }

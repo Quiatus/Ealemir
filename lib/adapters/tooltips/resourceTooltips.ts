@@ -1,3 +1,4 @@
+import { richText } from "@/app/richText";
 import { calculateFreeSpace, calculateMaxSpace } from "@/lib/engine/buildings/checks";
 import { text } from "@/lib/utilities";
 import { PlayerBuildings, PlayerResources, ResourceTooltipData } from "@/types/game";
@@ -61,10 +62,10 @@ export function buildPopulationTooltip(resources: PlayerResources, buildings?: P
   const maxAvailableSpace = calculateMaxSpace(buildings);
 
   if (!availableSpace) {
-    tooltip.messages.afterCustom = text('tooltips.population_tooltip.no_space_message');
+    tooltip.messages.afterCustom = richText('tooltips.population_tooltip.no_space_message');
     tooltip.color = 'orange';
   } else if (resources.population > maxAvailableSpace) {
-    tooltip.messages.afterCustom = text('tooltips.population_tooltip.exceeded_space_message');
+    tooltip.messages.afterCustom = richText('tooltips.population_tooltip.exceeded_space_message');
     tooltip.color = 'red';
   }
 
@@ -83,7 +84,6 @@ export function buildPopulationTooltip(resources: PlayerResources, buildings?: P
       }
     ];
   }
-
 
   return tooltip;
 }

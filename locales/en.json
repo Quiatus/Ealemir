@@ -73,8 +73,8 @@
       "homeless": "Homeless",
       "deserted_population": "Desertion",
       "death_population": "Perished",
-      "no_space_message": "Our dwellings are full. Build more or conquer new land.",
-      "exceeded_space_message": "Our people have nowhere to live and are leaving our empire."
+      "no_space_message": "<high>Our dwellings are full. Build more or conquer new land.</high>",
+      "exceeded_space_message": "<neg>Housing capacity exceeded. People are abandoning the realm.</neg>"
     },
 
     "food_tooltip": {
@@ -207,7 +207,7 @@
       "default_message": "Nothing to report.",
       "report_gold": "Our empire gathered <gold>{gold}</gold> {icon_gold}.",
       "report_population": "Our realm gained <purple>{population}</purple> {icon_population}.",
-      "report_population_full": "<high>Our people have nowhere left to live. Construct more dwellings or expand our borders.</high>",
+      "report_population_full": "<high>Our settlements are full. Construct more dwellings or expand our borders.</high>",
       "report_food_decline": "<high>Ration demands exceed our realm's monthly yield. Construct more farms.</high>",
       "report_food_low": "<neg>Our food stores are running dangerously low! Secure more grain, or the realm will plunge into famine.</neg>",
       "report_resources_start": "We received",
@@ -216,7 +216,8 @@
       "report_wood": "<wood>{wood}</wood> {icon_wood}",
       "report_stone": "<stone>{stone}</stone> {icon_stone}",
       "report_capital_upgraded": "<high>Capital city upgraded to level {level}.</high>",
-      "report_building_constructed": "A new <high>{building}</high> has been built."
+      "report_building_constructed": "A new <high>{building}</high> has been built.",
+      "report_overpopulation": "<neg>Settlements have exceeded their limit. Having nowhere to dwell, </neg><purple>{lost}</purple>{icon_population} <neg>deserted the realm.</neg>"
     },
 
     "card_scouts": {

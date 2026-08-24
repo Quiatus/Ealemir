@@ -15,7 +15,7 @@ export const INITIAL_PLAYER_EMPIRE = {
 export const INITIAL_PLAYER_RESOURCES: PlayerResources = {
   turn: 0,
   gold: 1000,
-  population: 50,
+  population: 500,
   food: 5,
   wood: 200,
   stone: 50,
@@ -31,6 +31,7 @@ export const INITIAL_PLAYER_RESOURCES: PlayerResources = {
       gainFromGrowth: 0,
       gainFromEvents: 0,
       lostDesertion: 0,
+      lostOverpopulation: 0,
       lostDeath: 0
     },
     foodReport: {
