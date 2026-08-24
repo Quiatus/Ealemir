@@ -1,6 +1,5 @@
 To Do:
 
-[] add riot
 [] add notification bar and notifications
 
 [X] add taxes, rations modifiers to empire management
@@ -20,3 +19,4 @@ To Do:
 [X] extract event info from events and pass into resource calculator
 [X] rework modifiers
 [X] add simple random events
+[X] add riot

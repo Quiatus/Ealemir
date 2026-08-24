@@ -1,6 +1,5 @@
 import styles from './NotificationBar.module.css'
 
-
 const notifications = [
   {
     id: 1,

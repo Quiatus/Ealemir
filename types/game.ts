@@ -192,6 +192,7 @@ export interface TooltipResourceDetail {
 export interface InfoTooltipData {
   title: string;
   message?: string | ReactNode; 
+  list?: string[];
   custom?: TooltipResourceDetail[];
 }
 

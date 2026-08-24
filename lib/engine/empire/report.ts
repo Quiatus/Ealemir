@@ -1,6 +1,7 @@
 import { formatNumber, text } from "@/lib/utilities";
 import { PlayerBuildings, PlayerEmpire, PlayerResources } from "@/types/game";
 import { calculateFreeSpace } from "../buildings/checks";
+import { calculateMorale } from "./morale";
 
 function resourceReportConstructor(resources: PlayerResources) {
   const foodGain = resources.last_turn_resources_report.foodReport.gainFromCapital + resources.last_turn_resources_report.foodReport.gainFromFarms
@@ -58,7 +59,7 @@ function generateEmpireReport(resources: PlayerResources, buildings: PlayerBuild
   return report
 }
 
-function generateStatusReport(resources: PlayerResources, buildings: PlayerBuildings, ongoingEventsLog: string[]) {
+function generateStatusReport(resources: PlayerResources, empireData: PlayerEmpire, buildings: PlayerBuildings, ongoingEventsLog: string[]) {
   const space = calculateFreeSpace(resources.population, buildings)
   const foodChange = resources.last_turn_resources_report.foodReport.change
   const overpopulationLost = resources.last_turn_resources_report.populationReport.lostOverpopulation
@@ -67,6 +68,8 @@ function generateStatusReport(resources: PlayerResources, buildings: PlayerBuild
   const famine = resources.last_turn_resources_report.foodReport.famine
   const lostFameFamine = resources.last_turn_resources_report.fameReport.lossFamine
   const riotDeaths = resources.last_turn_resources_report.populationReport.deathsRiot
+
+  const {morale} = calculateMorale(empireData, famine)
 
   if (!space && overpopulationLost === 0) {
     ongoingEventsLog.push(text('feature_overview.card_report.report_population_full'))
@@ -88,7 +91,11 @@ function generateStatusReport(resources: PlayerResources, buildings: PlayerBuild
     ongoingEventsLog.push(text('feature_overview.card_report.report_famine', {lost: formatNumber((famineLost), 'full'), deaths: formatNumber((famineDeaths), 'full'), fame: formatNumber((lostFameFamine), 'full')}))
   }
 
-  if (riotDeaths > 0) {
+  if (morale === 0 && riotDeaths === 0) {
+    ongoingEventsLog.push(text('feature_overview.card_report.report_riot_chance'))
+  } 
+
+  if (morale === 0 && riotDeaths > 0) {
     ongoingEventsLog.push(text('feature_overview.card_report.report_riot', {deaths: formatNumber((riotDeaths), 'full')}))
   }
 
@@ -99,7 +106,7 @@ export function generateReport(resources: PlayerResources, buildings: PlayerBuil
   const monthly_report = {
     empire: generateEmpireReport(resources, buildings),
     scouts: instantEventLogs,
-    events: generateStatusReport(resources, buildings, ongoingEventsLog),
+    events: generateStatusReport(resources, empireData, buildings, ongoingEventsLog),
   }
 
   return {

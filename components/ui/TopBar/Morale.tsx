@@ -1,15 +1,11 @@
 import Image from 'next/image'
 import styles from './Morale.module.css'
-import { calculateMorale } from '@/lib/engine/empire/morale'
-import { PlayerEmpire } from '@/types/game'
 
 type MoraleProps = {
-  empire: PlayerEmpire;
-  famine: boolean 
+  morale: number
 }
 
-export default function Morale({ empire, famine }: MoraleProps) {
-const {morale} = calculateMorale(empire, famine)
+export default function Morale({morale}: MoraleProps) {
   let color = 'gold'
 
   if (morale < 20) color = 'red'

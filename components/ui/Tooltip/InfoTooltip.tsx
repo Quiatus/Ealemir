@@ -5,6 +5,7 @@ import styles from './Tooltip.module.css'
 import { InfoTooltipData } from '@/types/game'
 import ResourceRow from './ResourceRow';
 import { useTooltipPosition } from '@/lib/hooks/useTooltipPosition';
+import { richText } from '@/app/richText';
 
 interface TooltipProps {
   data: InfoTooltipData;
@@ -28,6 +29,10 @@ export default function InfoTooltip({ data, children, align=undefined, title='un
         <ResourceRow items={data.custom || []} />
         
         {data.message && <p className='text-flavor'>{data.message}</p>}
+
+        {data.list && <div className='space-top-m'>
+            {data.list.map(item => <p key={item}>{richText(item)}</p>)}
+          </div>}
       </div>
     </div>
   )

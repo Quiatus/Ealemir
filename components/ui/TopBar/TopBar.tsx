@@ -5,10 +5,11 @@ import ResourceTooltip from '../Tooltip/ResourceTooltip'
 import { getData } from '@/lib/data/dal'
 import { PlayerBuildings, PlayerEmpire, PlayerResources } from '@/types/game'
 import SpecialResourcesBar from './SpecialResourcesBar'
-import { dynamicInfoTooltip } from '@/lib/adapters/tooltips/infoTooltips'
+import { buildMoraleTooltip, dynamicInfoTooltip } from '@/lib/adapters/tooltips/infoTooltips'
 import InfoTooltip from '../Tooltip/InfoTooltip'
 import ArmyStatus from './ArmyStatus'
 import Morale from './Morale'
+import { calculateMorale } from '@/lib/engine/empire/morale'
 
 export default async function TopBar() {
   const [resources, buildings, empire] = await Promise.all([
@@ -16,9 +17,12 @@ export default async function TopBar() {
     getData<PlayerBuildings>('player_buildings'),
     getData<PlayerEmpire>('player_empire')
   ])
+  
+  const {morale, positive, negative} = calculateMorale(empire, resources.last_turn_resources_report.foodReport.famine)
+
   const resourceTooltip = dynamicResourceTooltip(resources, buildings)
   const mightTooltip = dynamicInfoTooltip(0)
-  const moraleTooltip = dynamicInfoTooltip()
+  const moraleTooltip = buildMoraleTooltip(positive, negative)
   const statusTooltip = dynamicInfoTooltip()
 
   return (
@@ -50,8 +54,8 @@ export default async function TopBar() {
         <InfoTooltip data={mightTooltip.might}>
           <ResourceItem icon='/icons/resources/might.png' label='Might' value={0} color='primary'/>
         </InfoTooltip>
-        <InfoTooltip data={moraleTooltip.morale}>
-          <Morale empire={empire} famine={resources.last_turn_resources_report.foodReport.famine} />
+        <InfoTooltip data={moraleTooltip}>
+          <Morale morale={morale} />
         </InfoTooltip>
         <InfoTooltip data={statusTooltip.status}>
           <ArmyStatus status='Exhausted'/>
