@@ -13,6 +13,12 @@
       "message": "Are you sure you want to leave your empire? Everything you have achieved will be lost forever!",
       "button_confirm": "Yes!",
       "button_cancel": "Cancel"
+    },
+
+    "notifications": {
+      "riot": "Riot",
+      "famine": "Famine",
+      "overpopulation": "Overpopulation"
     }
   },
 

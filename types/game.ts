@@ -14,6 +14,14 @@ export interface GameData {
   buildings: PlayerBuildings;
 }
 
+export interface NotificationItem {
+  id?: string;
+  severity: 'danger' | 'warning' | 'info';
+  title: string;
+}
+
+export type NotificationMap = Record<string, NotificationItem>;
+
 // EMPIRE ----------------------------------------------------------------
 
 export type Rations = 'meager' | 'sufficient' | 'bountiful';

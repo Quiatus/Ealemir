@@ -1,7 +1,5 @@
 To Do:
 
-[] add notification bar and notifications
-
 [X] add taxes, rations modifiers to empire management
 [X] add remaining resources to topbar
 [X] add happiness calculator
@@ -20,3 +18,4 @@ To Do:
 [X] rework modifiers
 [X] add simple random events
 [X] add riot
+[X] add notification bar and notifications
