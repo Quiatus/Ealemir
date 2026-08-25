@@ -1,8 +1,8 @@
 import { GameEventConfig } from "@/types/game";
 
-export const ONE_EVENT_CHANCE = 0.70
+export const ONE_EVENT_CHANCE = 0.75
 export const TWO_EVENT_CHANCE = 0.90
-export const THREE_EVENT_CHANCE = 0.97
+export const THREE_EVENT_CHANCE = 0.98
 
 export const ALL_EVENTS: Record<string, GameEventConfig> = {
   // RESOURCES ----------------------------------------------------------------
@@ -14,9 +14,9 @@ export const ALL_EVENTS: Record<string, GameEventConfig> = {
     conditions: {
       maxTurn: 200
     },
-    rarity: 50,
+    rarity: 80,
     effects: {
-      resources: { gold: {min: 10, max: 100} }
+      resources: { gold: {min: 10, max: 50} }
     }
   },
   gold_early_b: {
@@ -26,9 +26,9 @@ export const ALL_EVENTS: Record<string, GameEventConfig> = {
     conditions: {
       maxTurn: 300
     },
-    rarity: 25,
+    rarity: 30,
     effects: {
-      resources: { gold: {min: 10, max: 200} }
+      resources: { gold: {min: 10, max: 100} }
     }
   },
   gold_early_c: {
@@ -40,7 +40,7 @@ export const ALL_EVENTS: Record<string, GameEventConfig> = {
     },
     rarity: 10,
     effects: {
-      resources: { gold: {min: 10, max: 300} }
+      resources: { gold: {min: 10, max: 200} }
     }
   },
   food_early_a: {
@@ -50,7 +50,7 @@ export const ALL_EVENTS: Record<string, GameEventConfig> = {
     conditions: {
       maxTurn: 200
     },
-    rarity: 50,
+    rarity: 80,
     effects: {
       resources: { food: {min: 5, max: 50} }
     }
@@ -62,7 +62,7 @@ export const ALL_EVENTS: Record<string, GameEventConfig> = {
     conditions: {
       maxTurn: 250
     },
-    rarity: 25,
+    rarity: 30,
     effects: {
       resources: { food: {min: 5, max: 100} }
     }
@@ -86,9 +86,9 @@ export const ALL_EVENTS: Record<string, GameEventConfig> = {
     conditions: {
       maxTurn: 200
     },
-    rarity: 30,
+    rarity: 60,
     effects: {
-      resources: { wood: {min: 5, max: 50} }
+      resources: { wood: {min: 5, max: 20} }
     }
   },
   wood_early_b: {
@@ -96,11 +96,11 @@ export const ALL_EVENTS: Record<string, GameEventConfig> = {
     description: 'feature_events.instant.wood_early_b',
     type: "instant",
     conditions: {
-      maxTurn: 250
+      maxTurn: 300
     },
-    rarity: 15,
+    rarity: 25,
     effects: {
-      resources: { wood: {min: 5, max: 100} }
+      resources: { wood: {min: 5, max: 50} }
     }
   },
   wood_early_c: {
@@ -108,7 +108,7 @@ export const ALL_EVENTS: Record<string, GameEventConfig> = {
     description: 'feature_events.instant.wood_early_c',
     type: "instant",
     conditions: {
-      maxTurn: 300
+      maxTurn: 400
     },
     rarity: 5,
     effects: {
@@ -122,7 +122,7 @@ export const ALL_EVENTS: Record<string, GameEventConfig> = {
     conditions: {
       maxTurn: 200
     },
-    rarity: 20,
+    rarity: 30,
     effects: {
       resources: { stone: {min: 2, max: 10} }
     }
@@ -155,7 +155,7 @@ export const ALL_EVENTS: Record<string, GameEventConfig> = {
     id: "lush_forest",
     description: 'feature_events.instant.lush_forest',
     type: "instant",
-    rarity: 5,
+    rarity: 10,
     effects: {
       unlockLocationId: 'lumberyard'
     }
@@ -164,7 +164,7 @@ export const ALL_EVENTS: Record<string, GameEventConfig> = {
     id: "stone_deposit",
     description: 'feature_events.instant.stone_deposit',
     type: "instant",
-    rarity: 2,
+    rarity: 5,
     effects: {
       unlockLocationId: 'quarry'
     }
@@ -178,7 +178,7 @@ export const ALL_EVENTS: Record<string, GameEventConfig> = {
     description: 'feature_events.ongoing.bountiful_harvest',
     type: "ongoing",
     rarity: 10,
-    duration: {min: 5, max: 10},
+    duration: {min: 2, max: 10},
     effects: {
       modifiers: {food: 2}
     }

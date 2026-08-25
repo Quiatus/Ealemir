@@ -14,11 +14,11 @@ export const INITIAL_PLAYER_EMPIRE = {
 
 export const INITIAL_PLAYER_RESOURCES: PlayerResources = {
   turn: 0,
-  gold: 1000,
-  population: 100000,
+  gold: 200,
+  population: 100,
   food: 5,
-  wood: 200,
-  stone: 50,
+  wood: 20,
+  stone: 5,
   fame: 0,
   last_turn_resources_report: {
     goldReport: {
