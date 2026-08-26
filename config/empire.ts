@@ -2,7 +2,7 @@ export const EMPIRE_BASELINES = {
   morale: 50,
   moralePopulationGrowth: 1.25,
   famineMoraleModifier: -25,
-  riotTriggerChance: 0.33
+  riotTriggerChance: 0.5
 }
 
 export const TAXES_MODIFIER = {

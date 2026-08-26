@@ -1,5 +1,16 @@
 To Do:
 
+[] add militia recruitment
+[] add upkeep and management
+[] add basic encounters
+[] add combat system
+[] add level 3 capital
+[] add advanced material overview
+[] add tavern
+[] add blacksmith
+[] add runes system
+[] add extra units
+ 
 [X] add taxes, rations modifiers to empire management
 [X] add remaining resources to topbar
 [X] add happiness calculator

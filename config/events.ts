@@ -40,7 +40,7 @@ export const ALL_EVENTS: Record<string, GameEventConfig> = {
     },
     rarity: 10,
     effects: {
-      resources: { gold: {min: 10, max: 200} }
+      resources: { gold: {min: 10, max: 250} }
     }
   },
   food_early_a: {
@@ -52,7 +52,7 @@ export const ALL_EVENTS: Record<string, GameEventConfig> = {
     },
     rarity: 80,
     effects: {
-      resources: { food: {min: 5, max: 50} }
+      resources: { food: {min: 5, max: 10} }
     }
   },
   food_early_b: {
@@ -64,7 +64,7 @@ export const ALL_EVENTS: Record<string, GameEventConfig> = {
     },
     rarity: 30,
     effects: {
-      resources: { food: {min: 5, max: 100} }
+      resources: { food: {min: 5, max: 25} }
     }
   },
   food_early_c: {
@@ -76,7 +76,7 @@ export const ALL_EVENTS: Record<string, GameEventConfig> = {
     },
     rarity: 10,
     effects: {
-      resources: { food: {min: 5, max: 150} }
+      resources: { food: {min: 5, max: 50} }
     }
   },
   wood_early_a: {
@@ -88,7 +88,7 @@ export const ALL_EVENTS: Record<string, GameEventConfig> = {
     },
     rarity: 60,
     effects: {
-      resources: { wood: {min: 5, max: 20} }
+      resources: { wood: {min: 5, max: 10} }
     }
   },
   wood_early_b: {
@@ -100,7 +100,7 @@ export const ALL_EVENTS: Record<string, GameEventConfig> = {
     },
     rarity: 25,
     effects: {
-      resources: { wood: {min: 5, max: 50} }
+      resources: { wood: {min: 5, max: 20} }
     }
   },
   wood_early_c: {
@@ -112,7 +112,7 @@ export const ALL_EVENTS: Record<string, GameEventConfig> = {
     },
     rarity: 5,
     effects: {
-      resources: { wood: {min: 5, max: 150} }
+      resources: { wood: {min: 5, max: 50} }
     }
   },
   stone_early_a: {
