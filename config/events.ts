@@ -60,7 +60,7 @@ export const ALL_EVENTS: Record<string, GameEventConfig> = {
     description: 'feature_events.instant.food_early_b',
     type: "instant",
     conditions: {
-      maxTurn: 250
+      maxTurn: 300
     },
     rarity: 30,
     effects: {
@@ -72,7 +72,7 @@ export const ALL_EVENTS: Record<string, GameEventConfig> = {
     description: 'feature_events.instant.food_early_c',
     type: "instant",
     conditions: {
-      maxTurn: 300
+      maxTurn: 400
     },
     rarity: 10,
     effects: {
@@ -132,7 +132,7 @@ export const ALL_EVENTS: Record<string, GameEventConfig> = {
     description: 'feature_events.instant.stone_early_b',
     type: "instant",
     conditions: {
-      maxTurn: 300
+      maxTurn: 400
     },
     rarity: 10,
     effects: {
