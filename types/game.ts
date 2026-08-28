@@ -270,3 +270,34 @@ export interface DynamicWeightContext {
   fame: number;
   capitalLevel: number;
 }
+
+// ARMY ------------------------------------------------------------------
+
+export interface ArmyUnit {
+  amount: number;
+  queue: number;
+  equipment: string[]
+}
+
+export type UnitCostType = {
+  gold: number,
+  population: number
+}
+export type UnitType = 'common' | 'magic' | 'undead' | 'mechanical';
+export type AttackType = 'meelee' | 'range' | 'siege' | 'special';
+export type Deity = 'none';
+
+export interface UnitData {
+  name: string;
+  unitType: UnitType[];
+  attackType: AttackType;
+  deity: Deity[];
+  cost?: UnitCostType;
+  monthlyRecruit?: number; 
+  upkeep?: number;
+  might: number;
+  attack: number;
+  defense: number;
+  hp: number;
+  speed: number;
+}
