@@ -16,6 +16,6 @@ export const UNITS: Record<string, UnitData> = {
     attack: 2,
     defense: 1,
     hp: 5,
-    speed: 80
+    speed: 90
   }
 }
