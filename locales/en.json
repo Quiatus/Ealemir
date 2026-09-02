@@ -277,6 +277,12 @@
     }
   },
 
+  "feature_military": {
+    "units": {
+      
+    }
+  },
+
   "errors": {
     "construction_failed_title": "Construction failed",
     "construction_failed_message": "A dark magic disrupted construction.",
