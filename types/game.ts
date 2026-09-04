@@ -283,7 +283,7 @@ export type UnitCostType = {
   gold: number,
   population: number
 }
-export type UnitType = 'common' | 'magic' | 'undead' | 'mechanical';
+export type UnitType = 'common' | 'magic' | 'undead' | 'mechanical' | 'etherial';
 export type AttackType = 'meelee' | 'range' | 'siege' | 'special';
 export type Deity = 'none';
 

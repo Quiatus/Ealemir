@@ -279,6 +279,19 @@
 
   "feature_military": {
     "units": {
+      "attack_type": {
+        "meelee": "Meelee",
+        "range": "Range",
+        "special": "Special",
+        "siege": "Siege"
+      },
+      "unit_type": {
+        "common": "Common",
+        "magic": "Magic",
+        "undead": "Undead",
+        "mechanical": "Mechanical",
+        "etherial": "Etherial"
+      },
       "militia": {
         "name": "Militia"
       }
